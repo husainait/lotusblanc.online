@@ -2,32 +2,54 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lotus Blanc - Recettes</title>
 
 <style>
-body{font-family:Arial;margin:0;background:#fafafa}
+body{margin:0;font-family:Arial;background:#f9f9f9}
+header{padding:15px;background:white;border-bottom:1px solid #eee;font-weight:bold}
 .page{display:none;padding:20px}
 .page.active{display:block}
 
-.cat-card,.article-card{
-  border:1px solid #ddd;
-  padding:15px;
-  margin:10px;
-  cursor:pointer;
-  border-radius:10px;
-  background:white;
+.articles-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px
 }
 
-.articles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.cat-card,.article-card{
+background:white;
+border:1px solid #eee;
+border-radius:12px;
+padding:20px;
+cursor:pointer;
+transition:.2s;
+}
 
-.back-btn{margin-bottom:20px;cursor:pointer}
+.cat-card:hover,.article-card:hover{
+transform:translateY(-3px);
+border-color:#c0729a;
+}
 
-.fade-in{animation:fade .4s}
+.back-btn{
+margin-bottom:20px;
+cursor:pointer;
+border:none;
+background:none;
+font-size:14px;
+}
+
+h1{margin:0 0 10px}
+p{color:gray}
+
+.fade-in{animation:fade .3s}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 </style>
-
 </head>
+
 <body>
+
+<header>Lotus Blanc</header>
 
 <!-- HOME -->
 <div id="home" class="page active">
@@ -35,7 +57,7 @@ body{font-family:Arial;margin:0;background:#fafafa}
 <h2>Catégories</h2>
 
 <div class="articles-grid">
-  <div class="cat-card" onclick="openCategory('salade','Salades délicieuses')">🥗 Salades</div>
+  <div class="cat-card" onclick="openCategory('salade','Recettes de salades fraîches')">🥗 Salades</div>
   <div class="cat-card" onclick="openCategory('dessert','Desserts sucrés')">🍰 Desserts</div>
   <div class="cat-card" onclick="openCategory('plat','Plats principaux')">🍲 Plats</div>
 </div>
@@ -70,6 +92,7 @@ body{font-family:Arial;margin:0;background:#fafafa}
 </div>
 
 <script>
+
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -81,8 +104,6 @@ function openCategory(cat,desc){
 
   document.getElementById('cat-title').innerText = cat.toUpperCase();
   document.getElementById('cat-desc').innerText = desc;
-
-  window.location.hash = cat;
 
   let all = document.querySelectorAll('.article-card');
   let container = document.getElementById('cat-results');
@@ -102,13 +123,6 @@ function openCategory(cat,desc){
   }
 }
 
-// فتح الرابط مباشرة
-window.onload = ()=>{
-  let hash = window.location.hash.replace("#","");
-  if(hash){
-    openCategory(hash,"Recettes de "+hash);
-  }
-}
 </script>
 
 </body>
