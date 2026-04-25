@@ -219,9 +219,9 @@ footer{background:var(--charcoal);padding:2.5rem 2rem 1.5rem}
     </a>
     <ul class="nav-links">
       <li><a onclick="showPage('home');return false;" data-fr="Recettes" data-ar="وصفات" data-en="Recipes">Recettes</a></li>
-      <li><a onclick="showPage('home');return false;" data-fr="Catégories" data-ar="الفئات" data-en="Categories">Catégories</a></li>
+      <li><a onclick="showPage('home');setTimeout(function(){var el=document.querySelector('.categories');if(el)el.scrollIntoView({behavior:'smooth'});},100);return false;" data-fr="Catégories" data-ar="الفئات" data-en="Categories">Catégories</a></li>
       <li><a onclick="showPage('about');return false;" data-fr="À propos" data-ar="من نحن" data-en="About">À propos</a></li>
-      <li><a href="mailto:lotusblanc.contact@gmail.com" data-fr="Contact" data-ar="تواصل" data-en="Contact">Contact</a></li>
+      <li><a href="mailto:lotusblanc.contact@gmail.com" data-fr="Contact" data-ar="تواصل" data-en="Contact" onclick="window.location.href='mailto:lotusblanc.contact@gmail.com';return false;">Contact</a></li>
     </ul>
     <div class="header-right">
       <div class="lang-switcher">
@@ -293,18 +293,8 @@ footer{background:var(--charcoal);padding:2.5rem 2rem 1.5rem}
     <h2 data-fr="Restez inspirés chaque semaine" data-ar="ابقوا ملهمين كل أسبوع" data-en="Stay inspired every week">Restez inspirés chaque semaine</h2>
     <p data-fr="Recevez nos meilleures recettes dans votre boîte mail." data-ar="احصل على أفضل وصفاتنا في بريدك." data-en="Receive our best recipes in your inbox.">Recevez nos meilleures recettes dans votre boîte mail.</p>
     <div class="nl-form">
-      <input type="email" data-placeholder-fr="votre@email.com" data-placeholder-ar="بريدك@الإلكتروني" data-placeholder-en="your@email.com" placeholder="votre@email.com"/>
-      <button type="button" data-fr="S'abonner" data-ar="اشترك" data-en="Subscribe" onclick="
-      const input = this.previousElementSibling;
-      if(input.value && input.value.includes('@')){
-        this.textContent='✓';
-        this.style.background='#4A7FB5';
-        setTimeout(()=>{ this.setAttribute('data-fr',\"S'abonner\"); this.setAttribute('data-ar','اشترك'); this.setAttribute('data-en','Subscribe'); this.textContent=this.getAttribute('data-'+getCurrentLang()); this.style.background=''; input.value=''; },2000);
-      } else {
-        input.style.borderColor='red';
-        setTimeout(()=>input.style.borderColor='',1500);
-      }
-    ">S'abonner</button>
+      <input type="email" id="nl-email" data-placeholder-fr="votre@email.com" data-placeholder-ar="بريدك@الإلكتروني" data-placeholder-en="your@email.com" placeholder="votre@email.com"/>
+      <button type="button" id="nl-btn" data-fr="S'abonner" data-ar="اشترك" data-en="Subscribe" onclick="subscribe()">S'abonner</button>
     </div>
   </section>
 
@@ -426,14 +416,14 @@ footer{background:var(--charcoal);padding:2.5rem 2rem 1.5rem}
 </div>
 
 <script>
-// PAGE NAVIGATION
+// ── PAGE NAVIGATION ──
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   window.scrollTo(0, 0);
 }
 
-// DARK MODE
+// ── DARK MODE ──
 function toggleTheme() {
   const html = document.documentElement;
   const isDark = html.getAttribute('data-theme') === 'dark';
@@ -446,71 +436,100 @@ if (localStorage.getItem('lb-theme') === 'dark') {
   document.getElementById('toggle-icon').textContent = '☀️';
 }
 
-// LANGUAGE SWITCHER
+// ── LANGUAGE ──
+var currentLang = 'fr';
+
 function setLang(lang) {
-  // Buttons active state
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    const map = {'fr':'FR','ar':'ع','en':'EN'};
+  currentLang = lang;
+  localStorage.setItem('lb-lang', lang);
+
+  // Active button
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    var map = {fr:'FR', ar:'ع', en:'EN'};
     btn.classList.toggle('active', btn.textContent.trim() === map[lang]);
   });
+
   // RTL
   document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-  // Update all data-fr elements
-  document.querySelectorAll('[data-fr]').forEach(el => {
-    const val = el.getAttribute('data-' + lang) || el.getAttribute('data-fr');
-    if (!val) return;
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
-    else el.textContent = val;
-  });
-  // Update placeholder-specific inputs
-  document.querySelectorAll('[data-placeholder-fr]').forEach(el => {
-    el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-fr');
-  });
-  // Re-render ingredients in new language
-  renderIngredients();
-  localStorage.setItem('lb-lang', lang);
-}
-// Default FR
-const savedLang = localStorage.getItem('lb-lang');
-if (savedLang && savedLang !== 'fr') setLang(savedLang);
 
-// PORTION CALCULATOR
-const BASE = 4;
-let portions = 4;
-const ingredients = [
-  {name_fr:'Poivron vert', name_ar:'فلفل أخضر', name_en:'Green pepper', qty:1, unit:'', per:false},
-  {name_fr:'Tomates', name_ar:'طملطم', name_en:'Tomatoes', qty:2, unit:'', per:false},
-  {name_fr:'Concombre', name_ar:'خيار', name_en:'Cucumber', qty:1, unit:'petit', per:false},
-  {name_fr:'Oignon', name_ar:'بصل', name_en:'Onion', qty:1, unit:'petit', per:false},
-  {name_fr:'Sel & épices', name_ar:'ملح وأبزار', name_en:'Salt & spices', qty:null, unit_fr:'à goût', unit_ar:'حسب الذوق', unit_en:'to taste', per:false},
-  {name_fr:'Huile', name_ar:'زيت', name_en:'Oil', qty:null, unit_fr:'à goût', unit_ar:'حسب الذوق', unit_en:'to taste', per:false},
-  {name_fr:'Jus de citron ou vinaigre', name_ar:'عصير الحامض أو الخل', name_en:'Lemon juice or vinegar', qty:null, unit_fr:'à goût', unit_ar:'حسب الذوق', unit_en:'to taste', per:false},
-  {name_fr:'Olives noires', name_ar:'زيتون أسود', name_en:'Black olives', qty:null, unit_fr:'décoration', unit_ar:'للتزيين', unit_en:'garnish', per:false},
-];
-function getCurrentLang() {
-  return localStorage.getItem('lb-lang') || 'fr';
-}
-function renderIngredients() {
-  const lang = getCurrentLang();
-  const list = document.getElementById('ingredientList');
-  if (!list) return;
-  list.innerHTML = ingredients.map(ing => {
-    const name = ing['name_' + lang] || ing.name_fr;
-    let qty = '';
-    if (ing.qty === null) {
-      qty = ing['unit_' + lang] || ing.unit_fr || '';
+  // Update all elements with data-fr attribute
+  document.querySelectorAll('[data-fr]').forEach(function(el) {
+    var val = el.getAttribute('data-' + lang) || el.getAttribute('data-fr');
+    if (!val) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
     } else {
-      qty = ing.qty + (ing.unit ? ' ' + ing.unit : '');
+      el.textContent = val;
     }
+  });
+
+  // Update data-placeholder inputs
+  document.querySelectorAll('[data-placeholder-fr]').forEach(function(el) {
+    var val = el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-fr');
+    if (val) el.placeholder = val;
+  });
+
+  // Re-render ingredients with new lang
+  renderIngredients();
+}
+
+// Restore saved lang
+var savedLang = localStorage.getItem('lb-lang');
+if (savedLang && savedLang !== 'fr') {
+  currentLang = savedLang;
+}
+
+// ── NEWSLETTER ──
+function subscribe() {
+  var input = document.getElementById('nl-email');
+  var btn = document.getElementById('nl-btn');
+  if (input && input.value && input.value.includes('@')) {
+    btn.textContent = '✓';
+    btn.style.background = '#4A7FB5';
+    input.value = '';
+    setTimeout(function() {
+      btn.style.background = '';
+      var labels = {fr:"S'abonner", ar:'اشترك', en:'Subscribe'};
+      btn.textContent = labels[currentLang] || "S'abonner";
+    }, 2500);
+  } else {
+    if (input) { input.style.borderColor = 'rgba(255,0,0,0.6)'; setTimeout(function(){ input.style.borderColor = ''; }, 1500); }
+  }
+}
+
+// ── PORTIONS ──
+var portions = 4;
+var ingredients = [
+  {fr:'Poivron vert', ar:'فلفل أخضر', en:'Green pepper', qty:'1'},
+  {fr:'Tomates', ar:'طملطم', en:'Tomatoes', qty:'2'},
+  {fr:'Concombre', ar:'خيار', en:'Cucumber', qty:'1 petit'},
+  {fr:'Oignon', ar:'بصل', en:'Onion', qty:'1 petit'},
+  {fr:'Sel & épices', ar:'ملح وأبزار', en:'Salt & spices', qty_fr:'à goût', qty_ar:'حسب الذوق', qty_en:'to taste'},
+  {fr:'Huile', ar:'زيت', en:'Oil', qty_fr:'à goût', qty_ar:'حسب الذوق', qty_en:'to taste'},
+  {fr:'Citron ou vinaigre', ar:'عصير الحامض أو الخل', en:'Lemon juice or vinegar', qty_fr:'à goût', qty_ar:'حسب الذوق', qty_en:'to taste'},
+  {fr:'Olives noires', ar:'زيتون أسود', en:'Black olives', qty_fr:'décoration', qty_ar:'للتزيين', qty_en:'garnish'},
+];
+
+function renderIngredients() {
+  var list = document.getElementById('ingredientList');
+  if (!list) return;
+  list.innerHTML = ingredients.map(function(ing) {
+    var name = ing[currentLang] || ing.fr;
+    var qty = ing['qty_' + currentLang] || ing.qty || '';
     return '<li class="ingredient-item"><span class="ing-name">' + name + '</span><span class="ing-qty">' + qty + '</span></li>';
   }).join('');
 }
+
 function changePortion(delta) {
   portions = Math.max(1, Math.min(12, portions + delta));
   document.getElementById('portionNum').textContent = portions;
-  renderIngredients();
 }
-renderIngredients();
+
+// Init on load
+window.addEventListener('DOMContentLoaded', function() {
+  if (currentLang !== 'fr') setLang(currentLang);
+  renderIngredients();
+});
 </script>
 </body>
 </html>
