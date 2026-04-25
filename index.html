@@ -1237,10 +1237,17 @@
       <li><a href="#">Contact</a></li>
     </ul>
 
-    <!-- DARK MODE TOGGLE -->
-    <div class="toggle-wrap">
-      <span class="toggle-icon" id="toggle-icon">🌙</span>
-      <div class="toggle" id="themeToggle" onclick="toggleTheme()" title="Mode sombre"></div>
+    <!-- LANG + DARK MODE -->
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('ar')">ع</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <div class="toggle-wrap">
+        <span class="toggle-icon" id="toggle-icon">🌙</span>
+        <div class="toggle" id="themeToggle" onclick="toggleTheme()" title="Mode sombre"></div>
+      </div>
     </div>
   </nav>
 </header>
@@ -1272,14 +1279,7 @@
           <p class="section-eyebrow" id="txt-eyebrow">Dernières publications</p>
           <h2 class="section-title" id="txt-section-title">Nos recettes du moment</h2>
         </div>
-        <div style="display:flex;align-items:center;gap:1rem;">
-          <a href="#" class="see-all" id="txt-see-all">Voir tout →</a>
-          <div class="lang-switcher">
-            <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-            <button class="lang-btn" onclick="setLang('ar')">ع</button>
-            <button class="lang-btn" onclick="setLang('en')">EN</button>
-          </div>
-        </div>
+        <a href="#" class="see-all" id="txt-see-all">Voir tout →</a>
       </div>
 
       <div class="articles-grid">
