@@ -294,7 +294,17 @@ footer{background:var(--charcoal);padding:2.5rem 2rem 1.5rem}
     <p data-fr="Recevez nos meilleures recettes dans votre boîte mail." data-ar="احصل على أفضل وصفاتنا في بريدك." data-en="Receive our best recipes in your inbox.">Recevez nos meilleures recettes dans votre boîte mail.</p>
     <div class="nl-form">
       <input type="email" data-placeholder-fr="votre@email.com" data-placeholder-ar="بريدك@الإلكتروني" data-placeholder-en="your@email.com" placeholder="votre@email.com"/>
-      <button type="button" data-fr="S'abonner" data-ar="اشترك" data-en="Subscribe">S'abonner</button>
+      <button type="button" data-fr="S'abonner" data-ar="اشترك" data-en="Subscribe" onclick="
+      const input = this.previousElementSibling;
+      if(input.value && input.value.includes('@')){
+        this.textContent='✓';
+        this.style.background='#4A7FB5';
+        setTimeout(()=>{ this.setAttribute('data-fr',\"S'abonner\"); this.setAttribute('data-ar','اشترك'); this.setAttribute('data-en','Subscribe'); this.textContent=this.getAttribute('data-'+getCurrentLang()); this.style.background=''; input.value=''; },2000);
+      } else {
+        input.style.borderColor='red';
+        setTimeout(()=>input.style.borderColor='',1500);
+      }
+    ">S'abonner</button>
     </div>
   </section>
 
@@ -445,17 +455,19 @@ function setLang(lang) {
   });
   // RTL
   document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-  // Update text content
+  // Update all data-fr elements
   document.querySelectorAll('[data-fr]').forEach(el => {
-    const val = el.getAttribute('data-' + lang);
+    const val = el.getAttribute('data-' + lang) || el.getAttribute('data-fr');
     if (!val) return;
-    if (el.tagName === 'INPUT') el.placeholder = val;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
     else el.textContent = val;
   });
   // Update placeholder-specific inputs
-  document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
-    el.placeholder = el.getAttribute('data-placeholder-' + lang);
+  document.querySelectorAll('[data-placeholder-fr]').forEach(el => {
+    el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-fr');
   });
+  // Re-render ingredients in new language
+  renderIngredients();
   localStorage.setItem('lb-lang', lang);
 }
 // Default FR
