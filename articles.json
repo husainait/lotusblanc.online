@@ -61,7 +61,78 @@
     }
   ],
   "soupes": [],
-  "plats-marocains": [],
+  "plats-marocains": [
+    {
+  "id": "tajine-poulet",
+  "titre_fr": "Tajine de poulet au citron confit et olives",
+  "titre_ar": "طاجين الدجاج بالحامض المصير والزيتون",
+  "titre_en": "Chicken Tagine with Preserved Lemon and Olives",
+
+  "desc_fr": "Un délicieux plat marocain riche en saveurs, préparé avec du poulet tendre, du citron confit et des olives.",
+  "desc_ar": "طبق مغربي لذيذ غني بالنكهات، يحضر بالدجاج الطري والحامض المصير والزيتون.",
+  "desc_en": "A delicious Moroccan dish full of flavor, made with tender chicken, preserved lemon, and olives.",
+
+  "temps": "60 min",
+  "portions": 4,
+  "difficulte": "●●○",
+  "photo": "photos/tajine-poulet.jpg",
+
+  "ingredients_fr": [
+    "1 poulet coupé en morceaux",
+    "1 oignon haché",
+    "2 gousses d’ail",
+    "1 citron confit",
+    "100g d’olives vertes",
+    "2 cuillères d’huile d’olive",
+    "Sel, poivre, gingembre, curcuma",
+    "Un peu de coriandre et persil"
+  ],
+  "ingredients_ar": [
+    "دجاجة مقطعة",
+    "بصلة مفرومة",
+    "فصان من الثوم",
+    "حامضة مصيرة",
+    "100 غ زيتون أخضر",
+    "2 ملاعق زيت الزيتون",
+    "ملح، إبزار، سكنجبير، خرقوم بلدي",
+    "قليل من القزبور والمعدنوس"
+  ],
+  "ingredients_en": [
+    "1 whole chicken cut into pieces",
+    "1 chopped onion",
+    "2 garlic cloves",
+    "1 preserved lemon",
+    "100g green olives",
+    "2 tablespoons olive oil",
+    "Salt, pepper, ginger, turmeric",
+    "Some coriander and parsley"
+  ],
+
+  "etapes_fr": [
+    "Faire revenir l’oignon et l’ail dans l’huile d’olive.",
+    "Ajouter le poulet et les épices puis bien mélanger.",
+    "Ajouter un peu d’eau et laisser cuire à feu moyen.",
+    "Ajouter le citron confit et les olives en fin de cuisson.",
+    "Décorer avec coriandre et persil puis servir chaud."
+  ],
+  "etapes_ar": [
+    "نقلي البصلة والثوم في زيت الزيتون.",
+    "نضيف الدجاج والتوابل ونخلط جيدا.",
+    "نضيف القليل من الماء ونتركه يطيب.",
+    "نضيف الحامض المصير والزيتون في الأخير.",
+    "نزين بالقزبور والمعدنوس ونقدم ساخنا."
+  ],
+  "etapes_en": [
+    "Sauté the onion and garlic in olive oil.",
+    "Add the chicken and spices and mix well.",
+    "Add a little water and let it cook on medium heat.",
+    "Add preserved lemon and olives at the end.",
+    "Garnish with herbs and serve hot."
+  ],
+
+  "date": "2026-04-26"
+}
+  ],
   "patisserie": [],
   "desserts": []
 }
