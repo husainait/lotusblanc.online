@@ -1,0 +1,67 @@
+{
+  "salades": [
+    {
+      "id": "salata-maghribiya",
+      "titre_fr": "Salade marocaine fraîche",
+      "titre_ar": "السلطة المغربية الطازجة",
+      "titre_en": "Fresh Moroccan Salad",
+      "desc_fr": "Une salade colorée et croquante avec des légumes frais.",
+      "desc_ar": "سلطة ملونة ومقرمشة من خضروات طازجة.",
+      "desc_en": "A colorful and crunchy salad with fresh vegetables.",
+      "temps": "10 min",
+      "portions": 4,
+      "difficulte": "●○○",
+      "photo": "photos/salata.jpg",
+      "ingredients_fr": [
+        "1 poivron vert",
+        "2 tomates",
+        "1 petit concombre",
+        "1 petit oignon",
+        "Sel & épices",
+        "Huile",
+        "Jus de citron ou vinaigre",
+        "Olives noires (décoration)"
+      ],
+      "ingredients_ar": [
+        "فلفل أخضر",
+        "طملطمتان",
+        "خيارة صغيرة",
+        "بصلة صغيرة",
+        "ملح وأبزار",
+        "زيت",
+        "عصير الحامض أو الخل",
+        "زيتون أسود (للتزيين)"
+      ],
+      "ingredients_en": [
+        "1 green pepper",
+        "2 tomatoes",
+        "1 small cucumber",
+        "1 small onion",
+        "Salt & spices",
+        "Oil",
+        "Lemon juice or vinegar",
+        "Black olives (garnish)"
+      ],
+      "etapes_fr": [
+        "Laver et couper tous les légumes en petits dés. Placer dans un bol.",
+        "Mélanger sel, épices, huile et jus de citron pour la vinaigrette.",
+        "Disposer les légumes dans le plat, arroser de vinaigrette et décorer d'olives noires."
+      ],
+      "etapes_ar": [
+        "تغسل الخضر جيدا وتقطع قطعا صغيرة وتوضع في آنية.",
+        "يخلط الملح والأبزار والزيت وعصير الحامض لتحضير الصلصة.",
+        "توضع قطع الخضر في طبق التقديم وتسقى بالصلصة وتزين بالزيتون الأسود."
+      ],
+      "etapes_en": [
+        "Wash and cut all vegetables into small cubes. Place in a bowl.",
+        "Mix salt, spices, oil and lemon juice for the dressing.",
+        "Arrange vegetables in serving dish, drizzle with dressing and garnish with black olives."
+      ],
+      "date": "2025-04-25"
+    }
+  ],
+  "soupes": [],
+  "plats-marocains": [],
+  "patisserie": [],
+  "desserts": []
+}
