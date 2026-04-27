@@ -318,25 +318,44 @@ var CAT_ICON = '🍲';
 function renderArticles() {
   var grid = document.getElementById('articles-grid');
   if (!grid) return;
-  var stored = localStorage.getItem('lb_articles_' + CAT_ID);
-  var articles = stored ? JSON.parse(stored) : [];
-  if (articles.length === 0) {
-    var msg = {fr:'Aucune recette pour le moment. Revenez bientôt !', ar:'لا توجد وصفات بعد. تحقق مرة أخرى قريبًا!', en:'No recipes yet. Check back soon!'};
-    grid.innerHTML = '<div class="empty-state"><span class="empty-icon">' + CAT_ICON + '</span><p>' + (msg[currentLang]||msg.fr) + '</p></div>';
-    return;
-  }
-  var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
-  grid.innerHTML = articles.map(function(a) {
-    var titre = a['titre_' + currentLang] || a.titre_fr;
-    var photo = a.photo_b64 ? '<img src="' + a.photo_b64 + '" alt="' + titre + '"/>' : CAT_ICON;
-    return '<a class="article-card" href="recette.html?cat=' + CAT_ID + '&id=' + a.id + '">' +
-      '<div class="art-img">' + photo + '</div>' +
-      '<div class="art-body">' +
-      '<span class="art-cat">' + (CAT_LABELS[currentLang]||CAT_LABELS.fr) + '</span>' +
-      '<h3 class="art-title">' + titre + '</h3>' +
-      '<span class="art-lire">' + (lire[currentLang]||lire.fr) + '</span>' +
-      '</div></a>';
-  }).join('');
+
+  // 1. كنجيبو البيانات من JSON أولاً
+  fetch('articles.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(jsonData) {
+      var jsonArticles = jsonData[CAT_ID] || [];
+      
+      // 2. كنجيبو البيانات من localStorage (الـ Admin)
+      var stored = localStorage.getItem('lb_articles_' + CAT_ID);
+      var adminArticles = stored ? JSON.parse(stored) : [];
+
+      // ندمجوهم (JSON كيسبق)
+      var allArticles = jsonArticles.concat(adminArticles);
+
+      if (allArticles.length === 0) {
+        var msg = {fr:'Aucune recette pour le moment.', ar:'لا توجد وصفات بعد.', en:'No recipes yet.'};
+        grid.innerHTML = '<div class="empty-state"><span class="empty-icon">' + CAT_ICON + '</span><p>' + (msg[currentLang]||msg.fr) + '</p></div>';
+        return;
+      }
+
+      var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
+      grid.innerHTML = allArticles.map(function(a) {
+        var titre = a['titre_' + currentLang] || a.titre_fr;
+        // اختيار الصورة: إذا كانت في JSON أو من الـ Admin
+        var photoSrc = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
+        var photoHtml = photoSrc ? '<img src="' + photoSrc + '" alt="' + titre + '">' : CAT_ICON;
+
+        return '<a class="article-card" href="recette.html?cat=' + CAT_ID + '&id=' + a.id + '">' +
+          '<div class="art-img">' + photoHtml + '</div>' +
+          '<div class="art-body">' +
+          '<span class="art-cat">' + (a['cat_'+currentLang] || CAT_LABELS[currentLang]) + '</span>' +
+          '<h3 class="art-title">' + titre + '</h3>' +
+          '<span class="art-lire">' + (lire[currentLang]||'Lire →') + '</span>' +
+          '</div></a>';
+      }).join('');
+    }).catch(function(err) {
+      console.error("Erreur JSON:", err);
+    });
 }
 
 function onLangChange() { renderArticles(); }
