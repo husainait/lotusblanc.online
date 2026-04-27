@@ -314,41 +314,25 @@ window.addEventListener('DOMContentLoaded', function() {
 var CAT_ID = 'salades';
 var CAT_LABELS = {fr:'Salades', ar:'سلطات', en:'Salads'};
 var CAT_ICON = '🥗';
-  
 function renderArticles() {
   var grid = document.getElementById('articles-grid');
   if (!grid) return;
 
   fetch('articles.json?v=' + Date.now())
     .then(r => r.json())
-    .then(jsonData => {
-      var jsonArticles = jsonData[CAT_ID] || [];
-      var stored = localStorage.getItem('lb_articles_' + CAT_ID);
-      var adminArticles = stored ? JSON.parse(stored) : [];
+    .then(data => {
+      var articles = data[CAT_ID] || []; // كيقرا نيشان من الصنف فـ JSON
 
-      // دمج المصفوفات
-      var rawList = jsonArticles.concat(adminArticles);
-      
-      // حيلة ذكية لمسح التكرار: كنخليو غير أول نسخة من كل ID
-      var allArticles = [];
-      var seenIds = {};
-      rawList.forEach(item => {
-        if (!seenIds[item.id]) {
-          allArticles.push(item);
-          seenIds[item.id] = true;
-        }
-      });
-
-      if (allArticles.length === 0) {
-        grid.innerHTML = '<div class="empty-state">Aucune recette.</div>';
+      if (articles.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><span class="empty-icon">' + CAT_ICON + '</span><p>Bientôt disponible...</p></div>';
         return;
       }
 
       var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
-      grid.innerHTML = allArticles.map(function(a) {
+      grid.innerHTML = articles.map(function(a) {
         var titre = a['titre_' + currentLang] || a.titre_fr;
-        var photoSrc = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
-        var photoHtml = photoSrc ? '<img src="' + photoSrc + '">' : CAT_ICON;
+        // هنا ديما كيقرا من مسار الصورة اللي فـ JSON
+        var photoHtml = a.photo ? '<img src="' + a.photo + '" alt="' + titre + '">' : CAT_ICON;
 
         return '<a class="article-card" href="recette.html?cat=' + CAT_ID + '&id=' + a.id + '">' +
           '<div class="art-img">' + photoHtml + '</div>' +
@@ -359,7 +343,8 @@ function renderArticles() {
           '</div></a>';
       }).join('');
     });
-}
+}  
+
 function onLangChange() { renderArticles(); }
 window.addEventListener('DOMContentLoaded', renderArticles);
 </script>
