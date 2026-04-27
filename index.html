@@ -354,6 +354,30 @@ function renderHome() {
 function onLangChange() { renderHome(); }
 window.addEventListener('DOMContentLoaded', renderHome);
 
+<script>
+fetch('articles.json')
+  .then(response => response.json())
+  .then(data => {
+    // نجمعو كاع الوصفات فـ Array واحد
+    const all = [...data.salades, ...data["plats-marocains"], ...data.soupes, ...data.patisserie, ...data.desserts];
+    const grid = document.querySelector('.articles-grid');
+    if(grid) {
+      grid.innerHTML = ''; // نمسحو داكشي اللي مكتوب بـ اليد
+      all.forEach(item => {
+        grid.innerHTML += `
+          <a href="article-details.html?id=${item.id}" class="article-card">
+            <div class="art-img"><img src="${item.photo}"></div>
+            <div class="art-body">
+              <span class="art-cat">${item.cat_fr}</span>
+              <h3 class="art-title">${item.titre_fr}</h3>
+              <div class="art-lire">Voir la recette →</div>
+            </div>
+          </a>`;
+      });
+    }
+  });
 </script>
+
+
 </body>
 </html>
