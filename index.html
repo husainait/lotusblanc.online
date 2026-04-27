@@ -341,7 +341,7 @@ function makePlaceholder(featured) {
   return '<div class="' + cls + '"><div class="art-img" style="font-size:2.5rem;background:var(--sage-light)">+</div><div class="art-body"><span class="art-cat">' + (bientot[currentLang]||'Bientôt...') + '</span><h3 class="art-title">' + (nouvelle[currentLang]||'Nouvelle recette') + '</h3></div></div>';
 }
 
-function renderHome() {
+ function renderHome() {
   var grid = document.getElementById('home-grid');
   if (!grid) return;
 
@@ -350,32 +350,54 @@ function renderHome() {
     .then(function(jsonData) {
       var all = [];
       var cats = ['salades','soupes','plats-marocains','patisserie','desserts'];
-      
+      var seenIds = {}; // هادي باش نعقلو على الـ IDs اللي دازو
+
       cats.forEach(function(cat) {
-        // دمج بيانات JSON مع LocalStorage لكل صنف
+        // 1. نجيبو ديال JSON
         var jsonItems = jsonData[cat] || [];
+        // 2. نجيبو ديال Admin
         var stored = localStorage.getItem('lb_articles_' + cat);
         var adminItems = stored ? JSON.parse(stored) : [];
         
-        jsonItems.concat(adminItems).forEach(function(item) {
-          item._cat = cat;
-          all.push(item);
+        // نجمعوهم فـ مصفوفة وحدة مؤقتة للصنف
+        var combined = jsonItems.concat(adminItems);
+
+        combined.forEach(function(item) {
+          // إذا كان هاد الـ ID ماشفناهش من قبل، نزيدوه
+          if (!seenIds[item.id]) {
+            item._cat = cat;
+            all.push(item);
+            seenIds[item.id] = true; // نعلموه بلي راه داز
+          }
         });
       });
 
-      all.sort(function(a,b) { return (b.date||'').localeCompare(a.date||''); });
+      // ترتيب حسب التاريخ (الأحدث أولاً)
+      all.sort(function(a,b) { 
+        return (b.date || '').localeCompare(a.date || ''); 
+      });
       
       var html = '';
-      if (all.length > 0) html += makeCard(all[0], true);
+      // العرض: أول وحدة كبيرة (Featured) والباقي عادي
+      if (all.length > 0) {
+        html += makeCard(all[0], true);
+      }
+      
       for (var i = 1; i < Math.min(all.length, 5); i++) {
         html += makeCard(all[i], false);
       }
+      
+      // تعمير البلايص الخاوية بـ "قريباً" إذا كان قل من 5 مقالات
       for (var j = all.length; j < 5; j++) {
         html += makePlaceholder(j === 0);
       }
+      
       grid.innerHTML = html;
+    })
+    .catch(function(err) {
+      console.error("Erreur Home Render:", err);
     });
-}
+} 
  
 function onLangChange() { renderHome(); }
 window.addEventListener('DOMContentLoaded', renderHome);
