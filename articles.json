@@ -62,7 +62,76 @@
       "date": "2025-04-25"
     }
   ],
-  "soupes": [],
+  "soupes": [
+    {
+  "id": "harira-marocaine",
+  "titre_fr": "Harira Marocaine Authentique",
+  "titre_ar": "الحريرة المغربية الأصيلة",
+  "titre_en": "Authentic Moroccan Harira",
+  "desc_fr": "La soupe traditionnelle marocaine, riche en saveurs et en nutriments.",
+  "desc_ar": "الشوربة المغربية التقليدية، غنية بالنكهات والفوائد الصحية.",
+  "desc_en": "Traditional Moroccan soup, rich in flavors and nutrients.",
+  "temps": "60 min",
+  "portions": 6,
+  "difficulte": "●●○",
+  "photo": "photos/harira.jpg",
+  "date": "2024-03-26",
+  "ingredients_fr": [
+    "250g de viande d'agneau coupée en dés",
+    "1 bol de pois chiches (trempés la veille)",
+    "1/2 bol de lentilles",
+    "1 bol de tomates mixées",
+    "1 oignon haché",
+    "Céleri, persil et coriandre hachés",
+    "1 cuillère à soupe de concentré de tomates",
+    "Sel, poivre, gingembre, curcuma et cannelle",
+    "Farine délayée dans l'eau (pour lier)"
+  ],
+  "ingredients_ar": [
+    "250 غ لحم غنم مقطع مكعبات صغيرة",
+    "زلافة حمص (مرطب في الماء)",
+    "نصف زلافة عدس",
+    "زلافة طماطم مطحونة",
+    "بصلة مفرومة",
+    "كرافس، قزبور ومعدنوس مقطعين",
+    "ملعقة كبيرة مركز الطماطم",
+    "ملح، إبزار، سكنجبير، خرقوم وقرفة",
+    "دقيق مخلوط بالماء (للتدويرة)"
+  ],
+  "ingredients_en": [
+    "250g diced lamb meat",
+    "1 bowl chickpeas (soaked overnight)",
+    "1/2 bowl lentils",
+    "1 bowl blended tomatoes",
+    "1 chopped onion",
+    "Chopped celery, parsley and coriander",
+    "1 tablespoon tomato paste",
+    "Salt, pepper, ginger, turmeric and cinnamon",
+    "Flour mixed with water (for thickening)"
+  ],
+  "etapes_fr": [
+    "Dans une cocotte, faire revenir la viande, l'oignon et les herbes.",
+    "Ajouter les tomates, les pois chiches, les lentilles et les épices.",
+    "Couvrir d'eau et laisser cuire pendant 45 minutes.",
+    "Ajouter le concentré de tomates et un peu de vermicelle.",
+    "Verser le mélange de farine progressivement en remuant pour épaissir la soupe."
+  ],
+  "etapes_ar": [
+    "في طنجرة الضغط، نقلي اللحم مع البصل والربيع والكرافس.",
+    "نضيف الطماطم، الحمص، العدس والتوابل.",
+    "نضيف الماء الكافي ونغلق الطنجرة لمدة 45 دقيقة.",
+    "نضيف مركز الطماطم وقليل من الشعرية.",
+    "نضيف خليط الدقيق والماء تدريجياً مع التحريك المستمر حتى تتماسك الحريرة."
+  ],
+  "etapes_en": [
+    "In a pressure cooker, sauté the meat, onion, and herbs.",
+    "Add tomatoes, chickpeas, lentils, and spices.",
+    "Cover with water and cook for about 45 minutes.",
+    "Add tomato paste and some vermicelli.",
+    "Gradually pour the flour mixture while stirring to thicken the soup."
+  ]
+}
+  ],
   "plats-marocains": [
     {
       "id": "tajine-poulet",
