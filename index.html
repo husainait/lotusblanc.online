@@ -337,20 +337,42 @@ function makePlaceholder(featured) {
   return '<div class="' + cls + '"><div class="art-img" style="font-size:2.5rem;background:var(--sage-light)">+</div><div class="art-body"><span class="art-cat">' + (bientot[currentLang]||'Bientôt...') + '</span><h3 class="art-title">' + (nouvelle[currentLang]||'Nouvelle recette') + '</h3></div></div>';
 }
 
-
 function renderHome() {
   var grid = document.getElementById('home-grid');
   if (!grid) return;
-  var all = [];
-  ['salades','soupes','plats-marocains','patisserie','desserts'].forEach(function(cat) {
-    (ARTICLES_DATA[cat] || []).forEach(function(a) { a._cat = cat; all.push(a); });
-  });
-  all.sort(function(a,b) { return (b.date||'').localeCompare(a.date||''); });
-  var cards = [];
-  all.slice(0,6).forEach(function(a, i) { cards.push(makeCard(a, a._cat, i===0)); });
-  while (cards.length < 6) { cards.push(makePlaceholder(cards.length===0 && all.length===0)); }
-  grid.innerHTML = cards.join('');
+
+  fetch('articles.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(jsonData) {
+      var all = [];
+      var cats = ['salades','soupes','plats-marocains','patisserie','desserts'];
+      
+      cats.forEach(function(cat) {
+        // دمج بيانات JSON مع LocalStorage لكل صنف
+        var jsonItems = jsonData[cat] || [];
+        var stored = localStorage.getItem('lb_articles_' + cat);
+        var adminItems = stored ? JSON.parse(stored) : [];
+        
+        jsonItems.concat(adminItems).forEach(function(item) {
+          item._cat = cat;
+          all.push(item);
+        });
+      });
+
+      all.sort(function(a,b) { return (b.date||'').localeCompare(a.date||''); });
+      
+      var html = '';
+      if (all.length > 0) html += makeCard(all[0], true);
+      for (var i = 1; i < Math.min(all.length, 5); i++) {
+        html += makeCard(all[i], false);
+      }
+      for (var j = all.length; j < 5; j++) {
+        html += makePlaceholder(j === 0);
+      }
+      grid.innerHTML = html;
+    });
 }
+ 
 function onLangChange() { renderHome(); }
 window.addEventListener('DOMContentLoaded', renderHome);
 
