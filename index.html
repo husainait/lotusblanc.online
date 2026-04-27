@@ -313,17 +313,21 @@ var catMap = {
   'desserts': {fr:'Dessert', ar:'حلويات', en:'Dessert', icon:'🍮'}
 };
 
-function makeCard(a, catId, featured) {
-  var titre = a['titre_' + currentLang] || a.titre_fr || '';
-  var catLabel = a['cat_' + currentLang] || (catMap[catId] ? catMap[catId][currentLang] : '') || '';
-  var icon = catMap[catId] ? catMap[catId].icon : '🍽️';
-  var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
+function makeCard(a, featured) {
   var cls = featured ? 'article-card featured-article' : 'article-card';
-  var imgContent = a.photo ? '<img src="' + a.photo + '" alt="" style="width:100%;height:100%;object-fit:cover"/>' : icon;
-  var html = '<a class="' + cls + '" href="recette.html?cat=' + catId + '&id=' + a.id + '">';
-  html += '<div class="art-img">' + imgContent + '</div>';
+  var titre = a['titre_' + currentLang] || a.titre_fr;
+  var photo = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
+  var category = a._cat; // هادي مهمة بزاف للرابط
+  
+  var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
+
+  var html = '<a class="' + cls + '" href="recette.html?cat=' + category + '&id=' + a.id + '">';
+  html += '<div class="art-img">';
+  if (photo) html += '<img src="' + photo + '" alt="' + titre + '">';
+  else html += '<div style="font-size:2.5rem;background:var(--sage-light);height:100%;display:flex;align-items:center;justify-content:center">🍲</div>';
+  html += '</div>';
   html += '<div class="art-body">';
-  html += '<span class="art-cat">' + catLabel + '</span>';
+  html += '<span class="art-cat">' + (a['cat_' + currentLang] || category) + '</span>';
   html += '<h3 class="art-title">' + titre + '</h3>';
   html += '<span class="art-lire">' + (lire[currentLang] || 'Lire →') + '</span>';
   html += '</div></a>';
