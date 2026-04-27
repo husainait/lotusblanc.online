@@ -342,28 +342,6 @@ function renderArticles() {
 function onLangChange() { renderArticles(); }
 window.addEventListener('DOMContentLoaded', renderArticles);
 
-
-<script>
-fetch('articles.json')
-  .then(response => response.json())
-  .then(data => {
-    const recipes = data["plats-marocains"]; // هادي هي اللي كتبدل على حساب الصفحة
-    const grid = document.querySelector('.articles-grid');
-    if(grid) {
-      grid.innerHTML = ''; 
-      recipes.forEach(item => {
-        grid.innerHTML += `
-          <a href="article-details.html?id=${item.id}" class="article-card">
-            <div class="art-img"><img src="${item.photo}"></div>
-            <div class="art-body">
-              <span class="art-cat">${item.cat_fr}</span>
-              <h3 class="art-title">${item.titre_fr}</h3>
-              <div class="art-lire">Voir la recette →</div>
-            </div>
-          </a>`;
-      });
-    }
-  });
 </script>
 
 </body>
