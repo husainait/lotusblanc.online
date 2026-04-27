@@ -291,12 +291,33 @@ function toggleMenu() {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-  if (localStorage.getItem('lb-theme') === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    var ti = document.getElementById('toggle-icon');
-    if (ti) ti.textContent = '☀️';
-  }
-  if (currentLang !== 'fr') setLang(currentLang);
+  var params = new URLSearchParams(window.location.search);
+  var cat = params.get('cat');
+  var id = params.get('id');
+
+  if (!cat || !id) return;
+
+  // جلب البيانات من JSON ومن الـ LocalStorage للتأكد
+  fetch('articles.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      // 1. بحث في JSON
+      var recipe = (data[cat] || []).find(function(r) { return r.id === id; });
+      
+      // 2. إذا لم يوجد، بحث في LocalStorage
+      if (!recipe) {
+        var stored = localStorage.getItem('lb_articles_' + cat);
+        var adminArticles = stored ? JSON.parse(stored) : [];
+        recipe = adminArticles.find(function(r) { return r.id === id; });
+      }
+
+      if (recipe) {
+        _recipeData = recipe;
+        renderRecipe(recipe);
+      } else {
+        document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Recette non trouvée.</h2>";
+      }
+    });
 });
 
 function getParam(name) { return new URLSearchParams(window.location.search).get(name); }
