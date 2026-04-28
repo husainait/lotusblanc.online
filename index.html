@@ -445,13 +445,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function onLangChange() {
-    // 1. كنعاودو نرسمو المقالات باللغة الجديدة
+    // 1. كنعاودو نعرضو المقالات باش يتبدلو العناوين (Render)
     renderHome(allArticlesForSearch);
 
-    // 2. كنجيبو خانة البحث ونبدلو ليها الـ Placeholder
+    // 2. كنجيبو خانة البحث ونبدلو ليها النص (Placeholder)
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
-        // كنستعملو currentLang باش نعرفو اللغة اللي خدامة دبا
+        // كنستعملو currentLang باش نعرفو اللغة اللي اختار المستخدم دابا
         const newPlaceholder = searchInput.getAttribute('data-placeholder-' + currentLang);
         if (newPlaceholder) {
             searchInput.placeholder = newPlaceholder;
