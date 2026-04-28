@@ -444,7 +444,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function onLangChange() { renderHome(allArticlesForSearch); }
+function onLangChange() {
+    // 1. كنعاودو نرسمو المقالات باللغة الجديدة
+    renderHome(allArticlesForSearch);
+
+    // 2. كنجيبو خانة البحث ونبدلو ليها الـ Placeholder
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        // كنستعملو currentLang باش نعرفو اللغة اللي خدامة دبا
+        const newPlaceholder = searchInput.getAttribute('data-placeholder-' + currentLang);
+        if (newPlaceholder) {
+            searchInput.placeholder = newPlaceholder;
+        }
+    }
+}
 
 </script>
 
