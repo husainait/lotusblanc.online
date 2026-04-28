@@ -381,37 +381,70 @@ function makePlaceholder(featured) {
   return '<div class="' + cls + '"><div class="art-img" style="font-size:2.5rem;background:var(--sage-light)">+</div><div class="art-body"><span class="art-cat">' + (bientot[currentLang]||'Bientôt...') + '</span><h3 class="art-title">' + (nouvelle[currentLang]||'Nouvelle recette') + '</h3></div></div>';
 }
 
- function renderHome() {
-  var grid = document.getElementById('home-grid');
-  if (!grid) return;
+ let allArticlesForSearch = []; 
 
-  fetch('articles.json?v=' + Date.now())
-    .then(r => r.json())
-    .then(data => {
-      var all = [];
-      // كاع الأصناف اللي عندك
-      var cats = ['salades','soupes','plats-marocains','patisserie','desserts'];
-      
-      cats.forEach(function(cat) {
-        (data[cat] || []).forEach(function(item) {
-          item._cat = cat;
-          all.push(item);
+function renderHome(filteredData = null) {
+    var grid = document.getElementById('home-grid');
+    if (!grid) return;
+
+    if (filteredData) {
+        displayArticles(filteredData, grid);
+        return;
+    }
+
+    fetch('articles.json?v=' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            allArticlesForSearch = [];
+            var cats = ['salades','soupes','plats-marocains','patisserie','desserts'];
+            cats.forEach(function(cat) {
+                (data[cat] || []).forEach(function(item) {
+                    item._cat = cat;
+                    allArticlesForSearch.push(item);
+                });
+            });
+            allArticlesForSearch.sort((a,b) => (b.date || '').localeCompare(a.date || ''));
+            displayArticles(allArticlesForSearch, grid);
         });
-      });
+}
 
-      // ترتيب (إلى كان عندك تاريخ فـ JSON)
-      all.sort((a,b) => (b.date || '').localeCompare(a.date || ''));
-      
-      var html = '';
-      if (all.length > 0) html += makeCard(all[0], true);
-      for (var i = 1; i < Math.min(all.length, 5); i++) {
-        html += makeCard(all[i], false);
-      }
-      grid.innerHTML = html;
-    });
-} 
-function onLangChange() { renderHome(); }
-window.addEventListener('DOMContentLoaded', renderHome);
+function displayArticles(articles, grid) {
+    var html = '';
+    if (articles.length > 0) {
+        html += makeCard(articles[0], true);
+        for (var i = 1; i < articles.length; i++) {
+            html += makeCard(articles[i], false);
+        }
+    } else {
+        html = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem;">Aucune recette trouvée / لا توجد وصفات</p>';
+    }
+    grid.innerHTML = html;
+}
+
+// هادي هي اللي كتربط البحث وكتفتح الموقع
+document.addEventListener('DOMContentLoaded', function() {
+    renderHome(); 
+
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase().trim();
+            if (term === "") {
+                renderHome(allArticlesForSearch);
+                return;
+            }
+            const filtered = allArticlesForSearch.filter(art => {
+                const tFr = (art.titre_fr || "").toLowerCase();
+                const tAr = (art.titre_ar || "").toLowerCase();
+                const tEn = (art.titre_en || "").toLowerCase();
+                return tFr.includes(term) || tAr.includes(term) || tEn.includes(term);
+            });
+            renderHome(filtered);
+        });
+    }
+});
+
+function onLangChange() { renderHome(allArticlesForSearch); }
 
 </script>
 
