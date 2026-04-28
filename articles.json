@@ -281,5 +281,71 @@
     ]
   }
 ],
-  "desserts": []
-}
+ "desserts": [
+  {
+    "id": "tiramisu-italien-authentique",
+    "titre_fr": "Tiramisu Italien Authentique",
+    "titre_ar": "تيراميسو إيطالي أصيل",
+    "titre_en": "Authentic Italian Tiramisu",
+    "desc_fr": "Le dessert italien par excellence, crémeux et parfumé au café.",
+    "desc_ar": "أشهر تحلية إيطالية، قوام كريمي غني بنكهة القهوة المركزة.",
+    "desc_en": "The quintessential Italian dessert, creamy and coffee-flavored.",
+    "temps": "30 min",
+    "portions": 6,
+    "difficulte": "●○○",
+    "photo": "photos/tiramisu.jpg",
+    "date": "2026-04-28",
+    "ingredients_fr": [
+      "250g de Mascarpone",
+      "3 œufs très frais",
+      "80g de sucre roux",
+      "1 sachet de sucre vanillé",
+      "24 biscuits à la cuillère (Boudoirs)",
+      "50cl de café noir non sucré (froid)",
+      "Cacao en poudre non sucré"
+    ],
+    "ingredients_ar": [
+      "250 غ جبنة ماسكربون",
+      "3 بيضات طرية جداً",
+      "80 غ سكر أسمر",
+      "1 كيس سكر فانيليا",
+      "24 قطعة بسكويت (Boudoirs)",
+      "50 سل قهوة سوداء باردة بدون سكر",
+      "بودرة كاكاو مر للتزيين"
+    ],
+    "ingredients_en": [
+      "250g Mascarpone cheese",
+      "3 fresh eggs",
+      "80g brown sugar",
+      "1 sachet vanilla sugar",
+      "24 ladyfinger biscuits",
+      "50cl cold black coffee",
+      "Unsweetened cocoa powder"
+    ],
+    "etapes_fr": [
+      "Séparer les blancs des jaunes. Mélanger les jaunes avec le sucre roux et la vanille.",
+      "Ajouter le mascarpone au fouet.",
+      "Monter les blancs en neige ferme et les incorporer délicatement à la préparation.",
+      "Tremper rapidement les biscuits dans le café froid.",
+      "Tapisser le fond du plat avec les biscuits, ajouter une couche de crème, puis répéter.",
+      "Saupoudrer de cacao et réserver au réfrigérateur au moins 4 heures."
+    ],
+    "etapes_ar": [
+      "نفصل أصفر البيض عن الأبيض. نخلط الأصفر مع السكر الأسمر والفانيليا.",
+      "نضيف جبنة الماسكربون ونخفق جيداً.",
+      "نخفق أبيض البيض حتى يصبح كالثلج ثم نضيفه للخليط ببطء.",
+      "نغمس البسكويت بسرعة في القهوة الباردة.",
+      "نضع طبقة بسكويت في القالب، ثم طبقة كريمة، ونكرر العملية.",
+      "نرش الكاكاو على الوجه ونتركها في الثلاجة لمدة 4 ساعات على الأقل."
+    ],
+    "etapes_en": [
+      "Separate whites from yolks. Mix yolks with brown sugar and vanilla.",
+      "Add mascarpone and whisk well.",
+      "Beat egg whites until stiff and fold gently into the mixture.",
+      "Quickly dip biscuits in cold coffee.",
+      "Layer biscuits in a dish, add cream, and repeat.",
+      "Dust with cocoa and refrigerate for at least 4 hours."
+    ]
+  }
+]
+ }
