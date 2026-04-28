@@ -4,6 +4,37 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Recettes Marocaines — Lotus Blanc</title>
+<style>
+  /* هاد الكود كيخلي كاع الكارطيات قد قد */
+  .article-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%; 
+      min-height: 380px; /* كايعطي طول أدنى موحد */
+  }
+
+  .art-img {
+      height: 200px; /* طول موحد للصورة */
+      width: 100%;
+  }
+
+  .art-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* باش التصويرة ماتجيش مجبدة */
+  }
+
+  .art-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+
+  .art-title {
+      min-height: 3rem; /* باش واخا يكون العنوان قصير، تبقى المساحة خاوية ويجيو العناوين مقادين */
+  }
+</style>
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
