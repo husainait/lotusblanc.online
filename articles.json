@@ -208,6 +208,78 @@
       "date": "2026-04-26"
     }
   ],
-  "patisserie": [],
+  "patisserie": [
+  {
+    "id": "foret-noire-classique",
+    "titre_fr": "Forêt Noire Classique",
+    "titre_ar": "حلوى الغابة السوداء الكلاسيكية",
+    "titre_en": "Classic Black Forest Cake",
+    "desc_fr": "Un gâteau de fête raffiné alliant chocolat intense, chantilly légère et cerises.",
+    "desc_ar": "حلوى فاخرة للمناسبات تجمع بين طعم الشكولاتة القوي، الكريمة المخفوقة وحب الملوك.",
+    "desc_en": "A sophisticated festive cake combining intense chocolate, light whipped cream, and cherries.",
+    "temps": "45 min",
+    "portions": 8,
+    "difficulte": "●●●",
+    "photo": "photos/foretnoir.jpg",
+    "date": "2026-04-28",
+    "ingredients_fr": [
+      "3 carrés de génoise au chocolat (20x20)",
+      "20cl de crème fraîche",
+      "50g de sucre glace",
+      "200g de cerises dénoyautées ",
+      "10cl de sirop pour imbiber",
+      "200g de chocolat noir (pour la mousse)",
+      "1 feuille de gélatine",
+      "2 jaunes d'œufs et 2 blancs d'œufs",
+      "Chocolat râpé pour le décor"
+    ],
+    "ingredients_ar": [
+      "3 مربعات بسكويت جينواز بالشكلاط (20x20)",
+      "20 سل قشدة طرية",
+      "50 غ سكر كلاصي",
+      "200 غ حب الملوك بدون نوى",
+      "10 سل سيرو لتسقية البسكويت",
+      "200 غ شكلاط أسود (للموس)",
+      "1 ورقة جيلاتين",
+      "2 أصفر البيض و 2 أبيض البيض",
+      "شكلاط مبشور للتزيين"
+    ],
+    "ingredients_en": [
+      "3 chocolate sponge cake squares (20x20)",
+      "20cl heavy cream",
+      "50g icing sugar",
+      "200g pitted cherries",
+      "10cl syrup for soaking",
+      "200g dark chocolate (for the mousse)",
+      "1 gelatin sheet",
+      "2 egg yellows and 2 egg whites",
+      "Grated chocolate for decoration"
+    ],
+    "etapes_fr": [
+      "Fouetter la crème fraîche avec le sucre glace jusqu'à obtention d'une chantilly.",
+      "Faire ramollir la gélatine dans l'eau froide. Monter les blancs d'œufs en neige.",
+      "Fondre le chocolat au bain-marie, y ajouter la gélatine essorée, puis les jaunes et enfin incorporer les blancs délicatement.",
+      "Montage : Imbiber la 1ère génoise de sirop, étaler la mousse au chocolat.",
+      "Placer la 2ème génoise, imbiber, ajouter la chantilly et les cerises.",
+      "Couvrir avec la 3ème génoise, napper de chantilly et décorer de chocolat râpé. Laisser refroidir."
+    ],
+    "etapes_ar": [
+      "تخفق القشدة الطرية مع السكر كلاصي حتى تصبح كثيفة.",
+      "توضع الجيلاتين في الماء البارد. يخفق أبيض البيض حتى يصبح كالثلج.",
+      "يذوب الشكلاط في حمام مريم، تضاف إليه الجيلاتين، ثم أصفر البيض وأبيض البيض المخفوق بلطف.",
+      "المونطاج: نضع الجينواز الأولى، تسقى بالسيرو وتغطى بموس الشكلاط.",
+      "نضع الجينواز الثانية، تسقى بالسيرو وتغطى بالقشدة وحب الملوك.",
+      "نضع الجينواز الثالثة، تزين بالقشدة والشكلاط المبشور وتدخل للثلاجة لتبرد."
+    ],
+    "etapes_en": [
+      "Whip the heavy cream with icing sugar until stiff peaks form.",
+      "Soak gelatin in cold water. Beat egg whites until stiff.",
+      "Melt chocolate in a bain-marie, add gelatin, then yolks, and gently fold in the egg whites.",
+      "Assembly: Soak the 1st sponge square with syrup, spread the chocolate mousse.",
+      "Place the 2nd sponge, soak, add whipped cream and cherries.",
+      "Top with the 3rd sponge, cover with whipped cream and decorate with grated chocolate. Refrigerate."
+    ]
+  }
+],
   "desserts": []
 }
