@@ -75,6 +75,8 @@
   "portions": 6,
   "difficulte": "●●○",
   "photo": "photos/harira.webp",
+     "cat_ar": "شوربة",
+      "cat_en": "soups",
   "date": "2024-03-26",
   "ingredients_fr": [
     "250g de viande d'agneau coupée en dés",
@@ -221,6 +223,8 @@
     "portions": 8,
     "difficulte": "●●●",
     "photo": "photos/foretnoir.webp",
+    "cat_ar": "سلطة",
+    "cat_en": "Pastry",
     "date": "2026-04-28",
     "ingredients_fr": [
       "3 carrés de génoise au chocolat (20x20)",
@@ -294,6 +298,8 @@
     "portions": 6,
     "difficulte": "●○○",
     "photo": "photos/tiramisu.webp",
+    "cat_ar": "تحلية",
+    "cat_en": "Dessert",
     "date": "2026-04-28",
     "ingredients_fr": [
       "250g de Mascarpone",
