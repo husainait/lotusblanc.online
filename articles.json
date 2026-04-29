@@ -11,7 +11,7 @@
       "temps": "10 min",
       "portions": 4,
       "difficulte": "●○○",
-      "photo": "photos/salata.jpg",
+      "photo": "photos/salata.webp",
       "cat_ar": "سلطة",
       "cat_en": "Salad",
       "ingredients_fr": [
@@ -74,7 +74,7 @@
   "temps": "60 min",
   "portions": 6,
   "difficulte": "●●○",
-  "photo": "photos/harira.jpg",
+  "photo": "photos/harira.webp",
   "date": "2024-03-26",
   "ingredients_fr": [
     "250g de viande d'agneau coupée en dés",
@@ -150,7 +150,7 @@
       "temps": "60 min",
       "portions": 4,
       "difficulte": "●●○",
-      "photo": "photos/tajine-poulet.jpg",
+      "photo": "photos/tajine-poulet.webp",
       "cat_fr": "Plat marocain",
       "cat_ar": "طبق مغربي",
       "cat_en": "Moroccan dish",
@@ -220,7 +220,7 @@
     "temps": "45 min",
     "portions": 8,
     "difficulte": "●●●",
-    "photo": "photos/foretnoir.jpg",
+    "photo": "photos/foretnoir.webp",
     "date": "2026-04-28",
     "ingredients_fr": [
       "3 carrés de génoise au chocolat (20x20)",
@@ -293,7 +293,7 @@
     "temps": "30 min",
     "portions": 6,
     "difficulte": "●○○",
-    "photo": "photos/tiramisu.jpg",
+    "photo": "photos/tiramisu.webp",
     "date": "2026-04-28",
     "ingredients_fr": [
       "250g de Mascarpone",
