@@ -17,7 +17,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--cream:#FDF5F8;--warm-white:#FFF8FB;--card-bg:#FFF8FB;--sage:#C0729A;--sage-light:#F5D6E6;--sage-dark:#A0446F;--gold:#4A7FB5;--gold-light:#C8DDEF;--charcoal:#2C2035;--muted:#7A6878;--border:rgba(44,32,53,0.10);--header-bg:#FFF8FB;--body-bg:#FDF5F8;--toggle-bg:#EDD6E5;}
+:root{--cream:#FDF5F8;--warm-white:#FFF8FB;--card-bg:#FFF8FB;--sage:#C0729A;--sage-light:#F5D6E6;--sage-dark:#80345F;--gold:#4A7FB5;--gold-light:#C8DDEF;--charcoal:#2C2035;--muted:#5A4A58;--border:rgba(44,32,53,0.10);--header-bg:#FFF8FB;--body-bg:#FDF5F8;--toggle-bg:#EDD6E5;}
 [data-theme="dark"]{--cream:#1A1520;--warm-white:#221828;--card-bg:#221828;--sage:#C0729A;--sage-light:#4A1F35;--sage-dark:#E090B8;--gold:#6A9FD5;--gold-light:#1A3550;--charcoal:#F5EEF8;--muted:#B09AB8;--border:rgba(245,238,248,0.10);--header-bg:#160F1C;--body-bg:#1A1520;--toggle-bg:#3A2545;}
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;background:var(--body-bg);color:var(--charcoal);min-height:100vh;transition:background .3s,color .3s}
@@ -378,7 +378,8 @@ var catMap = {
   'desserts': {fr:'Dessert', ar:'تحلية', en:'Dessert', icon:'🍮'}
 };
 
-function makeCard(a, featured) {
+// 1. زدنا index هنا الفوق باش الدالة تعرف ترتيب الارتيكل
+function makeCard(a, featured, index) { 
   var cls = featured ? 'article-card featured-article' : 'article-card';
   var titre = a['titre_' + currentLang] || a.titre_fr;
   var photo = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
@@ -386,13 +387,20 @@ function makeCard(a, featured) {
   
   var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
 
+  // 2. هنا غتحط السطر اللي سألتي عليه
+  var loadingStrategy = (index === 0) ? 'eager' : 'lazy';
+
   var html = '<a class="' + cls + '" href="recette.html?cat=' + category + '&id=' + a.id + '">';
   html += '<div class="art-img">';
   
-  // زدت ليك loading="lazy" هنايا لتحت 👇
-  if (photo) html += '<img src="' + photo + '" alt="' + titre + '" loading="lazy">'; 
+  // 3. هنا غتستعمل الـ variable اللي كريينا عوض كلمة lazy بوحدها
+  if (photo) {
+      html += '<img src="' + photo + '" alt="' + titre + '" loading="' + loadingStrategy + '">'; 
+  }
+  else {
+      html += '<div style="font-size:2.5rem;background:var(--sage-light);height:100%;display:flex;align-items:center;justify-content:center">🍲</div>';
+  }
   
-  else html += '<div style="font-size:2.5rem;background:var(--sage-light);height:100%;display:flex;align-items:center;justify-content:center">🍲</div>';
   html += '</div>';
   html += '<div class="art-body">';
   html += '<span class="art-cat">' + (a['cat_' + currentLang] || category) + '</span>';
