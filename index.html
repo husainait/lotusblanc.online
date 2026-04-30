@@ -66,30 +66,33 @@ body {
     transition: background .3s, color .3s;
 }
 
+/* الكارطية العادية */
 .article-card {
-    display: flex;
-    flex-direction: column;
-    height: 480px; 
-    overflow: hidden;
-    background: var(--card-bg);
-    /* زيدي هادي باش ما يبقاش التزاحم */
-    contain: layout; 
+    display: flex !important;
+    flex-direction: column !important;
+    height: 480px !important; 
+    overflow: hidden !important;
+    background: var(--card-bg) !important;
+    border-radius: 12px; /* اختياري: باش تجي زوينة */
 }
 
+/* الكارطية الأولى (Featured) */
+.article-card.featured-article {
+    grid-column: 1 / -1; /* كتاخد العرض كامل */
+    height: 480px !important; /* نفس الطول ديال الصغار باش يجي السطر مقاد */
+}
+
+/* توحيد قياس الصور لجميع الكارطيات */
 .art-img {
-    height: 250px;
-    width: 100%;
-    flex-shrink: 0;
-    overflow: hidden;
-    background-color: var(--sage-light); /* خلفية احتياطية باش يبان المربع قبل ما تشارجا الصورة */
+    height: 280px !important; /* طول ثابت للصورة كيفما كان نوع الكارطية */
+    width: 100% !important;
+    overflow: hidden !important;
 }
 
 .art-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* زيدي هادي باش المتصفح يعرف القياس مسبقاً وما يهبطش السكور */
-    aspect-ratio: 16/9; 
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
 
 /* تنظيم النص باش يجي مقاد */
