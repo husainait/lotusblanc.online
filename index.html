@@ -16,7 +16,24 @@
   <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+/* 2. كود الـ Scrollbar (زيدي هاد الجزء هنا) */
+::-webkit-scrollbar {
+    width: 10px;
+}
 
+::-webkit-scrollbar-track {
+    background: #FDF5F8; /* استعملت اللون الكريمي مباشرة */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F5D6E6; /* لون الـ sage-light الوردي */
+    border-radius: 10px;
+    border: 2px solid #FDF5F8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C0729A; /* لون الـ sage الوردي ملي كنقيسوه */
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
