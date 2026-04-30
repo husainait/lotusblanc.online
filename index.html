@@ -81,7 +81,31 @@ body {
     grid-column: span 1 !important; /* غتولي تاخد مربع واحد بحال جيراتها */
     height: 480px !important; /* نفس الطول ديال الصغار باش يجي السطر مقاد */
 }
+/* --- زيدي كود الزر هنا لتحت --- */
 
+#backToTop {
+    display: none; 
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--sage-dark); 
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: scale(1.1);
+    background-color: var(--charcoal);
+}
 /* توحيد قياس الصور لجميع الكارطيات */
 .art-img {
     height: 280px !important; /* طول ثابت للصورة كيفما كان نوع الكارطية */
@@ -564,6 +588,10 @@ function onLangChange() {
 
 </script>
 
+<!-- الزر كيكون هو اللخر قبل ما نسدو الـ body -->
+    <button id="backToTop" title="العودة للأعلى">↑</button>
 
+    <!-- السكربت ضروري يكون هو آخر حاجة -->
+    <script src="script.js"></script>
 </body>
 </html>
