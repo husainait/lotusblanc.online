@@ -49,7 +49,7 @@ function updateLanguage(lang) {
 // 1. حط هاد الجزء هنا في الأول (Top of the file)
 const categoryData = {
     'showcase-salades': { 
-        images: ['photos/salata.webp,photos/tiramisu.webp'], 
+        images: ['photos/salata.webp','photos/tiramisu.webp'], 
         link: 'salades.html' 
     },
     'showcase-plats': { 
