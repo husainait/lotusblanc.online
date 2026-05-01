@@ -49,27 +49,26 @@ function updateLanguage(lang) {
 // 1. حط هاد الجزء هنا في الأول (Top of the file)
 const categoryData = {
     'showcase-salades': { 
-        images: ['photos/salade1.jpg'], 
+        images: ['photos/salata.webp'], 
         link: 'salades.html' 
     },
     'showcase-plats': { 
-        images: ['photos/tajine.jpg'], 
+        images: ['photos/tajine-poulet.webp'], 
         link: 'plats-marocains.html' 
     },
     'showcase-soupes': { 
-        images: ['photos/harira.jpg'], 
+        images: ['photos/harira.webp'], 
         link: 'soupes.html' 
     },
     'showcase-desserts': { 
-        images: ['photos/dessert1.jpg'], 
+        images: ['photos/tiramisu.webp'], 
         link: 'desserts.html' 
     },
     'showcase-patisserie': { 
-        images: ['photos/halwa1.jpg'], 
+        images: ['photos/fortenoir.webp'], 
         link: 'patisserie.html' 
     }
 };
-
 function startShowcase() {
     for (let id in categoryData) {
         const container = document.querySelector(`#${id} .showcase-content`);
