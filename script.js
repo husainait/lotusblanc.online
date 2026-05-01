@@ -65,7 +65,7 @@ const categoryData = {
         link: 'desserts.html' 
     },
     'showcase-patisserie': { 
-        images: ['photos/fortenoir.webp'], 
+        images: ['photos/foretnoir.webp'], 
         link: 'patisserie.html' 
     }
 };
