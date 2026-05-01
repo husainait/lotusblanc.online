@@ -216,7 +216,26 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
 .article-card {
     text-decoration: none !important;
 }
+/* --- التعديل الجديد لإصلاح لون اسم الصنف --- */
+.art- a, .art- {
+    color: var(--muted) !important;
+    text-decoration: none !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
 
+.art- a:hover, .art-:hover {
+    color: var(--sage) !important;
+}
+/* ------------------------------------------ */
+
+/* إلغاء تميز المقال الأول لتوحيد الشكل */
+.featured-article {
+    grid-column: span 1 !important; 
+    grid-row: auto !important;
+}
 /* إلغاء تميز المقال الأول لتوحيد الشكل */
 .featured-article {
     grid-column: span 1 !important; 
