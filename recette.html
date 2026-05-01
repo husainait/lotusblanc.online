@@ -6,7 +6,25 @@
   <title>Recette — Lotus Blanc</title>
    <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* 2. كود الـ Scrollbar (زيدي هاد الجزء هنا) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FDF5F8; /* استعملت اللون الكريمي مباشرة */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F5D6E6; /* لون الـ sage-light الوردي */
+    border-radius: 10px;
+    border: 2px solid #FDF5F8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C0729A; /* لون الـ sage الوردي ملي كنقيسوه */
+}
+     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--cream:#FDF5F8;--warm-white:#FFF8FB;--card-bg:#FFF8FB;--sage:#C0729A;--sage-light:#F5D6E6;--sage-dark:#A0446F;--gold:#4A7FB5;--gold-light:#C8DDEF;--charcoal:#2C2035;--muted:#7A6878;--border:rgba(44,32,53,0.10);--header-bg:#FFF8FB;--body-bg:#FDF5F8;--toggle-bg:#EDD6E5;}
 [data-theme="dark"]{--cream:#1A1520;--warm-white:#221828;--card-bg:#221828;--sage:#C0729A;--sage-light:#4A1F35;--sage-dark:#E090B8;--gold:#6A9FD5;--gold-light:#1A3550;--charcoal:#F5EEF8;--muted:#B09AB8;--border:rgba(245,238,248,0.10);--header-bg:#160F1C;--body-bg:#1A1520;--toggle-bg:#3A2545;}
 html{scroll-behavior:smooth}
@@ -396,5 +414,10 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+  <!-- الزر كيكون هو اللخر قبل ما نسدو الـ body -->
+    <button id="backToTop" title="العودة للأعلى">↑</button>
+
+    <!-- السكربت ضروري يكون هو آخر حاجة -->
+    <script src="script.js"></script>
 </body>
 </html>
