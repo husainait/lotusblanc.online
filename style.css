@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+/* هاد السطر كيأكد بلي التغيير غيطبق على الصفحة كاملة */
+html, body {
+    scrollbar-color: #F5D6E6 #FDF5F8; /* هادي للمتصفحات بحال Firefox */
+    scrollbar-width: thin;
+}
 /* 2. كود الـ Scrollbar (زيدي هاد الجزء هنا) */
 ::-webkit-scrollbar {
     width: 10px;
