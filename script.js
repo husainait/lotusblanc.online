@@ -47,11 +47,11 @@ function updateLanguage(lang) {
 
 // 4. كود الـ Showcase (الصور اللي كيدوزو أوتوماتيك)
 const categoryData = {
-    'showcase-salades': ['salade1.jpg', 'salade2.jpg'], // حط سميات التصاور ديالك هنا
-    'showcase-plats': ['tajine.jpg', 'couscous.jpg'],
-    'showcase-soupes': ['harira.jpg', 'soupe1.jpg'],
-    'showcase-desserts': ['dessert1.jpg', 'dessert2.jpg'],
-    'showcase-patisserie': ['halwa1.jpg', 'halwa2.jpg']
+    'showcase-salades': ['photos/salata.webp', 'photos/salata.webp'], // حط سميات التصاور ديالك هنا
+    'showcase-plats': ['photos/tajine-poulet.webp', 'photos/tajine-poulet.webp'],
+    'showcase-soupes': ['photos/harira.webp', 'photos/harira.webp'],
+    'showcase-desserts': ['photos/tiramisu.webp', 'photos/tiramisu.webp'],
+    'showcase-patisserie': ['photos/foretnoir.webp', 'photos/foretnoir.webp']
 };
 
 function startShowcase() {
