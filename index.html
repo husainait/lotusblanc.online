@@ -57,10 +57,7 @@
       <h2 class="section-title" data-fr="Nos recettes" data-ar="وصفاتنا" data-en="Our recipes">Nos recettes</h2>
     </div>
   </div>
-
-<!-- 2. هادا هو الـ Grid الوحيد اللي كيعمرو السكريبت بـ "آخر المنشورات" -->
-<div class="articles-grid" id="home-grid" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-    <!-- خليه خاوي، السكريبت هو اللي غيتكلف يعمرو أوتوماتيكياً -->
+  <div class="articles-grid" id="home-grid"></div>
 </div>
 <section class="categories" style="margin-bottom:3rem;">
   <h2 class="section-title" data-fr="Catégories" data-ar="الفئات" data-en="Categories">Catégories</h2>
@@ -218,25 +215,28 @@ function renderHome(filteredData = null) {
 function displayArticles(articles, grid) {
     var html = '';
     if (articles.length > 0) {
-        // كنرسمو المقالات
-        articles.forEach(function(article, index) {
-            html += makeCard(article, index === 0, index);
-
-            // إشهار وسط الشبكة
-            if (index === 1) {
+        // الوصفة الأولى (كبيرة)
+        html += makeCard(articles[0], true);
+        
+        for (var i = 1; i < articles.length; i++) {
+            html += makeCard(articles[i], false);
+            
+            // --- هادا هو الـ PUB 2 (وسط الشبكة) ---
+            // غيبان من بعد الوصفة رقم 2 (تقدر تبدل رقم 2 بأي رقم بغيتي)
+            if (i === 2) {
                 html += `
                 <div class="in-grid-ad" style="grid-column: 1 / -1; margin: 20px 0;">
                     <div style="width: 100%; text-align: center; background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px dashed var(--sage);">
                         <span style="font-size: 10px; color: var(--muted); display: block; margin-bottom: 10px;">PUBLICITÉ #2</span>
                         <div style="min-height: 100px; background: var(--toggle-bg); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-                            <p style="color: var(--sage); font-weight: 500;">ADS SPACE 2</p>
+                            <p style="color: var(--sage); font-weight: 500;">ADS SPACE 2 (Middle)</p>
                         </div>
                     </div>
                 </div>`;
             }
-        });
+        }
     } else {
-        html = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem;">Aucune recette trouvée</p>';
+        html = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem;">Aucune recette trouvée / لا توجد وصفات</p>';
     }
     grid.innerHTML = html;
 }
