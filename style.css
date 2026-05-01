@@ -182,7 +182,7 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
 .section-eyebrow{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:.3rem}
 .see-all{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-dark);text-decoration:none;font-weight:500}
 
-/* --- تنظيم شبكة المقالات مع الحفاظ على الخط والألوان الأصلية --- */
+/* 1. تقاد الـ Grid بلا ما يقيس الألوان */
 .articles-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
@@ -191,17 +191,30 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
     margin: 0 auto;
 }
 
-/* الحفاظ على ألوان النصوص والخطوط الأصلية */
+/* 2. نرجعو العنوان وردي غامق ونحيدو داك الزرق */
 .art-title {
-    font-family: 'Cormorant Garamond', serif !important; /* الخط الأصلي للعناوين */
-    color: var(--charcoal) !important; /* اللون الكحل/الرمادي اللي كنتِ دايرة */
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif !important;
+    color: var(--sage-dark) !important; /* اللون الوردي ديالك */
+    text-decoration: none !important; /* نحيدو السطر اللي تحت الكلمة */
+    font-size: 1.2rem !important;
 }
 
+/* 3. نرجعو كلمة patisserie و desserts للرمادي/الموف الفاتح */
 .art- {
-    font-family: 'Jost', sans-serif !important; /* الخط الأصلي للكلمات الفوقانية */
-    color: var(--sage-dark) !important; /* اللون الوردي الغامق */
+    font-family: 'Jost', sans-serif !important;
+    color: var(--muted) !important;
+    font-size: 0.7rem !important;
+}
+
+/* 4. كلمة Lire نردوها وردية حتى هي */
+.art-lire {
+    color: var(--sage-dark) !important;
+    text-decoration: none !important;
+}
+
+/* 5. نحيدو التأثير ديال الرابط (Link) باش ما يوليش زرق ملي نكليكيو عليه */
+.article-card {
+    text-decoration: none !important;
 }
 
 /* إلغاء تميز المقال الأول لتوحيد الشكل */
