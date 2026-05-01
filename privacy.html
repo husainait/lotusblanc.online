@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Politique de Confidentialité — Lotus Blanc</title>
  <style>
+     /* 2. كود الـ Scrollbar (زيدي هاد الجزء هنا) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FDF5F8; /* استعملت اللون الكريمي مباشرة */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F5D6E6; /* لون الـ sage-light الوردي */
+    border-radius: 10px;
+    border: 2px solid #FDF5F8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C0729A; /* لون الـ sage الوردي ملي كنقيسوه */
+}
         body { font-family: 'Jost', sans-serif; line-height: 1.6; color: #2C2035; padding: 40px; max-width: 800px; margin: auto; background: #FDF5F8; }
         h1 { color: #C0729A; }
         h2 { color: #A0446F; margin-top: 25px; }
@@ -29,5 +47,10 @@
 
     <h2>4. Consentement</h2>
     <p>En utilisant notre site web, vous consentez à notre politique de confidentialité et acceptez ses conditions.</p>
+<!-- الزر كيكون هو اللخر قبل ما نسدو الـ body -->
+    <button id="backToTop" title="العودة للأعلى">↑</button>
+
+    <!-- السكربت ضروري يكون هو آخر حاجة -->
+    <script src="script.js"></script>
 </body>
 </html>
