@@ -27,4 +27,16 @@
     <lastmod>2026-05-01</lastmod>
     <priority>0.8</priority>
   </url>
+    <!-- صفحة االتحلية (desserts) -->
+  <url>
+    <loc>https://lotusblanc.online/desserts.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+    <!-- صفحة  الشوربات (soupes) -->
+  <url>
+    <loc>https://lotusblanc.online/soupes.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>
