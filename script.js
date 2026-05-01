@@ -59,17 +59,27 @@ function startShowcase() {
         const container = document.querySelector(`#${id} .showcase-content`);
         if (!container) continue;
 
-        const images = categoryData[id];
-        let index = 0;
+        const data = categoryData[id];
+        
+        // كود باش تولي الكارت كتحل المقال ملي تضغط عليها
+        container.style.cursor = 'pointer';
+        container.onclick = () => { 
+            window.location.href = data.link; 
+        };
 
-        // وضع أول صورة عند التحميل
+        // وضع أول صورة (من الـ Array اللي وسط Object)
+        const images = data.images;
+        let index = 0;
+        
         container.innerHTML = `<img src="${images[0]}" alt="Recipe" style="width:100%; height:100%; object-fit:cover;">`;
 
-        // تغيير الصور كل 3 ثواني
-        setInterval(() => {
-            index = (index + 1) % images.length;
-            container.innerHTML = `<img src="${images[index]}" alt="Recipe" style="width:100%; height:100%; object-fit:cover; transition: opacity 0.5s;">`;
-        }, 3000);
+        // إلا كان عندك أكثر من تصويرة، السكريبت غيبدلهم أوتوماتيك
+        if (images.length > 1) {
+            setInterval(() => {
+                index = (index + 1) % images.length;
+                container.innerHTML = `<img src="${images[index]}" alt="Recipe" style="width:100%; height:100%; object-fit:cover; transition: opacity 0.5s;">`;
+            }, 3000);
+        }
     }
 }
 
