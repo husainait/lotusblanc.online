@@ -46,12 +46,28 @@ function updateLanguage(lang) {
 }
 
 // 4. كود الـ Showcase (الصور اللي كيدوزو أوتوماتيك)
+// 1. حط هاد الجزء هنا في الأول (Top of the file)
 const categoryData = {
-    'showcase-salades': ['photos/salata.webp', 'photos/salata.webp'], // حط سميات التصاور ديالك هنا
-    'showcase-plats': ['photos/tajine-poulet.webp', 'photos/tajine-poulet.webp'],
-    'showcase-soupes': ['photos/harira.webp', 'photos/harira.webp'],
-    'showcase-desserts': ['photos/tiramisu.webp', 'photos/tiramisu.webp'],
-    'showcase-patisserie': ['photos/foretnoir.webp', 'photos/foretnoir.webp']
+    'showcase-salades': { 
+        images: ['photos/salade1.jpg'], 
+        link: 'salades.html' 
+    },
+    'showcase-plats': { 
+        images: ['photos/tajine.jpg'], 
+        link: 'plats-marocains.html' 
+    },
+    'showcase-soupes': { 
+        images: ['photos/harira.jpg'], 
+        link: 'soupes.html' 
+    },
+    'showcase-desserts': { 
+        images: ['photos/dessert1.jpg'], 
+        link: 'desserts.html' 
+    },
+    'showcase-patisserie': { 
+        images: ['photos/halwa1.jpg'], 
+        link: 'patisserie.html' 
+    }
 };
 
 function startShowcase() {
