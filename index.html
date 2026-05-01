@@ -245,28 +245,25 @@ function renderHome(filteredData = null) {
 function displayArticles(articles, grid) {
     var html = '';
     if (articles.length > 0) {
-        // الوصفة الأولى (كبيرة)
-        html += makeCard(articles[0], true);
-        
-        for (var i = 1; i < articles.length; i++) {
-            html += makeCard(articles[i], false);
-            
-            // --- هادا هو الـ PUB 2 (وسط الشبكة) ---
-            // غيبان من بعد الوصفة رقم 2 (تقدر تبدل رقم 2 بأي رقم بغيتي)
-            if (i === 2) {
+        // كنرسمو المقالات
+        articles.forEach(function(article, index) {
+            html += makeCard(article, index === 0, index);
+
+            // إشهار وسط الشبكة
+            if (index === 1) {
                 html += `
                 <div class="in-grid-ad" style="grid-column: 1 / -1; margin: 20px 0;">
                     <div style="width: 100%; text-align: center; background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px dashed var(--sage);">
                         <span style="font-size: 10px; color: var(--muted); display: block; margin-bottom: 10px;">PUBLICITÉ #2</span>
                         <div style="min-height: 100px; background: var(--toggle-bg); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-                            <p style="color: var(--sage); font-weight: 500;">ADS SPACE 2 (Middle)</p>
+                            <p style="color: var(--sage); font-weight: 500;">ADS SPACE 2</p>
                         </div>
                     </div>
                 </div>`;
             }
-        }
+        });
     } else {
-        html = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem;">Aucune recette trouvée / لا توجد وصفات</p>';
+        html = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem;">Aucune recette trouvée</p>';
     }
     grid.innerHTML = html;
 }
