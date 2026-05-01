@@ -71,32 +71,31 @@ const categoryData = {
 };
 function startShowcase() {
     for (let id in categoryData) {
-        const container = document.querySelector(`#${id} .showcase-content`);
-        if (!container) continue;
+        const card = document.getElementById(id);
+        if (!card) continue;
 
         const data = categoryData[id];
-        
-        // كود باش تولي الكارت كتحل المقال ملي تضغط عليها
-        container.style.cursor = 'pointer';
-        container.onclick = () => { 
-            window.location.href = data.link; 
-        };
-
-        // وضع أول صورة (من الـ Array اللي وسط Object)
         const images = data.images;
         let index = 0;
-        
-        container.innerHTML = `<img src="${images[0]}" alt="Recipe" style="width:100%; height:100%; object-fit:cover;">`;
 
-        // إلا كان عندك أكثر من تصويرة، السكريبت غيبدلهم أوتوماتيك
+        // وضع الصورة الأولى كخلفية
+        card.style.backgroundImage = `url('${images[0]}')`;
+        card.style.backgroundSize = 'cover';
+        card.style.backgroundPosition = 'center';
+        card.style.cursor = 'pointer';
+
+        // الانتقال لصفحة القسم عند الضغط
+        card.onclick = () => { window.location.href = data.link; };
+
+        // تبديل الصور أوتوماتيكياً
         if (images.length > 1) {
             setInterval(() => {
                 index = (index + 1) % images.length;
-                container.innerHTML = `<img src="${images[index]}" alt="Recipe" style="width:100%; height:100%; object-fit:cover; transition: opacity 0.5s;">`;
+                card.style.backgroundImage = `url('${images[index]}')`;
             }, 3000);
         }
     }
 }
 
-// تشغيل الـ Showcase ملي تتحمل الصفحة
-document.addEventListener('DOMContentLoaded', startShowcase);
+// تشغيل الدالة فور تحميل الصفحة
+window.onload = startShowcase;
