@@ -172,61 +172,47 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
 .art- a:hover, .art-:hover {
     color: var(--sage) !important;
 }
-/* ------------------------------------------ */
-/* --- الإصلاح الشامل والنهائي للـ Grid والألوان --- */
-
-/* 1. فرض 3 مقالات في السطر وتصغير المقال الأول بالسيف */
+/* 1. إصلاح شامل للـ Grid باش يجي 3 مقادين */
 .articles-grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 1.5rem !important;
-    width: 100% !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    align-items: start !important;
 }
 
-/* هاد السطر كيجبر المقال الأول يولي قدو قد لخرين */
-.articles-grid > *, 
-.featured-article, 
-#featuredPost {
-    grid-column: span 1 !important; 
-    grid-row: auto !important;
+/* 2. إصلاح الإشهار (Ads Space) باش ما يخليش الفراغ */
+.ad-banner-wrap, .ad-zone {
+    grid-column: 1 / -1 !important; /* كيخليه ياخد السطر كامل بوحدو */
     width: 100% !important;
+    margin: 1rem 0 !important;
 }
 
-/* 2. تنظيف الروابط وحيد الزرق من العناوين (Title) */
-.art-title, 
-.art-title a,
-.article-card a {
-    color: var(--sage-dark) !important;
+/* 3. تنظيف شامل للألوان (حيد الزرق بمرة) */
+.article-card a, 
+.article-card a:visited, 
+.art-title a, 
+.art-category a, 
+.art- a {
     text-decoration: none !important;
+    outline: none !important;
+}
+
+/* لون العنوان */
+.art-title, .art-title a {
+    color: var(--sage-dark) !important;
     font-family: 'Cormorant Garamond', serif !important;
 }
 
-/* 3. إصلاح لون الكاتيكوري (Category) اللي بقات بالزرق */
-.art-, 
-.art- a, 
-[class^="art-"] a {
+/* لون الصنف (Category) */
+.art-category, .art-category a, .art- a {
     color: var(--muted) !important;
-    text-decoration: none !important;
     font-family: 'Jost', sans-serif !important;
-    font-size: 0.75rem !important;
+    text-transform: uppercase;
 }
 
-/* 4. إصلاح زر "Lire" */
-.art-lire, 
-.art-lire a {
+/* لون Lire */
+.art-lire, .art-lire a {
     color: var(--sage-dark) !important;
-    text-decoration: none !important;
-    font-weight: 500 !important;
-}
-
-/* 5. منع تغيير الألوان عند الضغط (Visited Links) */
-.article-card a:visited {
-    color: inherit !important;
-}
-/* إلغاء تميز المقال الأول لتوحيد الشكل */
-.featured-article {
-    grid-column: span 1 !important; 
-    grid-row: auto !important;
 }
 
 /* التجاوب مع الشاشات (Mobile & Tablet) */
