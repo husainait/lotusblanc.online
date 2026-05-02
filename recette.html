@@ -284,18 +284,89 @@ nav {
 .contact-link{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.3rem;border:1px solid var(--border);border-radius:50px;font-size:.8rem;color:var(--charcoal);text-decoration:none;background:var(--body-bg);transition:border-color .2s,background .2s}
 .contact-link:hover{border-color:var(--sage);background:var(--sage-light);color:var(--sage-dark)}
 
-/* FOOTER */
-footer{background:var(--charcoal);padding:2.5rem 2rem 1.5rem;margin-top:auto}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:white;display:block;margin-bottom:.4rem}
-.footer-brand p{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.6}
-.footer-col h4{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.8rem}
-.footer-col ul{list-style:none}
-.footer-col li{margin-bottom:.4rem}
-.footer-col a{font-size:.8rem;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
-.footer-col a:hover{color:white}
-.footer-bottom{max-width:1100px;margin:1.2rem auto 0;display:flex;justify-content:space-between;font-size:.7rem;color:rgba(255,255,255,.3)}
+/* FOOTER - النسخة المتوافقة مع الـ Dark Mode */
+footer {
+    background: var(--body-bg); /* غيتبع لون الموقع (أبيض في العادي، غامق في الدارك) */
+    padding: 2.5rem 2rem 1.5rem;
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    transition: background .3s, border-color .3s;
+}
 
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    color: var(--charcoal); /* اللون الأساسي للنصوص عندك */
+    display: block;
+    margin-bottom: .4rem;
+}
+
+.footer-brand p {
+    font-size: .78rem;
+    color: var(--muted); /* اللون الباهت للنصوص */
+    line-height: 1.6;
+}
+
+.footer-col h4 {
+    font-size: .65rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .8rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: .4rem;
+}
+
+.footer-col a {
+    font-size: .8rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.footer-col a:hover {
+    color: var(--sage-dark); /* لون الهوية عند التمرير */
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 1.2rem auto 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: .7rem;
+    color: var(--muted);
+}
+
+/* تعديل للموبايل باش يجي مقاد */
+@media (max-width: 768px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
 /* RESPONSIVE */
 @media(max-width:800px){
   .recipe-hero{grid-template-columns:1fr}
