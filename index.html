@@ -531,6 +531,128 @@ footer {
   .featured-article{grid-column:1}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
 }
+    /* --- زيدي هاد الكود هنا --- */
+.recipe-of-the-day {
+    padding: 0; 
+    background: transparent; 
+    margin-bottom: 3rem;
+}
+
+.featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--body-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.featured-img {
+    position: relative;
+    height: 350px;
+}
+
+.featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--sage-dark);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: .7rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.featured-info {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: inherit; /* باش يتبع اتجاه اللغة */
+}
+
+.featured-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+}
+
+.featured-info p {
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.meta-tags {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.tag {
+    font-size: .75rem;
+    color: var(--sage-dark);
+    background: rgba(192, 114, 154, 0.1);
+    padding: 6px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-featured {
+    display: inline-block;
+    padding: 14px 35px;
+    background: var(--charcoal);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: .9rem;
+    width: fit-content;
+    transition: background .3s;
+}
+
+.btn-featured:hover {
+    background: var(--sage-dark);
+}
+
+/* التنسيق للموبايل */
+@media (max-width: 768px) {
+    .featured-card {
+        grid-template-columns: 1fr;
+    }
+    .featured-img {
+        height: 250px;
+    }
+    .featured-info {
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+    .meta-tags, .btn-featured {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+/* --- نهاية الكود الجديد --- */
 </style>
 </head>
 <body>
@@ -668,24 +790,54 @@ function toggleTheme() {
   var ti = document.getElementById('toggle-icon');
   if (ti) ti.textContent = isDark ? '🌙' : '☀️';
   localStorage.setItem('lb-theme', isDark ? 'light' : 'dark');
-}
-function setLang(lang) {
+}function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('lb-lang', lang);
+
+  // تحديث حالة أزرار اللغة
   document.querySelectorAll('.lang-btn').forEach(function(btn) {
     var map = {fr:'FR', ar:'ع', en:'EN'};
     btn.classList.toggle('active', btn.textContent.trim() === map[lang]);
   });
+
+  // تحديد اتجاه الصفحة (RTL للعربية و LTR للآخرين)
   document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+  // تغيير النصوص العادية والـ placeholders
   document.querySelectorAll('[data-fr]').forEach(function(el) {
     var val = el.getAttribute('data-' + lang) || el.getAttribute('data-fr');
     if (!val) return;
     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
     else el.textContent = val;
   });
+
   document.querySelectorAll('[data-placeholder-fr]').forEach(function(el) {
     el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-fr');
   });
+
+  // --- التعديلات الجديدة الخاصة بـ "وصفة اليوم" ---
+  const featuredInfo = document.querySelector('.featured-info');
+  const metaTags = document.querySelector('.meta-tags');
+  const featuredCard = document.querySelector('.featured-card');
+  const btnFeatured = document.querySelector('.btn-featured');
+
+  if (featuredInfo && metaTags && featuredCard) {
+      // تعديل محاذاة النص
+      featuredInfo.style.textAlign = (lang === 'ar') ? 'right' : 'left';
+      
+      // تعديل ترتيب العناصر (الأيقونات والزر)
+      metaTags.style.justifyContent = (lang === 'ar') ? 'flex-start' : 'flex-end';
+      
+      if (btnFeatured) {
+          btnFeatured.style.marginLeft = (lang === 'ar') ? 'auto' : '0';
+          btnFeatured.style.marginRight = (lang === 'ar') ? '0' : 'auto';
+      }
+
+      // قلب الكارطونة (التصويرة تولي على اليمين في العربية)
+      featuredCard.style.direction = (lang === 'ar') ? 'rtl' : 'ltr';
+  }
+  // --- نهاية التعديلات الجديدة ---
+
   if (typeof onLangChange === 'function') onLangChange(lang);
 }
 function toggleMenu() {
