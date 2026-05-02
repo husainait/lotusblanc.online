@@ -256,38 +256,44 @@ nav {
 
 /* الترتيب ديال الموبايل */
 @media(max-width:960px) {
-    /* 1. إخفاء القائمة العادية */
-    .nav-links { 
-        display: none !important; 
-    }
+    /* إخفاء القائمة العادية */
+    .nav-links { display: none !important; }
 
-    /* 2. تنظيم الغلاف الأيمن */
+    /* إظهار غلاف اليمين */
     .header-right {
         display: flex !important;
         align-items: center;
-        gap: 12px; /* مسافة واضحة بين اللغات والمنيو */
-        margin-left: auto; /* كيدفع كلشي لليمن */
-        padding-right: 20px; /* هادي هي اللي غتخلي المنيو يبان كامل ومكحوز لداخل */
-        flex-direction: row !important; /* كيضمن الترتيب العادي */
+        gap: 15px;
+        margin-left: auto;
+        padding-right: 20px; /* كيدفع المنيو لداخل شوية */
     }
 
-    /* 3. إظهار المنيو (الهمبرغر) */
+    /* إجبار الهمبرغر على الظهور */
     .hamburger {
-        display: flex !important; /* ضروري باش يرجع يبان */
+        display: flex !important; /* إظهار */
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 30px; /* عرض محدد باش ما يهربش */
-        height: 30px;
-        order: 2; /* كيكون هو الأخير في اليمين */
+        gap: 4px;
         cursor: pointer;
+        z-index: 1000;
+        width: 25px; /* عرض واضح */
+        order: 2;
     }
 
-    /* 4. إظهار اللغات */
+    /* تأكدي أن الشرطات لداخل عندهم لون وحجم */
+    .hamburger span {
+        display: block !important;
+        width: 22px;
+        height: 2px;
+        background-color: var(--charcoal) !important; /* اللون اللي دايرة للموقع */
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    /* إظهار اللغات */
     .lang-switcher {
         display: flex !important;
-        order: 1; /* كتكون قبل المنيو */
-        transform: scale(0.9); /* تصغير خفيف باش يقد المكان */
+        order: 1;
+        transform: scale(0.9);
     }
 }
 /* GENERAL */
