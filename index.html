@@ -522,18 +522,39 @@ footer{background:var(--charcoal);padding:2.5rem 2rem 1.5rem;margin-top:auto}
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand"><span class="footer-brand-name">LotusBlanc</span><p data-fr="Des recettes authentiques transmises avec passion." data-ar="وصفات أصيلة تنقل بشغف." data-en="Authentic recipes shared with passion.">Des recettes authentiques transmises avec passion.</p></div>
-    <div class="footer-col"><h4 data-fr="Catégories" data-ar="الفئات" data-en="Categories">Catégories</h4><ul>
-      <li><a href="salades.html">Salades</a></li><li><a href="soupes.html">Soupes</a></li>
-      <li><a href="plats-marocains.html">Plats marocains</a></li><li><a href="patisserie.html">Pâtisserie</a></li><li><a href="desserts.html">Desserts</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:lotusblanc.contact@gmail.com">lotusblanc.contact@gmail.com</a></li><li><a href="about.html">À propos</a></li><li><a href="privacy.html" data-fr="Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">Confidentialité</a></li><li><a href="terms.html" data-fr="Conditions" data-ar="شروط الاستخدام" data-en="Terms">Conditions</a></li></ul></div>
+    <div class="footer-brand">
+        <span class="footer-brand-name">LotusBlanc</span>
+        <p class="lang" data-fr="Des recettes authentiques transmises avec passion." data-ar="وصفات أصيلة تنقل بشغف." data-en="Authentic recipes shared with passion.">Des recettes authentiques transmises avec passion.</p>
+    </div>
+    
+    <div class="footer-col">
+        <h4 class="lang" data-fr="Catégories" data-ar="الفئات" data-en="Categories">Catégories</h4>
+        <ul>
+          <li><a href="salades.html" class="lang" data-fr="Salades" data-ar="سلطات" data-en="Salads">Salades</a></li>
+          <li><a href="soupes.html" class="lang" data-fr="Soupes" data-ar="شوربات" data-en="Soups">Soupes</a></li>
+          <li><a href="plats-marocains.html" class="lang" data-fr="Plats marocains" data-ar="أطباق مغربية" data-en="Moroccan Dishes">Plats marocains</a></li>
+          <li><a href="patisserie.html" class="lang" data-fr="Pâtisserie" data-ar="حلويات" data-en="Pastry">Pâtisserie</a></li>
+          <li><a href="desserts.html" class="lang" data-fr="Desserts" data-ar="تحلية" data-en="Desserts">Desserts</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-col">
+        <h4 class="lang" data-fr="Contact" data-ar="اتصال" data-en="Contact">Contact</h4>
+        <ul>
+            <li><a href="mailto:lotusblanc.contact@gmail.com">lotusblanc.contact@gmail.com</a></li>
+            <li><a href="about.html" class="lang" data-fr="À propos" data-ar="من نحن" data-en="About Us">À propos</a></li>
+            <li><a href="privacy.html" class="lang" data-fr="Confidentialité" data-ar="سياسة الخصوصية" data-en="Privacy Policy">Confidentialité</a></li>
+            <li><a href="terms.html" class="lang" data-fr="Conditions" data-ar="شروط الاستخدام" data-en="Terms">Conditions</a></li>
+        </ul>
+    </div>
   </div>
- <div class="footer-bottom">
-  <p>© 2026 lotusblanc.online • <a href="privacy.html" style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
-  <p data-fr="Fait avec ❤️ au Maroc" data-ar="صنع بـ ❤️ في المغرب" data-en="Made with ❤️ in Morocco">Fait avec ❤️ au Maroc</p>
-</div></footer>
-<script>
+
+  <div class="footer-bottom">
+    <p>© 2026 lotusblanc.online • <a href="privacy.html" class="lang" data-fr="Privacy Policy" data-ar="سياسة الخصوصية" data-en="Privacy Policy" style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+    <p class="lang" data-fr="Fait avec ❤️ au Maroc" data-ar="صنع بـ ❤️ في المغرب" data-en="Made with ❤️ in Morocco">Fait avec ❤️ au Maroc</p>
+  </div>
+</footer>
+  <script>
 
 var currentLang = localStorage.getItem('lb-lang') || 'fr';
 function toggleTheme() {
