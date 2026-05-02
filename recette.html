@@ -415,7 +415,16 @@ function renderRecipe(data) {
           '<div class="stat"><span class="stat-val">' + (a.portions||4) + '</span><span class="stat-label">' + t('pers') + '</span></div>' +
           '<div class="stat"><span class="stat-val">' + (a.difficulte||'●○○') + '</span><span class="stat-label">' + t('diff') + '</span></div>' +
         '</div>' +
-  
+    // --- زيدي هاد الأسطر هنا بالظبط ---
+        '<div class="share-recipe-internal" style="display:flex; gap:12px; margin:15px 0;">' +
+          '<button onclick="shareOnWhatsApp()" style="background:#25D366; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
+            '<i class="fab fa-whatsapp"></i> WhatsApp' +
+          '</button>' +
+          '<button onclick="shareOnFacebook()" style="background:#1877F2; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
+            '<i class="fab fa-facebook-f"></i> Facebook' +
+          '</button>' +
+        '</div>' +
+        // --------------------------------
       '</div>' +
     '</div>' +
     '<div class="recipe-body">' +
@@ -427,16 +436,6 @@ function renderRecipe(data) {
         '<div class="steps-title">' + t('steps') + '</div>' +
         etapes.map(function(e,i){ return '<div class="step"><div class="step-num">'+(i+1)+'</div><p class="step-text">'+e+'</p></div>'; }).join('') +
       '</div>' +
-      // --- زيدي هاد الأسطر هنا بالظبط ---
-        '<div class="share-recipe-internal" style="display:flex; gap:12px; margin:15px 0;">' +
-          '<button onclick="shareOnWhatsApp()" style="background:#25D366; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
-            '<i class="fab fa-whatsapp"></i> WhatsApp' +
-          '</button>' +
-          '<button onclick="shareOnFacebook()" style="background:#1877F2; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
-            '<i class="fab fa-facebook-f"></i> Facebook' +
-          '</button>' +
-        '</div>' +
-        // --------------------------------
     '</div>' +
     '</div>';
 }
