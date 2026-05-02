@@ -99,22 +99,7 @@
     --body-bg: #1A1520;
     --toggle-bg: #3A2545;
 }
-/* هادا CSS كيتحط وسط الـ style */
-.fav-link {
-    text-decoration: none;
-    color: var(--sage); /* اللون اللي خدامة بيه */
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 10px;
-    transition: 0.3s;
-}
 
-.fav-link:hover {
-    opacity: 0.7;
-    transform: scale(1.05);
-}
 html { scroll-behavior: smooth; }
 
 /* نصيحة للـ Performance: حيدي !important من كاع البلايص اللي ماشي ضرورية */
@@ -661,26 +646,7 @@ function onLangChange() {
         }
     }
 }
-function saveFavorite(title) {
-    // 1. كنجيبو القائمة القديمة من الذاكرة (إيلا كانت)
-    let favorites = JSON.parse(localStorage.getItem('myFavorites')) || [];
 
-    // 2. كنأكدو واش الوصفة ديجا كاينة باش ما نعاودوهاش
-    if (!favorites.find(fav => fav.title === title)) {
-        favorites.push({
-            title: title,
-            url: window.location.href,
-            date: new Date().toLocaleDateString()
-        });
-        
-        // 3. كنحفظو القائمة الجديدة
-        localStorage.setItem('myFavorites', JSON.stringify(favorites));
-        
-        alert("❤️ تم حفظ '" + title + "' في مفضلتك الخاصة داخل الموقع!");
-    } else {
-        alert("هذه الوصفة موجودة بالفعل في مفضلتك.");
-    }
-}
 </script>
 
 <!-- الزر كيكون هو اللخر قبل ما نسدو الـ body -->
