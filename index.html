@@ -188,8 +188,12 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
 .nav-links{display:flex;gap:0;list-style:none;flex:1;justify-content:center;flex-wrap:nowrap}
 .nav-links li a{font-size:.68rem;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.32rem .55rem;border-radius:6px;white-space:nowrap;display:block;transition:color .2s,background .2s}
 .nav-links li a:hover,.nav-links li a.active-nav{color:var(--sage-dark);background:var(--sage-light)}
-.header-right{display:flex;align-items:center;gap:.4rem;flex-shrink:0}
-.lang-switcher{display:flex;align-items:center;gap:2px;background:var(--toggle-bg);border-radius:50px;padding:3px;flex-shrink:0}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* مسافة بين اللغات والمنيو */
+    flex-direction: row-reverse; /* باش المنيو يجي هو اللخر في اليمين */
+}.lang-switcher{display:flex;align-items:center;gap:2px;background:var(--toggle-bg);border-radius:50px;padding:3px;flex-shrink:0}
 .lang-btn{font-size:.66rem;font-weight:500;padding:.22rem .55rem;border-radius:50px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-family:'Jost',sans-serif;transition:background .2s,color .2s}
 .lang-btn.active{background:var(--card-bg);color:var(--charcoal);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .dark-btn{background:none;border:none;cursor:pointer;font-size:.85rem;line-height:1;padding:.2rem;flex-shrink:0}
@@ -221,7 +225,10 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
         display: flex; 
         margin-left: auto; /* هادي هي اللي غتكحزو لليمن بمرة */
     }
-}@media(max-width:480px){.lang-switcher{display:none}}
+}@media(max-width:480px){..lang-switcher { 
+        display: flex !important; 
+    }
+}
 
 /* GENERAL */
 .page-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
