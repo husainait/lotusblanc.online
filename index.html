@@ -256,24 +256,37 @@ nav {
 
 /* الترتيب ديال الموبايل */
 @media(max-width:960px) {
-    .nav-links { display: none; }
-    
-    .hamburger { 
-        display: flex; 
-        /* هاد السطر هو اللي غيكحزو لداخل بلا ما يخبيه */
-        margin-left: auto; 
-        margin-right: 15px; 
+    /* 1. تصغير اللوغو باش نخليو البلاصة */
+    .logo-text {
+        font-size: 1rem !important; /* نقصناه من 1.25 لـ 1.0 */
+    }
+    .logo-img {
+        width: 30px !important; /* صغرنا الصورة شوية */
+        height: 30px !important;
     }
 
-    /* هادا باش نتأكدو أن اللغات غيبقاو باينين في بلاصتهم */
+    /* 2. إخفاء الروابط القديمة */
+    .nav-links { display: none !important; }
+
+    /* 3. جمع اللغات والمنيو في اليمين بلا زحام */
+    .header-right {
+        display: flex !important;
+        align-items: center;
+        gap: 5px; /* مسافة صغيرة بزاف */
+        margin-left: auto;
+        padding-right: 10px; /* باش ما يخرجش المنيو لبرة */
+    }
+
+    /* 4. إظهار اللغات والمنيو */
     .lang-switcher { 
-        display: flex !important; /* غادي يرجع يتخبا في الموبايل كيف كان عندك في الأول */
+        display: flex !important; 
+        transform: scale(0.8); /* تصغير أزرار اللغات */
     }
-}
 
-/* إيلا بغيتي اللغات يبقاو باينين، ردي هادي display: flex */
-@media(max-width:480px) {
-    .lang-switcher { display: flex !important; }
+    .hamburger { 
+        display: flex !important; 
+        margin-left: 2px;
+    }
 }
 /* GENERAL */
 .page-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
