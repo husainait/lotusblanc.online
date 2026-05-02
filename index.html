@@ -14,7 +14,14 @@
   <meta property="og:image" content="photos/logo.png"/> <meta property="og:url" content="https://lotusblanc.online/"/>
 
   <style>
-
+/* زيدي هاد الجزء هنا في الأول كاع */
+        html, body {
+            overflow-x: hidden; 
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
     /* 2. كود الـ Scrollbar (زيدي هاد الجزء هنا) */
@@ -180,9 +187,26 @@ body {
 }
 
 /* HEADER */
-header{background:var(--header-bg);border-bottom:1px solid var(--border);padding:0 1.2rem;position:sticky;top:0;z-index:200;transition:background .3s}
-nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;gap:.8rem;justify-content: space-between;}
-.logo-wrap{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;margin-right:.5rem}
+header {
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1rem; /* نقصنا شوية من الجناب */
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    transition: background .3s;
+    width: 100%; /* ضروري باش يعرف قياس الشاشة */
+    box-sizing: border-box; /* باش الـ padding ما يخرجش الهيدر لبرة */
+}
+
+nav {
+    max-width: 100%; /* بدلي 1400px لـ 100% في الموبايل */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 62px;
+    justify-content: space-between;
+}.logo-wrap{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;margin-right:.5rem}
 .logo-img{width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0}
 .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;background:linear-gradient(90deg,#A0446F,#4A7FB5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap}
 
@@ -234,11 +258,22 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
 @media(max-width:960px) {
     .nav-links { display: none !important; }
     
-    /* هادي هي اللي كانت ناقصة باش يبان المنيو */
-    .hamburger { display: flex !important; order: 2; margin-left: 5px; }
+    .header-right {
+        margin-left: 0; /* حيدي auto هنا باش ما يدفعش لبرة الشاشة */
+        gap: 4px; /* نقصي المسافة بين اللغات والمنيو */
+    }
+
+    .hamburger { 
+        display: flex !important; 
+        order: 2; 
+        margin-left: 0; /* حيدي هاد 5px إيلا كان كيهرب لليمن */
+    }
     
-    .header-right { flex-direction: row; }
-    .lang-switcher { order: 1; display: flex !important; }
+    .lang-switcher { 
+        order: 1; 
+        display: flex !important;
+        transform: scale(0.85); /* صغري اللغات شوية باش يقدنا العرض */
+    }
 }
 /* GENERAL */
 .page-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
