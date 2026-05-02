@@ -181,7 +181,7 @@ body {
 
 /* HEADER */
 header{background:var(--header-bg);border-bottom:1px solid var(--border);padding:0 1.2rem;position:sticky;top:0;z-index:200;transition:background .3s}
-nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;gap:.8rem}
+nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;gap:.8rem;justify-content: space-between;}
 .logo-wrap{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;margin-right:.5rem}
 .logo-img{width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0}
 .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;background:linear-gradient(90deg,#A0446F,#4A7FB5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap}
@@ -203,13 +203,25 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 .mobile-menu{display:none;flex-direction:column;background:var(--header-bg);border-top:1px solid var(--border);padding:.4rem 1.2rem .8rem;transition:background .3s}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.65rem 0;border-bottom:1px solid var(--border);transition:color .2s;
-    text-align: right;}
-.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a {
+    font-size: .8rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: .65rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color .2s;
+    text-align: right; /* زيدي هاد السطر باش تولي الكتابة فليمن */
+}.mobile-menu a:last-child{border-bottom:none}
 .mobile-menu a:hover{color:var(--charcoal)}
-@media(max-width:960px){.nav-links { display: none; flex: 0; }.hamburger{display: flex; 
-        margin-left: auto;}}
-@media(max-width:480px){.lang-switcher{display:none}}
+@media(max-width:960px) {
+    .nav-links { display: none; flex: 0; } /* زيدي flex: 0 هنا */
+    .hamburger { 
+        display: flex; 
+        margin-left: auto; /* هادي هي اللي غتكحزو لليمن بمرة */
+    }
+}@media(max-width:480px){.lang-switcher{display:none}}
 
 /* GENERAL */
 .page-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
