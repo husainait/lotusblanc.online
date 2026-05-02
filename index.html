@@ -644,11 +644,24 @@ function onLangChange() {
     }
 }
 function saveFavorite(title) {
-    // هاد الرسالة كطلع للمستخدم باش تعلمو بلي الوصفة سجلناها
-    alert("تمت إضافة " + title + " إلى قائمة اهتماماتك! \n\n نصيحة: ضغط على Ctrl+D باش تحفظ هاد الصفحة في المتصفح ديالك.");
-    
-    // إيلا بغيتي تطوريها من بعد، تقدري تستعملي LocalStorage باش تحفظيهم بالصح
-    console.log("Favorite added: " + title);
+    // 1. كنجيبو القائمة القديمة من الذاكرة (إيلا كانت)
+    let favorites = JSON.parse(localStorage.getItem('myFavorites')) || [];
+
+    // 2. كنأكدو واش الوصفة ديجا كاينة باش ما نعاودوهاش
+    if (!favorites.find(fav => fav.title === title)) {
+        favorites.push({
+            title: title,
+            url: window.location.href,
+            date: new Date().toLocaleDateString()
+        });
+        
+        // 3. كنحفظو القائمة الجديدة
+        localStorage.setItem('myFavorites', JSON.stringify(favorites));
+        
+        alert("❤️ تم حفظ '" + title + "' في مفضلتك الخاصة داخل الموقع!");
+    } else {
+        alert("هذه الوصفة موجودة بالفعل في مفضلتك.");
+    }
 }
 </script>
 
