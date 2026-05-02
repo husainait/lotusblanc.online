@@ -30,7 +30,35 @@
 [data-theme="dark"]{--cream:#1A1520;--warm-white:#221828;--card-bg:#221828;--sage:#C0729A;--sage-light:#4A1F35;--sage-dark:#E090B8;--gold:#6A9FD5;--gold-light:#1A3550;--charcoal:#F5EEF8;--muted:#B09AB8;--border:rgba(245,238,248,0.10);--header-bg:#160F1C;--body-bg:#1A1520;--toggle-bg:#3A2545;}
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;background:var(--body-bg);color:var(--charcoal);min-height:100vh;transition:background .3s,color .3s}
+.share-recipe-internal {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0;
+}
 
+.btn-share {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s ease;
+}
+
+.wa { background-color: #25D366; }
+.fb { background-color: #1877F2; }
+
+.btn-share:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 0.9;
+}
 /* HEADER */
 header{background:var(--header-bg);border-bottom:1px solid var(--border);padding:0 1.2rem;position:sticky;top:0;z-index:200;transition:background .3s}
 nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;gap:.8rem}
@@ -380,6 +408,16 @@ function renderRecipe(data) {
         '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
         '<h1>' + titre + '</h1>' +
         '<p>' + desc + '</p>' +
+    // --- زيدي هاد الأسطر هنا بالظبط ---
+        '<div class="share-recipe-internal" style="display:flex; gap:12px; margin:15px 0;">' +
+          '<button onclick="shareOnWhatsApp()" style="background:#25D366; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
+            '<i class="fab fa-whatsapp"></i> WhatsApp' +
+          '</button>' +
+          '<button onclick="shareOnFacebook()" style="background:#1877F2; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
+            '<i class="fab fa-facebook-f"></i> Facebook' +
+          '</button>' +
+        '</div>' +
+        // --------------------------------
         '<div class="recipe-stats">' +
           '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
           '<div class="stat"><span class="stat-val">0</span><span class="stat-label">' + t('cook') + '</span></div>' +
@@ -420,9 +458,23 @@ window.addEventListener('DOMContentLoaded', function() {
   <!-- الزر كيكون هو اللخر قبل ما نسدو الـ body -->
     <button id="backToTop" title="العودة للأعلى">↑</button>
 
-    <!-- السكربت ضروري يكون هو آخر حاجة -->
+<!-- السكربت ضروري يكون هو آخر حاجة -->
     <script src="script.js"></script>
-  
- 
+
+    <script>
+        // هاد الدالات كنزيدوهم هنا باش يخدمو أزرار المشاركة
+        function shareOnWhatsApp() {
+            const url = window.location.href;
+            // كنحاولوا نجيبو عنوان الوصفة من الصفحة
+            const title = document.getElementById('recipe-title') ? document.getElementById('recipe-title').innerText : document.title;
+            const text = encodeURIComponent("شوف هاد الوصفة من Lotus Blanc: " + title);
+            window.open("https://api.whatsapp.com/send?text=" + text + " " + url, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const url = window.location.href;
+            window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, '_blank');
+        }
+    </script>
 </body>
 </html>
