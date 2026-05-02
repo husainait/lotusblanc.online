@@ -535,7 +535,14 @@ footer {
 .recipe-of-the-day {
     padding: 0; 
     background: transparent; 
-    margin-bottom: 3rem;
+    margin-bottom: 5rem; /* زدت المسافة لـ 5rem باش تبعد على الـ Grid */
+    text-align: center; /* باش العنوان يجي في الوسط */
+}
+
+.recipe-of-the-day .section-title {
+    margin-bottom: 2rem; /* مسافة بين العنوان والكارطونة */
+    display: block;
+    width: 100%;
 }
 
 .featured-card {
@@ -546,9 +553,10 @@ footer {
     border-radius: 20px;
     overflow: hidden;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto; /* هذا هو اللي كيخلي الكارطونة تجي في الوسط */
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: transform .3s ease, box-shadow .3s ease;
+    text-align: initial; /* كيرجع النص لداخل الكارطونة يتبع اتجاه اللغة */
 }
 
 .featured-card:hover {
@@ -695,7 +703,7 @@ footer {
 </section>
 
   <section class="recipe-of-the-day">
-    <div class="container">
+    <div class="container" style="max-width:1100px; margin:0 auto;">
         <h2 class="section-title lang" data-fr="Recette du Jour" data-ar="وصفة اليوم" data-en="Recipe of the Day">Recette du Jour</h2>
         <div class="featured-card">
             <div class="featured-img">
