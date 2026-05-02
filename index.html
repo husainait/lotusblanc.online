@@ -191,9 +191,11 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
 .header-right {
     display: flex;
     align-items: center;
-    gap: 10px; /* مسافة بين اللغات والمنيو */
-    flex-direction: row-reverse; /* باش المنيو يجي هو اللخر في اليمين */
-}.lang-switcher{display:flex;align-items:center;gap:2px;background:var(--toggle-bg);border-radius:50px;padding:3px;flex-shrink:0}
+    gap: 8px; /* المسافة بين اللغات والمنيو */
+    flex-shrink: 0;
+    margin-left: auto; /* هذا كيدفع الغلاف كامل لليمين */
+}
+    .lang-switcher{display:flex;align-items:center;gap:2px;background:var(--toggle-bg);border-radius:50px;padding:3px;flex-shrink:0}
 .lang-btn{font-size:.66rem;font-weight:500;padding:.22rem .55rem;border-radius:50px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-family:'Jost',sans-serif;transition:background .2s,color .2s}
 .lang-btn.active{background:var(--card-bg);color:var(--charcoal);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .dark-btn{background:none;border:none;cursor:pointer;font-size:.85rem;line-height:1;padding:.2rem;flex-shrink:0}
@@ -219,17 +221,27 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
     text-align: right; /* زيدي هاد السطر باش تولي الكتابة فليمن */
 }.mobile-menu a:last-child{border-bottom:none}
 .mobile-menu a:hover{color:var(--charcoal)}
+/* 2. ترتيب العناصر داخل الغلاف */
 @media(max-width:960px) {
-    .nav-links { display: none; flex: 0; } /* زيدي flex: 0 هنا */
-    .hamburger { 
-        display: flex; 
-        margin-left: auto; /* هادي هي اللي غتكحزو لليمن بمرة */
+    .header-right {
+        /* هاد السطر كيخلي المنيو يجي هو اللخر فليمن واللغات قبل منو */
+        flex-direction: row; 
     }
-}@media(max-width:480px){..lang-switcher { 
-        display: flex !important; 
+
+    .hamburger {
+        order: 2; /* كيعطي الأولوية للمنيو باش يكون هو الأخير */
+        margin-left: 5px;
+    }
+
+    .lang-switcher {
+        order: 1; /* كيحط اللغات قبل المنيو */
+        display: flex !important;
+    }
+    
+    .nav-links {
+        display: none !important;
     }
 }
-
 /* GENERAL */
 .page-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
 .breadcrumb{font-size:.75rem;color:var(--muted);margin-bottom:1.5rem}
