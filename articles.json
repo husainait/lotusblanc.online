@@ -215,7 +215,7 @@
   {
     "id": "foret-noire-classique",
     "titre_fr": "Forêt Noire Classique",
-    "titre_ar": "حلوى الغابة السوداء الكلاسيكية",
+    "titre_ar": " فوري نوار  الكلاسيكية",
     "titre_en": "Classic Black Forest Cake",
     "desc_fr": "Un gâteau de fête raffiné alliant chocolat intense, chantilly légère et cerises.",
     "desc_ar": "حلوى فاخرة للمناسبات تجمع بين طعم الشكولاتة القوي، الكريمة المخفوقة وحب الملوك.",
@@ -226,7 +226,7 @@
     "photo": "photos/foretnoir.webp",
     "cat_ar": "حلويات",
     "cat_en": "Pastry",
-    "date": "2026-04-28",
+    "date": "2026-03-28",
     "ingredients_fr": [
       "3 carrés de génoise au chocolat (20x20)",
       "20cl de crème fraîche",
