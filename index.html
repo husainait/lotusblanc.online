@@ -340,8 +340,17 @@ nav {
 }.cat-name{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
 
     /* HERO */
-.hero{background:var(--warm-white);padding:4rem 2rem 3.5rem;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s}
-.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,#F5D6E6 0%,#C8DDEF 55%,transparent 75%);opacity:.3;pointer-events:none}
+.hero {
+    background: var(--warm-white);
+    /* نقصنا من 4rem لـ 2rem ومن 3.5rem لـ 1.5rem */
+    padding: 2rem 2rem 1.5rem; 
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: background .3s;
+}
+    .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,#F5D6E6 0%,#C8DDEF 55%,transparent 75%);opacity:.3;pointer-events:none}
 .hero-eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:10px}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:var(--sage);opacity:.5}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:300;line-height:1.1;color:var(--charcoal);margin-bottom:1rem}
