@@ -37,7 +37,33 @@
     background: #C0729A; /* لون الـ sage الوردي ملي كنقيسوه */
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+.share-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 5px;
+}
 
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #f4f4f4;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.btn-icon:hover { transform: scale(1.1); }
+.whatsapp-btn { color: #25D366; }
+.facebook-btn { color: #1877F2; }
+.favorite-btn { color: #e74c3c; } /* لون أحمر خفيف للمفضلة */
 :root {
     --cream: #FDF5F8;
     --warm-white: #FFF8FB;
@@ -472,26 +498,27 @@ var catMap = {
   'desserts': {fr:'Dessert', ar:'تحلية', en:'Dessert', icon:'🍮'}
 };
 
-// 1. زدنا index هنا الفوق باش الدالة تعرف ترتيب الارتيكل
 function makeCard(a, featured, index) { 
   var cls = featured ? 'article-card featured-article' : 'article-card';
   var titre = a['titre_' + currentLang] || a.titre_fr;
   var photo = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
   var category = a._cat; 
   
+  // نصوص الأزرار والروابط
+  var url = 'https://lotusblanc.online/recette.html?cat=' + category + '&id=' + a.id;
+  var shareText = encodeURIComponent('شوف هاد الوصفة ديال ' + titre + ' في موقع Lotus Blanc!');
   var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
 
-  // 2. هنا غتحط السطر اللي سألتي عليه
   var loadingStrategy = (index === 0) ? 'eager' : 'lazy';
 
-  var html = '<a class="' + cls + '" href="recette.html?cat=' + category + '&id=' + a.id + '">';
+  // ملاحظة: الأزرار يجب أن تكون خارج وسم الـ <a> لتعمل الروابط بشكل مستقل
+  var html = '<div class="' + cls + '">';
+  html += '<a href="recette.html?cat=' + category + '&id=' + a.id + '" style="text-decoration:none; color:inherit;">';
   html += '<div class="art-img">';
   
-  // 3. هنا غتستعمل الـ variable اللي كريينا عوض كلمة lazy بوحدها
   if (photo) {
-      html += '<img src="' + photo + '" alt="' + titre + '" loading="' + loadingStrategy + '">'; 
-  }
-  else {
+      html += '<img src="' + photo + '" alt="' + titre + '" loading="' + loadingStrategy + '">';
+  } else {
       html += '<div style="font-size:2.5rem;background:var(--sage-light);height:100%;display:flex;align-items:center;justify-content:center">🍲</div>';
   }
   
@@ -499,8 +526,20 @@ function makeCard(a, featured, index) {
   html += '<div class="art-body">';
   html += '<span class="art-cat">' + (a['cat_' + currentLang] || category) + '</span>';
   html += '<h3 class="art-title">' + titre + '</h3>';
+  html += '</a>'; // غلق رابط المقال هنا لتتمكني من الضغط على الأزرار بشكل منفصل
+
+  // --- إضافة أزرار المشاركة والمفضلة هنا ---
+  html += '<div class="share-container" style="display:flex; gap:12px; margin-top:10px;">';
+  html += '<a href="https://api.whatsapp.com/send?text=' + shareText + ' ' + url + '" target="_blank" style="color:#25D366; font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>';
+  html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" style="color:#1877F2; font-size:1.2rem;"><i class="fab fa-facebook-f"></i></a>';
+  html += '<button onclick="saveFavorite(\'' + titre + '\')" style="background:none; border:none; color:#e74c3c; font-size:1.2rem; cursor:pointer; padding:0;"><i class="fas fa-heart"></i></button>';
+  html += '</div>';
+
+  html += '<a href="recette.html?cat=' + category + '&id=' + a.id + '" style="text-decoration:none; color:inherit;">';
   html += '<span class="art-lire">' + (lire[currentLang] || 'Lire →') + '</span>';
   html += '</div></a>';
+  html += '</div>'; // غلق الـ article-card
+  
   return html;
 }
 
