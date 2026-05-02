@@ -203,10 +203,12 @@ nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:62px;g
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 .mobile-menu{display:none;flex-direction:column;background:var(--header-bg);border-top:1px solid var(--border);padding:.4rem 1.2rem .8rem;transition:background .3s}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.65rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-menu a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.65rem 0;border-bottom:1px solid var(--border);transition:color .2s;
+    text-align: right;}
 .mobile-menu a:last-child{border-bottom:none}
 .mobile-menu a:hover{color:var(--charcoal)}
-@media(max-width:960px){.nav-links{display:none}.hamburger{display:flex}}
+@media(max-width:960px){.nav-links { display: none; flex: 0; }.hamburger{display: flex; 
+        margin-left: auto;}}
 @media(max-width:480px){.lang-switcher{display:none}}
 
 /* GENERAL */
