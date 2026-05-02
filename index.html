@@ -256,44 +256,42 @@ nav {
 
 /* الترتيب ديال الموبايل */
 @media(max-width:960px) {
-    /* إخفاء القائمة العادية */
     .nav-links { display: none !important; }
 
-    /* إظهار غلاف اليمين */
     .header-right {
         display: flex !important;
         align-items: center;
-        gap: 15px;
+        gap: 12px;
         margin-left: auto;
-        padding-right: 20px; /* كيدفع المنيو لداخل شوية */
+        padding-right: 25px; /* كيدفع المنيو لليسار باش يبان كامل */
     }
 
-    /* إجبار الهمبرغر على الظهور */
     .hamburger {
-        display: flex !important; /* إظهار */
+        display: flex !important;
         flex-direction: column;
-        gap: 4px;
+        justify-content: space-between;
+        width: 24px; /* عرض محدد */
+        height: 18px; /* طول محدد */
+        background: transparent;
+        border: none;
         cursor: pointer;
-        z-index: 1000;
-        width: 25px; /* عرض واضح */
+        padding: 0;
         order: 2;
+        z-index: 999;
     }
 
-    /* تأكدي أن الشرطات لداخل عندهم لون وحجم */
+    /* هاد الجزء هو اللي كيصبغ الشرطات */
     .hamburger span {
         display: block !important;
-        width: 22px;
-        height: 2px;
-        background-color: var(--charcoal) !important; /* اللون اللي دايرة للموقع */
+        width: 100% !important;
+        height: 2px !important;
+        background-color: #A0446F !important; /* لون وردي غامق باش يبان ليك مزيان دابا */
         border-radius: 2px;
-        transition: 0.3s;
     }
 
-    /* إظهار اللغات */
     .lang-switcher {
         display: flex !important;
         order: 1;
-        transform: scale(0.9);
     }
 }
 /* GENERAL */
