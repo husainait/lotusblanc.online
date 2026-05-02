@@ -408,16 +408,7 @@ function renderRecipe(data) {
         '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
         '<h1>' + titre + '</h1>' +
         '<p>' + desc + '</p>' +
-    // --- زيدي هاد الأسطر هنا بالظبط ---
-        '<div class="share-recipe-internal" style="display:flex; gap:12px; margin:15px 0;">' +
-          '<button onclick="shareOnWhatsApp()" style="background:#25D366; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
-            '<i class="fab fa-whatsapp"></i> WhatsApp' +
-          '</button>' +
-          '<button onclick="shareOnFacebook()" style="background:#1877F2; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
-            '<i class="fab fa-facebook-f"></i> Facebook' +
-          '</button>' +
-        '</div>' +
-        // --------------------------------
+  
         '<div class="recipe-stats">' +
           '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
           '<div class="stat"><span class="stat-val">0</span><span class="stat-label">' + t('cook') + '</span></div>' +
@@ -436,6 +427,16 @@ function renderRecipe(data) {
         '<div class="steps-title">' + t('steps') + '</div>' +
         etapes.map(function(e,i){ return '<div class="step"><div class="step-num">'+(i+1)+'</div><p class="step-text">'+e+'</p></div>'; }).join('') +
       '</div>' +
+      // --- زيدي هاد الأسطر هنا بالظبط ---
+        '<div class="share-recipe-internal" style="display:flex; gap:12px; margin:15px 0;">' +
+          '<button onclick="shareOnWhatsApp()" style="background:#25D366; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
+            '<i class="fab fa-whatsapp"></i> WhatsApp' +
+          '</button>' +
+          '<button onclick="shareOnFacebook()" style="background:#1877F2; color:white; border:none; padding:8px 15px; border-radius:50px; cursor:pointer; display:flex; align-items:center; gap:8px; font-family:\'Jost\',sans-serif;">' +
+            '<i class="fab fa-facebook-f"></i> Facebook' +
+          '</button>' +
+        '</div>' +
+        // --------------------------------
     '</div>' +
     '</div>';
 }
