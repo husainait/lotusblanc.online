@@ -256,31 +256,38 @@ nav {
 
 /* الترتيب ديال الموبايل */
 @media(max-width:960px) {
+    /* 1. إخفاء القائمة العادية */
     .nav-links { 
         display: none !important; 
     }
-    
+
+    /* 2. تنظيم الغلاف الأيمن */
     .header-right {
-        display: flex;
+        display: flex !important;
         align-items: center;
-        gap: 8px;
-        /* زيدي هاد الـ padding باش يبعد المنيو على الحافة ديال الشاشة */
-        padding-right: 15px; 
-        margin-left: auto;
+        gap: 12px; /* مسافة واضحة بين اللغات والمنيو */
+        margin-left: auto; /* كيدفع كلشي لليمن */
+        padding-right: 20px; /* هادي هي اللي غتخلي المنيو يبان كامل ومكحوز لداخل */
+        flex-direction: row !important; /* كيضمن الترتيب العادي */
     }
 
-    .hamburger { 
-        display: flex !important; 
-        order: 2; 
-        /* تأكدي أن الـ margin-left هنا 0 أو صغير */
-        margin-left: 0; 
-        padding: 8px; /* كيعطي مساحة للأصبع باش يورك ومكيبقاش مقطوع */
+    /* 3. إظهار المنيو (الهمبرغر) */
+    .hamburger {
+        display: flex !important; /* ضروري باش يرجع يبان */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px; /* عرض محدد باش ما يهربش */
+        height: 30px;
+        order: 2; /* كيكون هو الأخير في اليمين */
+        cursor: pointer;
     }
-    
-    .lang-switcher { 
-        order: 1; 
+
+    /* 4. إظهار اللغات */
+    .lang-switcher {
         display: flex !important;
-        transform: scale(0.9);
+        order: 1; /* كتكون قبل المنيو */
+        transform: scale(0.9); /* تصغير خفيف باش يقد المكان */
     }
 }
 /* GENERAL */
