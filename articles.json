@@ -284,81 +284,8 @@
       "Place the 2nd sponge, soak, add whipped cream and cherries.",
       "Top with the 3rd sponge, cover with whipped cream and decorate with grated chocolate. Refrigerate."
     ]
-  },
-    {
-    "id": "charlotte-fraises-royale",
-    "titre_fr": "Charlotte aux Fraises Royale",
-    "titre_ar": "شارلوط الفراولة الملكية",
-    "titre_en": "Royal Strawberry Charlotte",
-    "desc_fr": "Un dessert frais et élégant composé de biscuits à la cuillère, d'une mousse onctueuse au fromage blanc et de fraises fraîches.",
-    "desc_ar": "حلوى منعشة وأنيقة تتكون من بسكويت الملعقة، موس الجبن الأبيض الناعم والفراولة الطازجة.",
-    "desc_en": "A fresh and elegant dessert featuring ladyfingers, a creamy fromage blanc mousse, and fresh strawberries.",
-    "temps": "40 min",
-    "portions": 6,
-    "difficulte": "●●○",
-    "photo": "photos/charlotte.webp",
-    "cat_ar": "حلويات",
-    "cat_en": "Pastry",
-    "date": "2026-05-01",
-    "ingredients_fr": [
-      "Biscuits à la cuillère (Boudoirs)",
-      "12cl de lait",
-      "150g de sucre glace",
-      "2 sachets de sucre vanillé",
-      "250g de fraises",
-      "5 feuilles de gélatine",
-      "300g de fromage blanc",
-      "12cl de crème fraîche (pour le décor)",
-      "Fraises entières pour la décoration"
+  }
     ],
-    "ingredients_ar": [
-      "بسكويت الملعقة (Boudoirs)",
-      "12 سل حليب",
-      "150 غ سكر ناعم",
-      "2 أكياس سكر فانيلا",
-      "250 غ فراولة",
-      "5 أوراق جيلاتين",
-      "300 غ جبن أبيض",
-      "12 سل قشدة طرية (للتزيين)",
-      "حبات فراولة طازجة للتزيين"
-    ],
-    "ingredients_en": [
-      "Ladyfingers (Boudoirs)",
-      "12cl milk",
-      "150g icing sugar",
-      "2 sachets vanilla sugar",
-      "250g strawberries",
-      "5 gelatin sheets",
-      "300g fromage blanc / cream cheese",
-      "12cl heavy cream (for decoration)",
-      "Fresh strawberries for decoration"
-    ],
-    "etapes_fr": [
-      "Faire ramollir les feuilles de gélatine dans de l'eau froide.",
-      "Mixer les fraises pour obtenir un coulis.",
-      "Battre le fromage blanc avec le sucre glace, la vanille, le lait, le coulis de fraises et la crème.",
-      "Dissoudre la gélatine dans 3 cuillères à soupe d'eau chaude, puis l'ajouter au mélange de fromage.",
-      "Tapisser les parois et le fond d'un moule avec les biscuits. Remplir avec la préparation et placer au réfrigérateur jusqu'à refroidissement complet.",
-      "Monter la crème fraîche en chantilly, décorer le dessus de la charlotte et ajouter des fraises fraîches."
-    ],
-    "etapes_ar": [
-      "توضع أوراق الجيلاتين في الماء البارد حتى تصبح رخوة.",
-      "تطحن الفراولة للحصول على عصير كثيف.",
-      "يخفق الجبن الأبيض مع السكر الناعم، الفانيلا، الحليب، الفراولة والقشدة الطرية.",
-      "تذوب الجيلاتين في 3 ملاعق كبيرة من الماء الساخن وتضاف إلى خليط الجبن.",
-      "يصفف البسكويت في إطار الحلوى (القاع والجوانب) ثم يملأ بالخليط ويدخل للثلاجة حتى يتماسك تماماً.",
-      "تطرب القشدة الطرية حتى تصبح كثيفة (شانتيي) ويزين بها وجه الشارلوط مع حبات الفراولة."
-    ],
-    "etapes_en": [
-      "Soak gelatin sheets in cold water until soft.",
-      "Blend the strawberries to make a puree.",
-      "Whisk the fromage blanc with icing sugar, vanilla, milk, strawberry puree, and cream.",
-      "Dissolve the gelatin in 3 tablespoons of hot water and add it to the cheese mixture.",
-      "Line the bottom and sides of a mold with ladyfingers. Fill with the mixture and refrigerate until set.",
-      "Whip the heavy cream until stiff, decorate the top of the charlotte, and add fresh strawberries."
-    ]
-}
-],
  "desserts": [
   {
     "id": "tiramisu-italien-authentique",
@@ -426,6 +353,80 @@
       "Layer biscuits in a dish, add cream, and repeat.",
       "Dust with cocoa and refrigerate for at least 4 hours."
     ]
-  }
+  },
+   {
+    "id": "charlotte-fraises-royale",
+    "titre_fr": "Charlotte aux Fraises Royale",
+    "titre_ar": "شارلوط الفراولة الملكية",
+    "titre_en": "Royal Strawberry Charlotte",
+    "desc_fr": "Un dessert frais et élégant composé de biscuits à la cuillère, d'une mousse onctueuse au fromage blanc et de fraises fraîches.",
+    "desc_ar": "حلوى منعشة وأنيقة تتكون من بسكويت الملعقة، موس الجبن الأبيض الناعم والفراولة الطازجة.",
+    "desc_en": "A fresh and elegant dessert featuring ladyfingers, a creamy fromage blanc mousse, and fresh strawberries.",
+    "temps": "40 min",
+    "portions": 6,
+    "difficulte": "●●○",
+    "photo": "photos/charlotte.webp",
+    "cat_ar": "تحلية",
+    "cat_en": "Desserts",
+    "date": "2026-05-01",
+    "ingredients_fr": [
+      "Biscuits à la cuillère (Boudoirs)",
+      "12cl de lait",
+      "150g de sucre glace",
+      "2 sachets de sucre vanillé",
+      "250g de fraises",
+      "5 feuilles de gélatine",
+      "300g de fromage blanc",
+      "12cl de crème fraîche (pour le décor)",
+      "Fraises entières pour la décoration"
+    ],
+    "ingredients_ar": [
+      "بسكويت الملعقة (Boudoirs)",
+      "12 سل حليب",
+      "150 غ سكر ناعم",
+      "2 أكياس سكر فانيلا",
+      "250 غ فراولة",
+      "5 أوراق جيلاتين",
+      "300 غ جبن أبيض",
+      "12 سل قشدة طرية (للتزيين)",
+      "حبات فراولة طازجة للتزيين"
+    ],
+    "ingredients_en": [
+      "Ladyfingers (Boudoirs)",
+      "12cl milk",
+      "150g icing sugar",
+      "2 sachets vanilla sugar",
+      "250g strawberries",
+      "5 gelatin sheets",
+      "300g fromage blanc / cream cheese",
+      "12cl heavy cream (for decoration)",
+      "Fresh strawberries for decoration"
+    ],
+    "etapes_fr": [
+      "Faire ramollir les feuilles de gélatine dans de l'eau froide.",
+      "Mixer les fraises pour obtenir un coulis.",
+      "Battre le fromage blanc avec le sucre glace, la vanille, le lait, le coulis de fraises et la crème.",
+      "Dissoudre la gélatine dans 3 cuillères à soupe d'eau chaude, puis l'ajouter au mélange de fromage.",
+      "Tapisser les parois et le fond d'un moule avec les biscuits. Remplir avec la préparation et placer au réfrigérateur jusqu'à refroidissement complet.",
+      "Monter la crème fraîche en chantilly, décorer le dessus de la charlotte et ajouter des fraises fraîches."
+    ],
+    "etapes_ar": [
+      "توضع أوراق الجيلاتين في الماء البارد حتى تصبح رخوة.",
+      "تطحن الفراولة للحصول على عصير كثيف.",
+      "يخفق الجبن الأبيض مع السكر الناعم، الفانيلا، الحليب، الفراولة والقشدة الطرية.",
+      "تذوب الجيلاتين في 3 ملاعق كبيرة من الماء الساخن وتضاف إلى خليط الجبن.",
+      "يصفف البسكويت في إطار الحلوى (القاع والجوانب) ثم يملأ بالخليط ويدخل للثلاجة حتى يتماسك تماماً.",
+      "تطرب القشدة الطرية حتى تصبح كثيفة (شانتيي) ويزين بها وجه الشارلوط مع حبات الفراولة."
+    ],
+    "etapes_en": [
+      "Soak gelatin sheets in cold water until soft.",
+      "Blend the strawberries to make a puree.",
+      "Whisk the fromage blanc with icing sugar, vanilla, milk, strawberry puree, and cream.",
+      "Dissolve the gelatin in 3 tablespoons of hot water and add it to the cheese mixture.",
+      "Line the bottom and sides of a mold with ladyfingers. Fill with the mixture and refrigerate until set.",
+      "Whip the heavy cream until stiff, decorate the top of the charlotte, and add fresh strawberries."
+    ]
+}
+
 ]
  }
