@@ -256,43 +256,24 @@ nav {
 
 /* الترتيب ديال الموبايل */
 @media(max-width:960px) {
-    .nav-links { display: none !important; }
-
-    .header-right {
-        display: flex !important;
-        align-items: center;
-        gap: 12px;
-        margin-left: auto;
-        padding-right: 25px; /* كيدفع المنيو لليسار باش يبان كامل */
+    .nav-links { display: none; }
+    
+    .hamburger { 
+        display: flex; 
+        /* هاد السطر هو اللي غيكحزو لداخل بلا ما يخبيه */
+        margin-left: auto; 
+        margin-right: 15px; 
     }
 
-    .hamburger {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 24px; /* عرض محدد */
-        height: 18px; /* طول محدد */
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        order: 2;
-        z-index: 999;
+    /* هادا باش نتأكدو أن اللغات غيبقاو باينين في بلاصتهم */
+    .lang-switcher { 
+        display: none; /* غادي يرجع يتخبا في الموبايل كيف كان عندك في الأول */
     }
+}
 
-    /* هاد الجزء هو اللي كيصبغ الشرطات */
-    .hamburger span {
-        display: block !important;
-        width: 100% !important;
-        height: 2px !important;
-        background-color: #A0446F !important; /* لون وردي غامق باش يبان ليك مزيان دابا */
-        border-radius: 2px;
-    }
-
-    .lang-switcher {
-        display: flex !important;
-        order: 1;
-    }
+/* إيلا بغيتي اللغات يبقاو باينين، ردي هادي display: flex */
+@media(max-width:480px) {
+    .lang-switcher { display: none; }
 }
 /* GENERAL */
 .page-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 5rem}
