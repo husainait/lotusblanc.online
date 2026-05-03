@@ -74,6 +74,7 @@
 .btn-icon:hover { transform: scale(1.1); }
 .whatsapp-btn { color: #25D366; }
 .facebook-btn { color: #1877F2; }
+.pinterest-btn { color: #E60023; } /* اللون الرسمي لبنترست */    
 :root {
     --cream: #FDF5F8;
     --warm-white: #FFF8FB;
@@ -878,44 +879,71 @@ var catMap = {
 
 function makeCard(a, featured, index) { 
   var cls = featured ? 'article-card featured-article' : 'article-card';
+  var currentLang = window.currentLang || 'fr'; // التأكد من وجود اللغة الحالية
   var titre = a['titre_' + currentLang] || a.titre_fr;
   var photo = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
   var category = a._cat; 
   
-  // نصوص الأزرار والروابط
+  // 1. إعداد الروابط والرسائل لكل لغة
   var url = 'https://lotusblanc.online/recette.html?cat=' + category + '&id=' + a.id;
-  var shareText = encodeURIComponent('شوف هاد الوصفة ديال ' + titre + ' في موقع Lotus Blanc!');
-  var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
+  
+  var messages = {
+      ar: 'شوف هاد الوصفة ديال ' + titre + ' في موقع Lotus Blanc!',
+      fr: 'Découvrez cette recette de ' + titre + ' sur Lotus Blanc !',
+      en: 'Check out this ' + titre + ' recipe on Lotus Blanc!'
+  };
 
+  // اختيار الرسالة المناسبة حسب لغة الموقع الحالية
+  var selectedMsg = messages[currentLang] || messages.fr;
+  var shareText = encodeURIComponent(selectedMsg);
+  
+  // رابط Pinterest (يحتاج رابط الصورة، رابط المقال، والوصف)
+  var pinUrl = 'https://www.pinterest.com/pin/create/button/?url=' + encodeURIComponent(url) + 
+               '&media=' + encodeURIComponent('https://lotusblanc.online/' + photo) + 
+               '&description=' + shareText;
+
+  var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
   var loadingStrategy = (index === 0) ? 'eager' : 'lazy';
 
-  // ملاحظة: الأزرار يجب أن تكون خارج وسم الـ <a> لتعمل الروابط بشكل مستقل
+  // --- بناء الهيكل (HTML) ---
   var html = '<div class="' + cls + '">';
+  
+  // الجزء العلوي: الصورة والعنوان (رابط للمقال)
   html += '<a href="recette.html?cat=' + category + '&id=' + a.id + '" style="text-decoration:none; color:inherit;">';
   html += '<div class="art-img">';
   
   if (photo) {
       html += '<img src="' + photo + '" alt="' + titre + '" loading="' + loadingStrategy + '">';
   } else {
-      html += '<div style="font-size:2.5rem;background:var(--sage-light);height:100%;display:flex;align-items:center;justify-content:center">🍲</div>';
+      html += '<div style="font-size:2.5rem;background:#f0f0f0;height:100%;display:flex;align-items:center;justify-content:center">🍲</div>';
   }
   
   html += '</div>';
   html += '<div class="art-body">';
   html += '<span class="art-cat">' + (a['cat_' + currentLang] || category) + '</span>';
   html += '<h3 class="art-title">' + titre + '</h3>';
-  html += '</a>'; // غلق رابط المقال هنا لتتمكني من الضغط على الأزرار بشكل منفصل
+  html += '</a>'; 
 
-// --- إضافة أزرار المشاركة والمفضلة هنا ---
-  html += '<div class="share-container" style="display:flex; gap:12px; margin-top:10px;">';
-  html += '<a href="https://api.whatsapp.com/send?text=' + shareText + ' ' + url + '" target="_blank" style="color:#25D366; font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>';
-  html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" style="color:#1877F2; font-size:1.2rem;"><i class="fab fa-facebook-f"></i></a>';
+  // --- إضافة أزرار المشاركة الذكية ---
+  html += '<div class="share-container" style="display:flex; justify-content:center; gap:12px; margin-top:10px;">';
+  
+  // زر WhatsApp
+  html += '<a href="https://api.whatsapp.com/send?text=' + shareText + ' ' + url + '" target="_blank" class="btn-icon whatsapp-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>';
+  
+  // زر Facebook
+  html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" class="btn-icon facebook-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>';
+  
+  // زر Pinterest
+  html += '<a href="' + pinUrl + '" target="_blank" class="btn-icon pinterest-btn" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>';
+  
   html += '</div>';
 
+  // زر "اقرأ المزيد" أسفل الكارت
   html += '<a href="recette.html?cat=' + category + '&id=' + a.id + '" style="text-decoration:none; color:inherit;">';
   html += '<span class="art-lire">' + (lire[currentLang] || 'Lire →') + '</span>';
   html += '</div></a>';
-  html += '</div>'; // غلق الـ article-card
+  
+  html += '</div>'; // غلق article-card
   
   return html;
 }
