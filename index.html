@@ -1030,33 +1030,35 @@ function displayArticles(articles, grid) {
 }
 // هادي هي اللي كتربط البحث وكتفتح الموقع
 document.addEventListener('DOMContentLoaded', function() {
-    renderHome(); // تحميل المقالات عند فتح الصفحة
+    renderHome(); // تحميل المقالات العادي
 
     const searchInput = document.getElementById('searchInput');
+    const recipeDaySection = document.querySelector('.recipe-of-the-day'); // القسم اللي بغينا نخبيوه
+
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
             const term = e.target.value.toLowerCase().trim();
-            
+            const grid = document.getElementById('home-grid');
+
             if (term === "") {
-                displayArticles(allArticlesForSearch, document.getElementById('home-grid'));
-                return;
-            }
-
-            const filtered = allArticlesForSearch.filter(art => {
-                const tFr = (art.titre_fr || "").toLowerCase();
-                const tAr = (art.titre_ar || "").toLowerCase();
-                const tEn = (art.titre_en || "").toLowerCase();
-                // البحث في الأقسام أيضاً كيعاون في الـ SEO
-                const cat = (art._cat || "").toLowerCase(); 
+                // مَسح البحث: رجّع وصفة اليوم وبَيّن كاع المقالات
+                if (recipeDaySection) recipeDaySection.style.setProperty('display', 'block', 'important');
+                displayArticles(allArticlesForSearch, grid);
+            } else {
+                // كاين بحث: خبي وصفة اليوم وصفي المقالات
+                if (recipeDaySection) recipeDaySection.style.setProperty('display', 'none', 'important');
                 
-                return tFr.includes(term) || tAr.includes(term) || tEn.includes(term) || cat.includes(term);
-            });
-
-            displayArticles(filtered, document.getElementById('home-grid'));
+                const filtered = allArticlesForSearch.filter(art => {
+                    return (art.titre_fr || "").toLowerCase().includes(term) || 
+                           (art.titre_ar || "").toLowerCase().includes(term) ||
+                           (art.titre_en || "").toLowerCase().includes(term);
+                });
+                
+                displayArticles(filtered, grid);
+            }
         });
     }
 });
-
 function onLangChange(lang) {
     // تحديث اللغة العالمية
     window.currentLang = lang; 
