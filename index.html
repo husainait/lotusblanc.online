@@ -425,29 +425,41 @@ footer {
   .featured-article{grid-row:auto;grid-column:1/3}
 }
 @media(max-width:500px){
-  .articles-grid{grid-template-columns:1fr}
-  .featured-article{grid-column:1}
-  .cat-grid{grid-template-columns:repeat(2,1fr)}
-  /* هادي كتصغر المسافة اللي فوق العنوان "Nos recettes" */
-div[style*="margin: 0.5rem auto 0"] {
-    margin-top: 0rem !important; 
-  text-align: center !important; /* هادي هي اللي غاتجيبو في الوسط */
-}
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    .featured-article {
+        grid-column: 1;
+    }
+    .cat-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
 
-/* هادي كتصغر المسافة اللي تحت العنوان "Nos recettes" باش يقرب للوصفات */
-div[style*="margin-bottom: 1.8rem"] {
-    margin-bottom: 0.1rem !important; 
+    /* 1. السطر اللي كيجيب العنوان "Nos recettes" للوسط */
+    div[style*="max-width:1100px"], 
+    div[style*="margin: 0.5rem auto 0"],
+    .hero + div {
+        margin-top: -10px !important; 
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+    }
+
+    /* 2. تأكيد التمركز ديال h2 */
+    h2 {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        margin: 0 auto 5px !important; 
+        padding: 0 !important;
+    }
+
+    /* 3. زيادة طلوع الـ Grid للعنوان */
+    .articles-grid {
+        margin-top: -45px !important;
+    }
 }
-h2 {
-    text-align: center !important;
-    display: block !important;
-    width: 100% !important;
-    margin: 0 auto !important; /* كيوسطو ويحيد الفراغ الفوقاني */
-    padding: 0 !important;
-    float: none !important; /* لربما كان شي float هربو لليسار */
-}
-}
-}
+/* حيدنا القوس الزايد اللي كان هنا */
 </style>
   </head>
 <body>
