@@ -123,6 +123,7 @@ body {
 }
 
 /* الكارطية العادية */
+/* هذا الجزء كافي جداً للـ Grid في حالة البحث */
 .article-card {
     display: flex !important;
     flex-direction: column !important;
@@ -130,11 +131,10 @@ body {
     overflow: hidden !important;
     background: var(--card-bg) !important;
     border-radius: 12px;
-    /* هادي هي اللمسة اللي زدتي دابا: كتخلي الحركة ناعمة */
-    transition: all 0.3s ease; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* إضافة بسيطة للجمالية */
+    transition: all 0.3s ease;
 }
 
+/* لا تضعي كود .featured-article القديم لأنه سيخلق فوضى مع الطول الموحد */
 /* تأثير عند تمرير الماوس (Hover) كيعطي احترافية كتر */
 .article-card:hover {
     transform: translateY(-5px);
@@ -967,18 +967,20 @@ function makePlaceholder(featured) {
 
 function renderHome(filteredData = null) {
     var grid = document.getElementById('home-grid');
-    var recipeDaySection = document.querySelector('.recipe-of-the-day'); // القسم الجديد
+    // البحث عن القسم الذي يحتوي على وصفة اليوم
+    var recipeDaySection = document.querySelector('.recipe-of-the-day'); 
+    
     if (!grid) return;
 
     if (filteredData) {
-        // إيلا كان كاين بحث (يعني filteredData ماشي null)
-        if (recipeDaySection) recipeDaySection.style.display = 'none'; // خبي وصفة اليوم
+        // إذا كان المستخدم يبحث (يوجد نص في الخانة)
+        if (recipeDaySection) recipeDaySection.style.display = 'none'; 
         displayArticles(filteredData, grid);
         return;
     }
 
-    // إيلا رجعنا للحالة العادية (مسحنا البحث)
-    if (recipeDaySection) recipeDaySection.style.display = 'block'; // رجع وصفة اليوم
+    // إذا لم يكن هناك بحث (الحالة العادية)
+    if (recipeDaySection) recipeDaySection.style.display = 'block'; 
 
     fetch('articles.json?v=' + Date.now())
         .then(r => r.json())
