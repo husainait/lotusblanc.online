@@ -456,6 +456,22 @@ footer {
     .featured-article .art-img, .art-img {
         height: 300px !important;
     }
+  /* 3. تعديل الـ Categories: 2 في السطر وزيادة الطول */
+    .cat-grid {
+        grid-template-columns: repeat(1, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .cat-card img, .cat-img { 
+        height: 300px !important; /* طول تصاور الأصناف */
+        object-fit: cover !important;
+    }
+
+    .featured-article {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+  
 }@media(max-width:500px) {
     /* 1. تعديل مكان الـ Grid باش يبان العنوان */
     .articles-grid {
