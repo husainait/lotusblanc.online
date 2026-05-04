@@ -428,98 +428,67 @@ footer {
     }
 }
 /* RESPONSIVE */
+
+/* 1. للموبايل والتابليت (أقل من 800px) */
 @media(max-width:800px){
-  .recipe-hero{grid-template-columns:1fr}
-  .recipe-body{grid-template-columns:1fr}
-  .ingredients-panel{position:static}
-  .recipe-stats{grid-template-columns:repeat(2,1fr)}
-  .about-hero{grid-template-columns:1fr}
-  .values-grid{grid-template-columns:1fr 1fr}
-  .cat-grid{grid-template-columns:repeat(3,1fr)}
-  .footer-inner{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;gap:.4rem;text-align:center}
-  .nl-form{flex-direction:column}
+  .recipe-hero, .recipe-body, .about-hero, .footer-inner { grid-template-columns: 1fr; }
+  .ingredients-panel { position: static; }
+  .recipe-stats { grid-template-columns: repeat(2, 1fr); }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: .4rem; text-align: center; }
+  .nl-form { flex-direction: column; }
   
-  /* التعديل هنا: باش يولي السطر الأول فيه 2 كارطونات بحال لخرين */
+  /* الوصفات: وصفة وحدة في السطر وطويلة */
   .articles-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-    }
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+  }
+  .featured-article {
+      grid-row: auto !important;
+      grid-column: 1 !important;
+  }
+  .art-img {
+      height: 300px !important; /* طول كبير للوصفات في التابلت */
+      object-fit: cover !important;
+  }
 
-  /* هادي هي اللي كتحيد الطول والعرض الزايد من أول مقالة */
- .featured-article {
-        grid-row: auto !important;
-        grid-column: auto !important;
-    }
+  /* الكاتيكوري: 2 في السطر */
+  .cat-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+  }
+  .cat-card img, .cat-img { 
+      height: 250px !important; 
+      object-fit: cover !important;
+  }
+}
 
- /* توحيد طول الصور في الموبايل */
-    .featured-article .art-img, .art-img {
-        height: 300px !important;
-    }
-  /* 3. تعديل الـ Categories: 2 في السطر وزيادة الطول */
-    .cat-grid {
-        grid-template-columns: repeat(1, 1fr) !important;
-        gap: 10px !important;
-    }
-
-    .cat-card img, .cat-img { 
-        height: 300px !important; /* طول تصاور الأصناف */
-        object-fit: cover !important;
-    }
-
-    .featured-article {
-        grid-column: 1 !important;
-        grid-row: auto !important;
-    }
-  
-}@media(max-width:500px) {
-    /* 1. تعديل مكان الـ Grid باش يبان العنوان */
+/* 2. للموبايل الصغير (أقل من 500px) - التعديلات النهائية */
+@media(max-width:500px) {
     .articles-grid {
         margin-top: -15px !important; 
         padding-top: 0 !important;
-        position: relative;
-        z-index: 1;
-        grid-template-columns: 1fr !important; /* وصفة واحدة في السطر */
+        grid-template-columns: 1fr !important; 
     }
 
-    /* 2. زيادة طول تصاور الوصفات (Recipes) */
+    /* طول تصاور الوصفات في التلفون */
     .art-img {
-        height: 240px !important; /* الطول اللي بغيتي */
-        object-fit: cover !important;
+        height: 280px !important; 
     }
 
-    /* 3. تعديل الـ Categories: 2 في السطر وزيادة الطول */
-    .cat-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-    }
-
+    /* طول تصاور الأصناف في التلفون */
     .cat-card img, .cat-img { 
-        height: 300px !important; /* طول تصاور الأصناف */
-        object-fit: cover !important;
+        height: 300px !important; 
     }
 
-    .featured-article {
-        grid-column: 1 !important;
-        grid-row: auto !important;
-    }
-
-    /* 4. سنطرة العنوان "Nos recettes" */
-    div[style*="text-align:center"], .section-title {
-        margin-top: 0px !important; 
+    /* سنطرة العنوان */
+    .section-title {
         text-align: center !important;
         width: 100% !important;
         display: block !important;
-    }
-
-    h2.section-title {
         margin: 0 auto 10px auto !important;
-        display: block !important;
-        text-align: center !important;
     }
-}
-/* حيدنا القوس الزايد اللي كان هنا */
-</style>
+}</style>
   </head>
 <body>
 <header>
