@@ -127,11 +127,12 @@ body {
 .article-card {
     display: flex !important;
     flex-direction: column !important;
-    height: 380px !important; 
+    height: 350px !important; 
     overflow: hidden !important;
     background: var(--card-bg) !important;
     border-radius: 12px;
     transition: all 0.3s ease;
+  justify-content: flex-start !important;
 }
 
 /* لا تضعي كود .featured-article القديم لأنه سيخلق فوضى مع الطول الموحد */
@@ -172,7 +173,7 @@ body {
 }
 /* توحيد قياس الصور لجميع الكارطيات */
 .art-img {
-    height: 140px !important; /* نقصنا طول الصورة من 160px لـ 140px */
+    height: 130px !important; /* نقصنا طول الصورة من 160px لـ 140px */
     width: 100% !important;
     overflow: hidden !important;
 }
@@ -190,14 +191,14 @@ body {
     flex-direction: column !important;
     /* حيدنا space-between ودرنا gap صغير باش يتقرب النص من الصورة */
     justify-content: flex-start !important; 
-    gap: 0.3rem !important; 
-    padding: 0.6rem !important; /* نقصنا الـ padding من 0.8 لـ 0.6 */
+    gap: 0.2rem !important; 
+    padding: 0.5rem !important; /* نقصنا الـ padding من 0.8 لـ 0.6 */
 }
 
 .art-title {
     min-height: auto !important; /* حيدنا 3rem باش العنوان ياخد غير قياسه */
-    max-height: 2.8rem !important;
-    font-size: 1rem !important; /* صغرنا الخط شوية */
+    max-height: 2.5rem !important;
+    font-size: 0.95rem !important; /* صغرنا الخط شوية */
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
@@ -583,12 +584,12 @@ footer {
 /* تصغير طول الصورة من 350px لـ 280px */
 .featured-img {
     position: relative;
-    height: 280px !important; 
+    height: 250px !important; 
 }
 
 /* تصغير الفراغ الداخلي (Padding) من 2.5rem لـ 1.5rem */
 .featured-info {
-    padding: 1.5rem !important; 
+    padding: 1.2rem !important; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -598,17 +599,17 @@ footer {
 /* تقريب العنوان من الوصف */
 .featured-info h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem !important; /* صغرنا الخط شوية باش يتجمع */
+    font-size: 1.6rem !important; /* صغرنا الخط شوية باش يتجمع */
     color: var(--charcoal);
-    margin-bottom: 0.5rem !important; 
+    margin-bottom: 0.4rem !important; 
 }
 
 /* تقريب الوصف من الـ Tags */
 .featured-info p {
     color: var(--muted);
-    font-size: 0.9rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 1rem !important;
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.8rem !important;
 }
 
 /* تقريب الـ Tags من الزر */
@@ -630,14 +631,15 @@ footer {
 
 .btn-featured {
     display: inline-block;
-    padding: 14px 35px;
+    padding: 8px 20px;
     background: var(--charcoal);
     color: white !important;
     text-decoration: none;
     border-radius: 50px;
-    font-size: .9rem;
+    font-size: 0.8rem;
     width: fit-content;
     transition: background .3s;
+  margin-top: 0.3rem !important;
 }
 
 .btn-featured:hover {
