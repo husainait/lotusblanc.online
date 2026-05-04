@@ -1013,23 +1013,29 @@ function displayArticles(articles, grid) {
 
 // هادي هي اللي كتربط البحث وكتفتح الموقع
 document.addEventListener('DOMContentLoaded', function() {
-    renderHome(); 
+    renderHome(); // تحميل المقالات عند فتح الصفحة
 
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
             const term = e.target.value.toLowerCase().trim();
+            
             if (term === "") {
-                renderHome(allArticlesForSearch);
+                displayArticles(allArticlesForSearch, document.getElementById('home-grid'));
                 return;
             }
+
             const filtered = allArticlesForSearch.filter(art => {
                 const tFr = (art.titre_fr || "").toLowerCase();
                 const tAr = (art.titre_ar || "").toLowerCase();
                 const tEn = (art.titre_en || "").toLowerCase();
-                return tFr.includes(term) || tAr.includes(term) || tEn.includes(term);
+                // البحث في الأقسام أيضاً كيعاون في الـ SEO
+                const cat = (art._cat || "").toLowerCase(); 
+                
+                return tFr.includes(term) || tAr.includes(term) || tEn.includes(term) || cat.includes(term);
             });
-            renderHome(filtered);
+
+            displayArticles(filtered, document.getElementById('home-grid'));
         });
     }
 });
