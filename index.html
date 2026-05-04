@@ -172,7 +172,7 @@ body {
     
 /* 2. الصورة وسط الكادر */
 .art-img {
-    height: 180px !important; /* رجعنا الصورة كبر شوية باش تعمر الكادر الجديد */
+    height: 220px !important; /* رجعنا الصورة كبر شوية باش تعمر الكادر الجديد */
     width: 100% !important;
 }
 
@@ -180,22 +180,24 @@ body {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+  transition: transform .5s ease; /* إضافة لمسة زوينة ملي يدوز الفار فوقها */
 }
 
 /* 3. الجزء اللي فيه النص والزر */
 .art-body {
-    padding: 0.8rem !important;
+  padding: 0.6rem 0.8rem !important; /* نقصنا الفراغ الداخلي */
     flex-grow: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important; /* الزر غيبقى لتحت والنص فوقه */
-    gap: 0.4rem !important;
+    gap: 0.2rem !important;
+  height: calc(100% - 220px) !important; /* النص كياخد داكشي اللي بقى من الكادر *
 }
 
 .art-title {
-    font-size: 1rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.2rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.3rem !important;
     min-height: auto !important; /* حيدنا المساحة الدنيا باش الكادر يتجمع */
 }
 /* HEADER */
