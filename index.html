@@ -424,10 +424,15 @@ footer {
   .articles-grid{grid-template-columns:1fr 1fr}
   .featured-article{grid-row:auto;grid-column:1/3}
 }
-@media(max-width:500px){
+@media(max-width:500px) {
     .articles-grid {
-        grid-template-columns: 1fr;
+        /* كانت -65px أو -55px، غادي نرجعوها -15px باش تهبط وتبين العنوان */
+        margin-top: -15px !important; 
+        padding-top: 0 !important;
+        position: relative;
+        z-index: 1;
     }
+}
     .featured-article {
         grid-column: 1;
     }
@@ -501,8 +506,8 @@ footer {
 
   
   <!-- هاد الكود غايجيب "Nos recettes" للوسط ويطلعها للفوق -->
-<div style="width:100%; margin:0 auto; text-align:center; padding:0;">
-  <div style="display:block; text-align:center; margin-bottom:0.5rem">
+<div style="width:100%; margin:0 auto; text-align:center; padding:0; position: relative; z-index: 10;">
+  <div style="display:block; text-align:center; margin-bottom: 1.5rem;"> <!-- زدنا شوية هاد الهامش -->
     <h2 class="section-title" data-fr="Nos recettes" data-ar="وصفاتنا" data-en="Our recipes" style="text-align:center; width:100%;">Nos recettes</h2>
   </div>
 </div>
