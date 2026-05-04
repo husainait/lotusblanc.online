@@ -456,43 +456,50 @@ footer {
     .featured-article .art-img, .art-img {
         height: 300px !important;
     }
-}
-@media(max-width:500px) {
+}@media(max-width:500px) {
+    /* 1. تعديل مكان الـ Grid باش يبان العنوان */
     .articles-grid {
-        /* كانت -65px أو -55px، غادي نرجعوها -15px باش تهبط وتبين العنوان */
         margin-top: -15px !important; 
         padding-top: 0 !important;
         position: relative;
         z-index: 1;
-    }
-}
-    .featured-article {
-        grid-column: 1;
-    }
-    .cat-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: 1fr !important; /* وصفة واحدة في السطر */
     }
 
-    /* 1. السطر اللي كيجيب العنوان "Nos recettes" للوسط */
-    div[style*="max-width:1100px"], 
-    div[style*="margin: 0.5rem auto 0"],
-    .hero + div {
-        margin-top: -10px !important; 
+    /* 2. زيادة طول تصاور الوصفات (Recipes) */
+    .art-img {
+        height: 240px !important; /* الطول اللي بغيتي */
+        object-fit: cover !important;
+    }
+
+    /* 3. تعديل الـ Categories: 2 في السطر وزيادة الطول */
+    .cat-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .cat-card img, .cat-img { 
+        height: 190px !important; /* طول تصاور الأصناف */
+        object-fit: cover !important;
+    }
+
+    .featured-article {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
+    /* 4. سنطرة العنوان "Nos recettes" */
+    div[style*="text-align:center"], .section-title {
+        margin-top: 0px !important; 
         text-align: center !important;
         width: 100% !important;
         display: block !important;
     }
 
-    /* 2. تأكيد التمركز ديال h2 */
-    h2 {
-        margin: 0 auto !important;
-        display: inline-block !important;
+    h2.section-title {
+        margin: 0 auto 10px auto !important;
+        display: block !important;
         text-align: center !important;
-    }
-
-    /* 3. زيادة طلوع الـ Grid للعنوان */
-    .articles-grid {
-        margin-top: -30px !important;
     }
 }
 /* حيدنا القوس الزايد اللي كان هنا */
