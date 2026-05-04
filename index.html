@@ -190,7 +190,7 @@ nav {
 .see-all{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-dark);text-decoration:none;font-weight:500}
 
 /* ARTICLES GRID */
-.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem;padding: 0rem 5% 2rem !important;margin-top: -20px !important;}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem;padding: 0rem 5% 2rem !important;margin-top: -30px !important;}
 .article-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s,background .3s;text-decoration:none;color:inherit;display:block}
 .article-card:hover{transform:translateY(-3px);border-color:var(--sage)}
 .art-img{height:175px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;overflow:hidden;background:var(--sage-light)}
@@ -230,6 +230,7 @@ nav {
     transition: background .3s;
 }
     .hero + div h2, .hero + div {
+      text-align: center !important;
             margin-top: 0.5rem !important;
             margin-bottom: 0.5rem !important;
         }
@@ -437,12 +438,14 @@ div[style*="margin: 0.5rem auto 0"] {
 div[style*="margin-bottom: 1.8rem"] {
     margin-bottom: 0.1rem !important; 
 }
-  h2 {
-       margin-top: 0 !important;
-    margin-bottom: 5px !important;
-    display: inline-block; /* كتحسن التمركز */
+ /* 1. السطر اللي كيخلي العنوان يجي في الوسط تماماً */
+h2 {
     text-align: center !important;
-    width: 100%; /* باش ياخد العرض كامل ويتمركز الوسط */
+    display: block !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important; /* باش يزيد يطلع للفوق */
 }
 }
 </style>
