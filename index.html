@@ -39,7 +39,20 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #C0729A; /* لون الـ sage الوردي ملي كنقيسوه */
 }
+.articles-grid {
+    display: grid !important;
+    /* هادي هي اللي كتدير 4 في السطر للكمبيوتر */
+    grid-template-columns: repeat(4, 1fr) !important; 
+    gap: 1.5rem;
+    padding: 0rem 5% 2rem !important;
+    max-width: 1400px;
+    margin: 20px auto 0 !important;
+}
 
+/* توحيد قياس الصور للكل */
+.art-img {
+    height: 175px !important;
+}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     .share-container {
     display: flex;
