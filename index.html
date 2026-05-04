@@ -967,12 +967,18 @@ function makePlaceholder(featured) {
 
 function renderHome(filteredData = null) {
     var grid = document.getElementById('home-grid');
+    var recipeDaySection = document.querySelector('.recipe-of-the-day'); // القسم الجديد
     if (!grid) return;
 
     if (filteredData) {
+        // إيلا كان كاين بحث (يعني filteredData ماشي null)
+        if (recipeDaySection) recipeDaySection.style.display = 'none'; // خبي وصفة اليوم
         displayArticles(filteredData, grid);
         return;
     }
+
+    // إيلا رجعنا للحالة العادية (مسحنا البحث)
+    if (recipeDaySection) recipeDaySection.style.display = 'block'; // رجع وصفة اليوم
 
     fetch('articles.json?v=' + Date.now())
         .then(r => r.json())
@@ -992,20 +998,17 @@ function renderHome(filteredData = null) {
 
 function displayArticles(articles, grid) {
     var html = '';
-    // كنشوفو واش "searchInput" فيه شي حاجة مكتوبة
     var searchInput = document.getElementById('searchInput');
     var isSearching = searchInput && searchInput.value.trim() !== "";
 
     if (articles.length > 0) {
         articles.forEach(function(item, index) {
-            // إذا كان المستخدم كيبحث، كلشي كيولي عادي (false) باش يطلع الفوق
-            // إذا ما كانش البحث، الأولى كتبقى كبيرة (true)
+            // بما أن القسم المستقل غبر، كاع الكارطات في البحث غايكونوا عاديين
             var isFeatured = isSearching ? false : (index === 0);
             
             html += makeCard(item, isFeatured, index);
             
-            // --- الإشهار (PUB #2) ---
-            // خليناه يبان ديما مورا العنصر رقم 2
+            // PUB #2 كيبقى ديما باين
             if (index === 2) {
                 html += `
                 <div class="in-grid-ad" style="grid-column: 1 / -1; margin: 20px 0;">
