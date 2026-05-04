@@ -359,59 +359,17 @@ body {
 
 /* --- إرجاع الخطوط والألوان الأصلية للـ Grid --- */
 
-
-
 .art-title {
-
-    /* إرجاع خط Cormorant Garamond للعنوان */
-
-    font-family: 'Cormorant Garamond', serif !important; 
-
-    font-size: 1.2rem !important; 
-
-    color: var(--charcoal) !important; /* اللون الرمادي الغامق الأصلي */
-
-    line-height: 1.2 !important;
-
-    margin-bottom: 0.3rem !important;
-
-    font-weight: 500 !important;
-
-    min-height: auto !important;
-
+    min-height: 3rem !important; /* مساحة ثابتة للعنوان */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
 }
 
 
 
-.art-body p {
 
-    /* إرجاع خط Jost للوصف */
-
-    font-family: 'Jost', sans-serif !important;
-
-    font-size: 0.85rem !important;
-
-    color: var(--muted) !important; /* اللون الباهت للوصف */
-
-    line-height: 1.5 !important;
-
-    margin-bottom: 0.8rem !important;
-
-}
-
-
-
-/* تعديل الزر باش يبقى متناسق */
-
-.btn-featured, .view-recipe-btn {
-
-    font-family: 'Jost', sans-serif !important;
-
-    font-weight: 500 !important;
-
-    letter-spacing: 0.05em !important;
-
-}
 
 /* HEADER */
 
