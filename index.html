@@ -122,16 +122,15 @@ body {
     transition: background .3s, color .3s;
 }
 
-/* الكارطية العادية */
-/* هذا الجزء كافي جداً للـ Grid في حالة البحث */
+/* 1. الكادر الرئيسي ديال الوصفة */
 .article-card {
+    height: 380px !important; /* هاد القياس هو اللي كيتحكم في الكادر كامل، نقصناه باش يتجمع */
     display: flex !important;
     flex-direction: column !important;
-    height: 390px !important; 
     overflow: hidden !important;
-    background: var(--card-bg) !important;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 15px;
 }
 
 /* لا تضعي كود .featured-article القديم لأنه سيخلق فوضى مع الطول الموحد */
@@ -170,11 +169,11 @@ body {
     transform: scale(1.1);
     background-color: var(--sage-dark); /* يولي وردي غامق شوية عوض الأسود */
 }
-/* توحيد قياس الصور لجميع الكارطيات */
+    
+/* 2. الصورة وسط الكادر */
 .art-img {
-    height: 140px !important; /* طول ثابت للصورة كيفما كان نوع الكارطية */
+    height: 180px !important; /* رجعنا الصورة كبر شوية باش تعمر الكادر الجديد */
     width: 100% !important;
-    overflow: hidden !important;
 }
 
 .art-img img {
@@ -183,22 +182,21 @@ body {
     object-fit: cover !important;
 }
 
-/* تنظيم النص باش يجي مقاد */
+/* 3. الجزء اللي فيه النص والزر */
 .art-body {
+    padding: 0.8rem !important;
     flex-grow: 1 !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
-    padding: 0.6rem !important; /* نقصنا الفراغ الداخلي */
-    gap: 0.3rem !important;
+    justify-content: space-between !important; /* الزر غيبقى لتحت والنص فوقه */
+    gap: 0.4rem !important;
 }
 
 .art-title {
-    min-height: 3rem !important; /* مساحة ثابتة للعنوان */
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.2rem !important;
+    min-height: auto !important; /* حيدنا المساحة الدنيا باش الكادر يتجمع */
 }
 /* HEADER */
 header {
