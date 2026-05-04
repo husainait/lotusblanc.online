@@ -438,14 +438,14 @@ div[style*="margin: 0.5rem auto 0"] {
 div[style*="margin-bottom: 1.8rem"] {
     margin-bottom: 0.1rem !important; 
 }
- /* 1. السطر اللي كيخلي العنوان يجي في الوسط تماماً */
 h2 {
     text-align: center !important;
     display: block !important;
     width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important; /* باش يزيد يطلع للفوق */
+    margin: 0 auto !important; /* كيوسطو ويحيد الفراغ الفوقاني */
+    padding: 0 !important;
+    float: none !important; /* لربما كان شي float هربو لليسار */
+}
 }
 }
 </style>
