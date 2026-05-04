@@ -1030,10 +1030,10 @@ function displayArticles(articles, grid) {
 }
 // هادي هي اللي كتربط البحث وكتفتح الموقع
 document.addEventListener('DOMContentLoaded', function() {
-    renderHome(); // تحميل المقالات العادي
+    renderHome(); // كيعمر allArticlesForSearch وكيبين الصفحة
 
     const searchInput = document.getElementById('searchInput');
-    const recipeDaySection = document.querySelector('.recipe-of-the-day'); // القسم اللي بغينا نخبيوه
+    const recipeDaySection = document.querySelector('.recipe-of-the-day');
 
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
@@ -1041,21 +1041,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const grid = document.getElementById('home-grid');
 
             if (term === "") {
-                // مَسح البحث: رجّع وصفة اليوم وبَيّن كاع المقالات
-                if (recipeDaySection) recipeDaySection.style.setProperty('display', 'block', 'important');
+                // رجّع "وصفة اليوم" وبَيّن كاع المقالات
+                if (recipeDaySection) {
+                    recipeDaySection.style.setProperty('display', 'block', 'important');
+                }
                 displayArticles(allArticlesForSearch, grid);
             } else {
-                // كاين بحث: خبي وصفة اليوم وصفي المقالات
-                if (recipeDaySection) recipeDaySection.style.setProperty('display', 'none', 'important');
+                // كاين بحث: خبي "وصفة اليوم" وصفي النتائج
+                if (recipeDaySection) {
+                    recipeDaySection.style.setProperty('display', 'none', 'important');
+                }
                 
                 const filtered = allArticlesForSearch.filter(art => {
-                    return (art.titre_fr || "").toLowerCase().includes(term) || 
-                           (art.titre_ar || "").toLowerCase().includes(term) ||
-                           (art.titre_en || "").toLowerCase().includes(term);
+                    const tFr = (art.titre_fr || "").toLowerCase();
+                    const tAr = (art.titre_ar || "").toLowerCase();
+                    const tEn = (art.titre_en || "").toLowerCase();
+                    const cat = (art._cat || "").toLowerCase();
+                    
+                    return tFr.includes(term) || tAr.includes(term) || tEn.includes(term) || cat.includes(term);
                 });
                 
                 displayArticles(filtered, grid);
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // سكرول للفوق باش يشوف النتائج الأولى
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
     }
