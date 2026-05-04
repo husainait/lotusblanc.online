@@ -127,7 +127,7 @@ body {
 .article-card {
     display: flex !important;
     flex-direction: column !important;
-    height: 480px !important; 
+    height: 390px !important; 
     overflow: hidden !important;
     background: var(--card-bg) !important;
     border-radius: 12px;
@@ -172,7 +172,7 @@ body {
 }
 /* توحيد قياس الصور لجميع الكارطيات */
 .art-img {
-    height: 280px !important; /* طول ثابت للصورة كيفما كان نوع الكارطية */
+    height: 140px !important; /* طول ثابت للصورة كيفما كان نوع الكارطية */
     width: 100% !important;
     overflow: hidden !important;
 }
@@ -189,7 +189,8 @@ body {
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    padding: 1.2rem !important;
+    padding: 0.6rem !important; /* نقصنا الفراغ الداخلي */
+    gap: 0.3rem !important;
 }
 
 .art-title {
@@ -351,8 +352,8 @@ nav {
     /* HERO */
 .hero {
     background: var(--warm-white);
-    /* نقصنا من 4rem لـ 2rem ومن 3.5rem لـ 1.5rem */
-    padding: 2rem 2rem 1.5rem; 
+    /* صغرنا الـ padding باش يتجمع القسم */
+    padding: 1.2rem 1rem 1rem !important; 
     text-align: center;
     border-bottom: 1px solid var(--border);
     position: relative;
@@ -362,10 +363,23 @@ nav {
     .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,#F5D6E6 0%,#C8DDEF 55%,transparent 75%);opacity:.3;pointer-events:none}
 .hero-eyebrow{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:0.5rem;display:flex;align-items:center;justify-content:center;gap:8px}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:var(--sage);opacity:.5}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;line-height:1.1;color:var(--charcoal);margin-bottom:0.8rem}
+.hero h1 {
+    font-family: 'Cormorant Garamond',serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem) !important; /* صغرنا حجم العنوان */
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem !important; /* قربنا العنوان من الفقرة */
+}
 .hero h1 em{font-style:italic;color:var(--sage-dark)}
-.hero>p{font-size:.85rem;color:var(--muted);max-width:400px;margin:0 auto 1.5rem;line-height:1.7}
-.search-wrap{max-width:390px;margin:0 auto;position:relative}
+.hero>p {
+    font-size: .8rem !important; /* صغرنا الخط شوية */
+    color: var(--muted);
+    max-width: 400px;
+    margin: 0 auto 0.8rem !important; /* قربنا الفقرة من البحث (بدل 1.5rem) */
+    line-height: 1.5 !important;
+}
+    .search-wrap{max-width:390px;margin:0 auto;position:relative}
 .search-wrap input{width:100%;padding:.78rem 1.2rem .78rem 2.8rem;border:1px solid var(--border);border-radius:50px;background:var(--body-bg);font-family:'Jost',sans-serif;font-size:.87rem;color:var(--charcoal);outline:none;transition:border-color .2s,background .3s}
 .search-wrap input:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(192,114,154,.12)}
 .search-wrap input::placeholder{color:var(--muted)}
@@ -412,7 +426,10 @@ nav {
 .tips-section ul{list-style:none}
 .tips-section li{font-size:.82rem;color:var(--muted);padding:.35rem 0 .35rem 1rem;position:relative;line-height:1.6}
 .tips-section li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:.55rem;top:.5rem}
-
+.all-recipes-section {
+    margin-top: 0.5rem !important; 
+    padding-top: 0 !important;
+}
 /* ABOUT */
 .about-wrap{max-width:860px;margin:0 auto;padding:2rem 2rem 5rem}
 .about-hero{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:center;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
@@ -541,18 +558,7 @@ footer {
   .cat-grid{grid-template-columns:repeat(2,1fr)}
 }
     /* --- زيدي هاد الكود هنا --- */
-.recipe-of-the-day {
-    padding: 0; 
-    background: transparent; 
-    margin-bottom: 5rem; /* زدت المسافة لـ 5rem باش تبعد على الـ Grid */
-    text-align: center; /* باش العنوان يجي في الوسط */
-}
 
-.recipe-of-the-day .section-title {
-    margin-bottom: 2rem; /* مسافة بين العنوان والكارطونة */
-    display: block;
-    width: 100%;
-}
 
 .featured-card {
     display: grid;
