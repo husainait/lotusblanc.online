@@ -465,20 +465,32 @@ footer {
 
 /* 2. للموبايل الصغير (أقل من 500px) - التعديلات النهائية */
 @media(max-width:500px) {
+   /* كبرنا السطر باش يهز التصويرة الطويلة */
     .articles-grid {
-        margin-top: -15px !important; 
-        padding-top: 0 !important;
         grid-template-columns: 1fr !important; 
+        grid-auto-rows: auto !important; /* كيخلي السطر يتجبد على حساب التصويرة */
+        gap: 2rem !important; 
     }
 
-    /* طول تصاور الوصفات في التلفون */
+   /* فرض الطول على تصاور الوصفات */
     .art-img {
-        height: 300px !important; 
+        height: 350px !important; /* جربي 350px باش يبان ليك الفرق مزيان */
+        min-height: 350px !important; /* باش نفرضو عليها ماتصغارش */
+        width: 100% !important;
+        object-fit: cover !important;
     }
-
-    /* طول تصاور الأصناف في التلفون */
+  /* الكاتيكوري: نكبرو حتى الـ Grid ديالهم */
+    .cat-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-auto-rows: min-content !important; 
+        gap: 15px !important;
+    }
+   /* فرض الطول على تصاور الكاتيكوري */
     .cat-card img, .cat-img { 
         height: 300px !important; 
+        min-height: 300px !important;
+        width: 100% !important;
+        object-fit: cover !important;
     }
 
     /* سنطرة العنوان */
