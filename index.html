@@ -1034,21 +1034,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function onLangChange() {
-    // 1. كنعاودو نعرضو المقالات باش يتبدلو العناوين (Render)
-    renderHome(allArticlesForSearch);
+function onLangChange(lang) {
+    // تحديث اللغة العالمية
+    window.currentLang = lang; 
 
-    // 2. كنجيبو خانة البحث ونبدلو ليها النص (Placeholder)
+    // 1. إعادة عرض المقالات باللغة الجديدة
+    if (allArticlesForSearch.length > 0) {
+        renderHome(allArticlesForSearch);
+    }
+
+    // 2. تحديث Placeholder ديال البحث
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
-        // كنستعملو currentLang باش نعرفو اللغة اللي اختار المستخدم دابا
-        const newPlaceholder = searchInput.getAttribute('data-placeholder-' + currentLang);
+        const newPlaceholder = searchInput.getAttribute('data-placeholder-' + lang);
         if (newPlaceholder) {
             searchInput.placeholder = newPlaceholder;
         }
     }
 }
-
 </script>
 
 <!-- الزر كيكون هو اللخر قبل ما نسدو الـ body -->
