@@ -984,16 +984,21 @@ function renderHome(filteredData = null) {
 
 function displayArticles(articles, grid) {
     var html = '';
+    // كنشوفو واش "searchInput" فيه شي حاجة مكتوبة
+    var searchInput = document.getElementById('searchInput');
+    var isSearching = searchInput && searchInput.value.trim() !== "";
+
     if (articles.length > 0) {
-        // الوصفة الأولى (كبيرة)
-        html += makeCard(articles[0], true);
-        
-        for (var i = 1; i < articles.length; i++) {
-            html += makeCard(articles[i], false);
+        articles.forEach(function(item, index) {
+            // إذا كان المستخدم كيبحث، كلشي كيولي عادي (false) باش يطلع الفوق
+            // إذا ما كانش البحث، الأولى كتبقى كبيرة (true)
+            var isFeatured = isSearching ? false : (index === 0);
             
-            // --- هادا هو الـ PUB 2 (وسط الشبكة) ---
-            // غيبان من بعد الوصفة رقم 2 (تقدر تبدل رقم 2 بأي رقم بغيتي)
-            if (i === 2) {
+            html += makeCard(item, isFeatured, index);
+            
+            // --- الإشهار (PUB #2) ---
+            // خليناه يبان ديما مورا العنصر رقم 2
+            if (index === 2) {
                 html += `
                 <div class="in-grid-ad" style="grid-column: 1 / -1; margin: 20px 0;">
                     <div style="width: 100%; text-align: center; background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px dashed var(--sage);">
@@ -1004,13 +1009,12 @@ function displayArticles(articles, grid) {
                     </div>
                 </div>`;
             }
-        }
+        });
     } else {
         html = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem;">Aucune recette trouvée / لا توجد وصفات</p>';
     }
     grid.innerHTML = html;
 }
-
 // هادي هي اللي كتربط البحث وكتفتح الموقع
 document.addEventListener('DOMContentLoaded', function() {
     renderHome(); // تحميل المقالات عند فتح الصفحة
