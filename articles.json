@@ -209,7 +209,93 @@
         "Garnish with herbs and serve hot."
       ],
       "date": "2026-04-26"
+    },
+{
+  "id": "couscous-sept-legumes",
+  "titre_fr": "Couscous aux Sept Légumes",
+  "titre_ar": "كسكس بسبع خضار",
+  "titre_en": "Seven Vegetable Couscous",
+  "desc_fr": "Le plat emblématique du vendredi, riche en saveurs et en partage.",
+  "desc_ar": "الطبق المغربي العالمي، رمز اللمة والعائلة يوم الجمعة.",
+  "desc_en": "The iconic Friday dish, rich in flavors and perfect for sharing.",
+  "temps": "120 min", "portions": 6, "difficulte": "●●●", "photo": "photos/couscous.webp",
+  "ingredients_fr": ["1kg de semoule", "500g de viande d'agneau", "2 carottes", "2 courgettes", "1/4 de chou", "2 navets", "1 bol de pois chiches", "Potiron", "Épices (gingembre, curcuma, poivre)"],
+  "ingredients_ar": ["1 كلغ كسكس", "500 غ لحم غنم", "جزرتان", "قرعتان خضراء", "ملفوف", "لفت", "زلافة حمص", "قرع أحمر", "توابل (سكنجبير، خرقوم، إبزار)"],
+  "ingredients_en": ["1kg couscous semolina", "500g lamb meat", "2 carrots", "2 zucchinis", "1/4 cabbage", "2 turnips", "1 bowl chickpeas", "Pumpkin", "Spices (ginger, turmeric, pepper)"],
+  "etapes_fr": ["Cuire la viande avec les oignons et les pois chiches dans le bas du couscoussier.", "Passer la semoule à la vapeur trois fois.", "Ajouter les légumes selon leur temps de cuisson.", "Dresser la semoule et disposer la viande et les légumes par-dessus."],
+  "etapes_ar": ["يطهى اللحم مع البصل والحمص في طنجرة الكسكس.", "يُبخر الكسكس ثلاث مرات مع رشه بالماء والزيت.", "تضاف الخضار تدريجياً حسب مدة طهيها.", "يوضع الكسكس في طبق التقديم ويزين باللحم والخضار."],
+  "etapes_en": ["Cook meat with onions and chickpeas in the bottom of the couscoussier.", "Steam the couscous semolina three times.", "Add vegetables according to their cooking time.", "Serve the couscous topped with meat and vegetables."],
+  "date": "2026-05-05"
+},
+     {
+  "id": "pastilla-poisson",
+  "titre_fr": "Pastilla Royale aux Poissons",
+  "titre_ar": "بسطيلة الحوت الملكية",
+  "titre_en": "Royal Seafood Pastilla",
+  "desc_fr": "Une pastilla croustillante garnie de fruits de mer et de vermicelles.",
+  "desc_ar": "بسطيلة مغربية فاخرة غنية بفواكه البحر والشعيرية الصينية.",
+  "desc_en": "A crispy Moroccan pie filled with seafood and vermicelli.",
+  "temps": "90 min", "portions": 8, "difficulte": "●●●", "photo": "photos/pastilla-poisson.webp",
+  "ingredients_fr": ["Feuilles de pastilla", "500g de crevettes", "500g de calamar", "500g de poisson blanc", "Vermicelle chinoise", "Champignons", "Sauce soja", "Harrissa"],
+  "ingredients_ar": ["ورقة البسطيلة", "500 غ قيمرون", "500 غ كلمار", "500 غ سمك أبيض", "شعيرية صينية", "فطر", "صلصة صويا", "هريسة"],
+  "ingredients_en": ["Pastilla pastry sheets", "500g shrimp", "500g squid", "500g white fish", "Chinese vermicelli", "Mushrooms", "Soy sauce", "Chili paste (Harissa)"],
+  "etapes_fr": ["Faire sauter les fruits de mer avec l'ail, le persil et les épices.", "Mélanger avec la vermicelle cuite et les champignons.", "Plier la pastilla dans un moule beurré.", "Cuire au four jusqu'à ce qu'elle soit bien dorée."],
+  "etapes_ar": ["تطهى فواكه البحر مع الثوم، البقدونس والتوابل.", "تخلط مع الشعيرية الصينية المسلوقة والفطر.", "تطوى البسطيلة في قالب مدهون بالزبدة.", "تخبز في الفرن حتى تصبح ذهبية ومقرمشة."],
+  "etapes_en": ["Sauté the seafood with garlic, parsley, and spices.", "Mix with cooked vermicelli and mushrooms.", "Fold the pastilla in a buttered mold.", "Bake until golden and crispy."],
+  "date": "2026-05-05"
+     },
+     {
+  "id": "tagine-viande-pruneaux",
+  "titre_fr": "Tagine d'Agneau aux Pruneaux",
+  "titre_ar": "طاجين اللحم بالبرقوق",
+  "titre_en": "Lamb Tagine with Prunes",
+  "desc_fr": "L'alliance parfaite entre le sucré des pruneaux et le salé de la viande.",
+  "desc_ar": "مزيج رائع بين حلاوة البرقوق المكرمل وملوحة اللحم الطري.",
+  "desc_en": "The perfect balance between sweet prunes and savory tender meat.",
+  "temps": "90 min", "portions": 4, "difficulte": "●●○", "photo": "photos/tagine-viande.webp",
+  "ingredients_fr": ["1kg de viande d'agneau", "200g de pruneaux", "50g d'amandes frites", "2 oignons", "Cannelle", "Miel", "Sésame"],
+  "ingredients_ar": ["1 كلغ لحم غنم", "200 غ برقوق", "50 غ لوز مقلي", "بصلتان", "قرفة", "عسل", "سمسم"],
+  "ingredients_en": ["1kg lamb meat", "200g prunes", "50g fried almonds", "2 onions", "Cinnamon", "Honey", "Sesame seeds"],
+  "etapes_fr": ["Mijoter la viande avec les oignons et les épices dans un tagine.", "Cuire les pruneaux à part avec de l'eau, du sucre et de la cannelle.", "Dresser le tagine en ajoutant les pruneaux et les amandes.", "Saupoudrer de sésame."],
+  "etapes_ar": ["يطهى اللحم مع البصل والتوابل في الطاجين.", "يعسل البرقوق في ماء وسكر وقرفة.", "يزين الطاجين بالبرقوق واللوز المقلي.", "يرش بالسمسم المحمص."],
+  "etapes_en": ["Simmer the meat with onions and spices in a tagine.", "Cook prunes separately with water, sugar, and cinnamon.", "Top the tagine with prunes and fried almonds.", "Sprinkle with sesame seeds."],
+  "date": "2026-05-05"
+     },
+     {
+  "id": "rfissa-poulet",
+  "titre_fr": "Rfissa au Poulet",
+  "titre_ar": "الرفيسة المغربية بالدجاج",
+  "titre_en": "Moroccan Rfissa",
+  "desc_fr": "Un plat traditionnel réconfortant à base de lentilles et de crêpes (Msemmen).",
+  "desc_ar": "طبق تقليدي دافئ يتكون من المسمن، الدجاج، والعدس برائحة رأس الحانوت.",
+  "desc_en": "A traditional comforting dish made of shredded Msemmen, lentils, and chicken.",
+  "temps": "100 min", "portions": 6, "difficulte": "●●○", "photo": "photos/rfissa.webp",
+  "ingredients_fr": ["1 poulet fermier", "Feuilles de Msemmen déchirées", "Lentilles", "Fenugrec", "Oignons", "Ras El Hanout", "Safran"],
+  "ingredients_ar": ["دجاجة", "مسمن مقطع", "عدس", "حلبة", "بصل", "رأس الحانوت", "زعفران"],
+  "ingredients_en": ["1 farm chicken", "Shredded Msemmen crepes", "Lentils", "Fenugreek", "Onions", "Ras El Hanout", "Saffron"],
+  "etapes_fr": ["Préparer le bouillon avec le poulet, les oignons et les épices.", "Cuire les lentilles et le fenugrec dans la sauce.", "Disposer le msemmen dans un grand plat et arroser généreusement de sauce.", "Placer le poulet au centre."],
+  "etapes_ar": ["يحضر المرق بالدجاج والبصل والتوابل.", "يطهى العدس والحلبة في المرق.", "يوضع المسمن المقطع في طبق كبير ويسقى جيداً بالمرق.", "يوضع الدجاج في الوسط."],
+  "etapes_en": ["Prepare the broth with chicken, onions, and spices.", "Cook lentils and fenugreek in the sauce.", "Place shredded msemmen in a dish and soak with broth.", "Place the chicken on top."],
+  "date": "2026-05-05"
+     },
+    {
+  "id": "rfissa-poulet",
+  "titre_fr": "Rfissa au Poulet",
+  "titre_ar": "الرفيسة المغربية بالدجاج",
+  "titre_en": "Moroccan Rfissa",
+  "desc_fr": "Un plat traditionnel réconfortant à base de lentilles et de crêpes (Msemmen).",
+  "desc_ar": "طبق تقليدي دافئ يتكون من المسمن، الدجاج، والعدس برائحة رأس الحانوت.",
+  "desc_en": "A traditional comforting dish made of shredded Msemmen, lentils, and chicken.",
+  "temps": "100 min", "portions": 6, "difficulte": "●●○", "photo": "photos/rfissa.webp",
+  "ingredients_fr": ["1 poulet fermier", "Feuilles de Msemmen déchirées", "Lentilles", "Fenugrec", "Oignons", "Ras El Hanout", "Safran"],
+  "ingredients_ar": ["دجاجة", "مسمن مقطع", "عدس", "حلبة", "بصل", "رأس الحانوت", "زعفران"],
+  "ingredients_en": ["1 farm chicken", "Shredded Msemmen crepes", "Lentils", "Fenugreek", "Onions", "Ras El Hanout", "Saffron"],
+  "etapes_fr": ["Préparer le bouillon avec le poulet, les oignons et les épices.", "Cuire les lentilles et le fenugrec dans la sauce.", "Disposer le msemmen dans un grand plat et arroser généreusement de sauce.", "Placer le poulet au centre."],
+  "etapes_ar": ["يحضر المرق بالدجاج والبصل والتوابل.", "يطهى العدس والحلبة في المرق.", "يوضع المسمن المقطع في طبق كبير ويسقى جيداً بالمرق.", "يوضع الدجاج في الوسط."],
+  "etapes_en": ["Prepare the broth with chicken, onions, and spices.", "Cook lentils and fenugreek in the sauce.", "Place shredded msemmen in a dish and soak with broth.", "Place the chicken on top."],
+  "date": "2026-05-05"
     }
+     
   ],
   "patisserie": [
   {
@@ -284,7 +370,60 @@
       "Place the 2nd sponge, soak, add whipped cream and cherries.",
       "Top with the 3rd sponge, cover with whipped cream and decorate with grated chocolate. Refrigerate."
     ]
-  }
+  },
+    {
+  "id": "baghrir-mille-trous",
+  "titre_fr": "Baghrir (Crêpes mille trous)",
+  "titre_ar": "بغرير الشهدة الناجح",
+  "titre_en": "Baghrir (1000 Holes Pancakes)",
+  "desc_fr": "Des crêpes légères et spongieuses, parfaites avec du miel et du beurre.",
+  "desc_ar": "فطائر خفيفة مثقوبة، تقدم مع العسل والزبدة المذابة.",
+  "desc_en": "Light and spongy pancakes, perfect with honey and butter.",
+  "temps": "30 min", "portions": 12, "difficulte": "●○○", "photo": "photos/baghrir.webp",
+  "ingredients_fr": ["250g de semoule fine", "100g de farine", "1 sachet de levure chimique", "1 c.à.s de levure boulangère", "Eau tiède"],
+  "ingredients_ar": ["250 غ سميد ناعم", "100 غ دقيق", "خميرة حلويات", "ملعقة كبيرة خميرة خبز", "ماء دافئ"],
+  "ingredients_en": ["250g fine semolina", "100g flour", "1 sachet baking powder", "1 tbsp yeast", "Warm water"],
+  "etapes_fr": ["Mixer tous les ingrédients jusqu'à obtenir une pâte lisse.", "Laisser reposer 15 minutes.", "Cuire sur une poêle antiadhésive sans retourner.", "Servir avec un mélange beurre-miel."],
+  "etapes_ar": ["تخلط جميع المكونات في الخلاط الكهربائي.", "يترك الخليط يرتاح لمدة 15 دقيقة.", "يطهى في مقلاة ساخنة من جهة واحدة فقط.", "يقدم مع الزبدة والعسل."],
+  "etapes_en": ["Blend all ingredients until smooth.", "Let rest for 15 minutes.", "Cook on a non-stick pan on one side only.", "Serve with butter and honey."],
+  "date": "2026-05-05"
+},
+
+        {
+  "id": "msemmen-farci-four",
+  "titre_fr": "Msemmen Farci au Four",
+  "titre_ar": "مسمن معمر في الفرن",
+  "titre_en": "Stuffed Baked Msemmen",
+  "desc_fr": "Des carrés de pâte feuilletée marocaine croustillante, farcis à la viande hachée et légumes.",
+  "desc_ar": "مربعات المسمن المقرمشة محشوة باللحم المفروم والخضر ومطهوة في الفرن.",
+  "desc_en": "Crispy Moroccan puff pastry squares stuffed with minced meat and vegetables.",
+  "temps": "55 min", "portions": 6, "difficulte": "●●○", "photo": "photos/msemmen-farci.webp",
+  "ingredients_fr": ["500g de farine", "250g de viande hachée", "2 oignons", "1 poivron", "Épices (piment doux, cumin)", "Huile et beurre"],
+  "ingredients_ar": ["500 غ دقيق", "250 غ لحم مفروم", "بصلتان", "فلفل أخضر", "توابل (تحميرة، كامون)", "زيت وزبدة"],
+  "ingredients_en": ["500g flour", "250g minced meat", "2 onions", "1 bell pepper", "Spices (paprika, cumin)", "Oil and butter"],
+  "etapes_fr": ["Préparer la pâte à msemmen et laisser reposer.", "Faire revenir la viande hachée avec les légumes et épices pour la farce.", "Façonner des carrés en incluant la farce au centre.", "Dorer au jaune d'œuf et cuire au four jusqu'à ce qu'ils soient croustillants."],
+  "etapes_ar": ["يُحضر عجين المسمن ويُترك ليرتاح.", "تُشحر البصلة والفلفل مع اللحم المفروم والتوابل لتحضير الحشوة.", "تُشكل مربعات المسمن مع وضع الحشوة في الوسط.", "تُدهن بأصفر البيض وتُطهى في الفرن حتى تصبح مقرمشة."],
+  "etapes_en": ["Prepare the msemmen dough and let it rest.", "Sauté minced meat with onions, peppers, and spices for the filling.", "Shape into squares, placing the filling inside.", "Brush with egg yolk and bake in the oven until crispy."],
+  "date": "2026-05-05"
+        },
+    {
+  "id": "batbout-marocain",
+  "titre_fr": "Batbout (Pain Poêlé)",
+  "titre_ar": "بطبوط مغربي ناجح",
+  "titre_en": "Batbout (Skillet Bread)",
+  "desc_fr": "Un pain moelleux cuit à la poêle, idéal pour les sandwichs ou avec du miel.",
+  "desc_ar": "خبز المقلاة المغربي، يتميز بقوام رطب وفارغ من الداخل ومثالي للحشو.",
+  "desc_en": "Soft Moroccan skillet bread, perfect for sandwiches or served with honey.",
+  "temps": "45 min", "portions": 8, "difficulte": "●○○", "photo": "photos/batbout.webp",
+  "ingredients_fr": ["300g de semoule fine (Fino)", "200g de farine", "1 c.à.s de levure boulangère", "Sel", "Eau tiède"],
+  "ingredients_ar": ["300 غ سميد ناعم (فينو)", "200 غ دقيق", "ملعقة كبيرة خميرة خبز", "ملح", "ماء دافئ"],
+  "ingredients_en": ["300g fine semolina", "200g flour", "1 tbsp yeast", "Salt", "Warm water"],
+  "etapes_fr": ["Mélanger les ingrédients et pétrir jusqu'à obtenir une pâte souple.", "Étaler et découper des cercles, laisser lever 20 minutes.", "Cuire dans une poêle chaude sans huile des deux côtés.", "Le pain doit gonfler pour être vide à l'intérieur."],
+  "etapes_ar": ["تخلط المكونات وتُعجن جيداً حتى نحصل على عجين لين.", "يُبسط العجين ويُقطع دوائر، ثم يُترك ليختمر 20 دقيقة.", "يُطهى في مقلاة ساخنة من الجهتين بدون زيت.", "يجب أن ينتفخ البطبوط ليكون فارغاً من الداخل."],
+  "etapes_en": ["Mix ingredients and knead until you have a soft dough.", "Roll out and cut into circles, let rise for 20 minutes.", "Cook in a hot skillet on both sides without oil.", "The bread should puff up to be hollow inside."],
+  "date": "2026-05-05"
+    }
+    
     ],
  "desserts": [
   {
@@ -426,88 +565,25 @@
       "Line the bottom and sides of a mold with ladyfingers. Fill with the mixture and refrigerate until set.",
       "Whip the heavy cream until stiff, decorate the top of the charlotte, and add fresh strawberries."
     ]
+},
+   {
+  "id": "jus-avocat-amandes",
+  "titre_fr": "Jus d'Avocat aux Amandes",
+  "titre_ar": "عصير لافوكا باللوز",
+  "titre_en": "Avocado Almond Shake",
+  "desc_fr": "Un smoothie onctueux et énergétique, une spécialité des cafés marocains.",
+  "desc_ar": "عصير كريمي ومغذي، يعتبر من أشهر المشروبات في المقاهي المغربية.",
+  "desc_en": "A creamy and energetic smoothie, a specialty of Moroccan cafes.",
+  "temps": "10 min", "portions": 2, "difficulte": "●○○", "photo": "photos/avocado-shake.webp",
+  "ingredients_fr": ["1 avocat mûr", "500ml de lait froid", "10 amandes", "3 dattes ou du sucre", "Quelques gouttes d'eau de fleur d'oranger"],
+  "ingredients_ar": ["حبة لافوكا ناضجة", "نصف لتر حليب بارد", "10 حبات لوز", "3 حبات تمر أو سكر", "قطرات من ماء الزهر"],
+  "ingredients_en": ["1 ripe avocado", "500ml cold milk", "10 almonds", "3 dates or sugar", "A few drops of orange blossom water"],
+  "etapes_fr": ["Couper l'avocat et retirer le noyau.", "Mettre la chair dans un mixeur avec le lait et les amandes.", "Ajouter les dattes et l'eau de fleur d'oranger.", "Mixer jusqu'à obtenir une texture lisse et servir très frais."],
+  "etapes_ar": ["تُقطع لافوكا ويُزال اللب.", "توضع في الخلاط الكهربائي مع الحليب واللوز.", "يُضاف التمر وماء الزهر حسب الرغبة.", "تُطحن المكونات جيداً حتى تصبح متجانسة وتُقدم باردة."],
+  "etapes_en": ["Cut the avocado and remove the pit.", "Put the pulp in a blender with milk and almonds.", "Add dates and orange blossom water.", "Blend until smooth and serve very cold."],
+  "date": "2026-05-05"
 }
 
 ]
  }
-{
-  "plats-marocains": [
-    {
-      "id": "couscous-sept-legumes",
-      "titre_fr": "Couscous aux Sept Légumes",
-      "titre_ar": "كسكس بسبع خضار",
-      "titre_en": "Seven Vegetable Couscous",
-      "desc_ar": "الطبق المغربي العالمي، رمز اللمة والعائلة يوم الجمعة.",
-      "temps": "120 min",
-      "portions": 6,
-      "difficulte": "●●●",
-      "photo": "photos/couscous.webp",
-      "ingredients_ar": ["كيس كسكس", "لحم غنم", "حمص", "جزر", "قرع أحمر", "لفت", "كرنب", "بصل", "سمن وتوابل"],
-      "etapes_ar": ["تبخير الكسكس ثلاث مرات", "طهي اللحم مع الحمص والتوابل", "إضافة الخضار تدريجياً حسب مدة الطهي"],
-      "date": "2026-05-05"
-    },
-    {
-      "id": "pastilla-poisson",
-      "titre_fr": "Pastilla aux Poissons",
-      "titre_ar": "بسطيلة الحوت الملكية",
-      "titre_en": "Seafood Pastilla",
-      "desc_ar": "بسطيلة مغربية فاخرة غنية بفواكه البحر والشعيرية الصينية.",
-      "temps": "90 min",
-      "portions": 8,
-      "difficulte": "●●●",
-      "photo": "photos/pastilla-poisson.webp",
-      "ingredients_ar": ["ورقة البسطيلة", "سمك أبيض", "قيمرون", "كلمار", "شعيرية صينية", "فطر", "صلصة الصويا", "هريسة"],
-      "etapes_ar": ["طهي فواكه البحر مع الشرمولة", "خلطها مع الشعيرية الصينية", "طوي البسطيلة ودهنها بالزبدة ثم التحمير"],
-      "date": "2026-05-05"
-    }
-  ],
-  "entrees-sales": [
-    {
-      "id": "msemmen-farci",
-      "titre_fr": "Msemmen Farci au Four",
-      "titre_ar": "مسمن معمر في الفرن",
-      "titre_en": "Stuffed Msemmen",
-      "desc_ar": "مسمن مقرمش محشو بالخضر واللحم المفروم.",
-      "temps": "45 min",
-      "portions": 5,
-      "difficulte": "●●○",
-      "photo": "photos/msemmen-farci.webp",
-      "ingredients_ar": ["عجين المسمن", "لحم مفروم", "بصل", "فلفل ألوان", "شعرية صينية", "توابل"],
-      "etapes_ar": ["تحضير الحشوة وتركها تبرد", "بسط العجين ووضع الحشوة وتشكيل مربعات", "الطهي في الفرن حتى القرمشة"],
-      "date": "2026-05-05"
-    }
-  ],
-  "boissons": [
-    {
-      "id": "jus-avocat-amandes",
-      "titre_fr": "Jus d'Avocat aux Amandes",
-      "titre_ar": "عصير لافوكا باللوز",
-      "titre_en": "Avocado Almond Shake",
-      "desc_ar": "عصير مغذي وكريمي، المفضل في موائد الإفطار.",
-      "temps": "5 min",
-      "portions": 2,
-      "difficulte": "●○○",
-      "photo": "photos/avocado-juice.webp",
-      "ingredients_ar": ["حبة لافوكا ناضجة", "نصف لتر حليب", "حفنة لوز", "تمر أو سكر للتحلية"],
-      "etapes_ar": ["طحن لافوكا مع الحليب", "إضافة اللوز والتحلية والطحن مرة أخرى", "يقدم بارداً"],
-      "date": "2026-05-05"
-    }
-  ],
-  "pains": [
-    {
-      "id": "batbout-marocain",
-      "titre_fr": "Batbout (Pain Poêlé)",
-      "titre_ar": "بطبوط مغربي ناجح",
-      "titre_en": "Batbout Bread",
-      "desc_ar": "خبز المقلاة الصغير، فارغ من الداخل ومثالي للحشو.",
-      "temps": "40 min",
-      "portions": 10,
-      "difficulte": "●●○",
-      "photo": "photos/batbout.webp",
-      "ingredients_ar": ["دقيق أبيض", "فينو", "خميرة خبز", "ماء دافئ", "ملح"],
-      "etapes_ar": ["عجن المكونات وترك العجين يرتاح", "تقطيع دوائر صغيرة", "طهيها في مقلاة ساخنة حتى تنتفخ"],
-      "date": "2026-05-05"
-    }
-  ]
-}
 
