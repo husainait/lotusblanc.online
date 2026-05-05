@@ -235,7 +235,7 @@
   "desc_fr": "Une pastilla croustillante garnie de fruits de mer et de vermicelles.",
   "desc_ar": "بسطيلة مغربية فاخرة غنية بفواكه البحر والشعيرية الصينية.",
   "desc_en": "A crispy Moroccan pie filled with seafood and vermicelli.",
-  "temps": "90 min", "portions": 8, "difficulte": "●●●", "photo": "photos/pastilla-poisson.webp",
+  "temps": "90 min", "portions": 8, "difficulte": "●●●", "photo": "photos/pastilla.png",
   "ingredients_fr": ["Feuilles de pastilla", "500g de crevettes", "500g de calamar", "500g de poisson blanc", "Vermicelle chinoise", "Champignons", "Sauce soja", "Harrissa"],
   "ingredients_ar": ["ورقة البسطيلة", "500 غ قيمرون", "500 غ كلمار", "500 غ سمك أبيض", "شعيرية صينية", "فطر", "صلصة صويا", "هريسة"],
   "ingredients_en": ["Pastilla pastry sheets", "500g shrimp", "500g squid", "500g white fish", "Chinese vermicelli", "Mushrooms", "Soy sauce", "Chili paste (Harissa)"],
