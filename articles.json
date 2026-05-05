@@ -218,7 +218,7 @@
   "desc_fr": "Le plat emblématique du vendredi, riche en saveurs et en partage.",
   "desc_ar": "الطبق المغربي العالمي، رمز اللمة والعائلة يوم الجمعة.",
   "desc_en": "The iconic Friday dish, rich in flavors and perfect for sharing.",
-  "temps": "120 min", "portions": 6, "difficulte": "●●●", "photo": "photos/couscous.webp",
+  "temps": "120 min", "portions": 6, "difficulte": "●●●", "photo": "photos/couscous.png",
   "ingredients_fr": ["1kg de semoule", "500g de viande d'agneau", "2 carottes", "2 courgettes", "1/4 de chou", "2 navets", "1 bol de pois chiches", "Potiron", "Épices (gingembre, curcuma, poivre)"],
   "ingredients_ar": ["1 كلغ كسكس", "500 غ لحم غنم", "جزرتان", "قرعتان خضراء", "ملفوف", "لفت", "زلافة حمص", "قرع أحمر", "توابل (سكنجبير، خرقوم، إبزار)"],
   "ingredients_en": ["1kg couscous semolina", "500g lamb meat", "2 carrots", "2 zucchinis", "1/4 cabbage", "2 turnips", "1 bowl chickpeas", "Pumpkin", "Spices (ginger, turmeric, pepper)"],
