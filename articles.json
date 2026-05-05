@@ -208,7 +208,7 @@
         "Add preserved lemon and olives at the end.",
         "Garnish with herbs and serve hot."
       ],
-      "date": "2026-04-26"
+      "date": "2026-05-05"
     },
 {
   "id": "couscous-sept-legumes",
@@ -225,7 +225,7 @@
   "etapes_fr": ["Cuire la viande avec les oignons et les pois chiches dans le bas du couscoussier.", "Passer la semoule à la vapeur trois fois.", "Ajouter les légumes selon leur temps de cuisson.", "Dresser la semoule et disposer la viande et les légumes par-dessus."],
   "etapes_ar": ["يطهى اللحم مع البصل والحمص في طنجرة الكسكس.", "يُبخر الكسكس ثلاث مرات مع رشه بالماء والزيت.", "تضاف الخضار تدريجياً حسب مدة طهيها.", "يوضع الكسكس في طبق التقديم ويزين باللحم والخضار."],
   "etapes_en": ["Cook meat with onions and chickpeas in the bottom of the couscoussier.", "Steam the couscous semolina three times.", "Add vegetables according to their cooking time.", "Serve the couscous topped with meat and vegetables."],
-  "date": "2026-05-05"
+  "date": "2026-01-05"
 },
      {
   "id": "pastilla-poisson",
@@ -242,7 +242,7 @@
   "etapes_fr": ["Faire sauter les fruits de mer avec l'ail, le persil et les épices.", "Mélanger avec la vermicelle cuite et les champignons.", "Plier la pastilla dans un moule beurré.", "Cuire au four jusqu'à ce qu'elle soit bien dorée."],
   "etapes_ar": ["تطهى فواكه البحر مع الثوم، البقدونس والتوابل.", "تخلط مع الشعيرية الصينية المسلوقة والفطر.", "تطوى البسطيلة في قالب مدهون بالزبدة.", "تخبز في الفرن حتى تصبح ذهبية ومقرمشة."],
   "etapes_en": ["Sauté the seafood with garlic, parsley, and spices.", "Mix with cooked vermicelli and mushrooms.", "Fold the pastilla in a buttered mold.", "Bake until golden and crispy."],
-  "date": "2026-05-05"
+  "date": "2026-05-06"
      },
      {
   "id": "tagine-viande-pruneaux",
@@ -276,7 +276,7 @@
   "etapes_fr": ["Préparer le bouillon avec le poulet, les oignons et les épices.", "Cuire les lentilles et le fenugrec dans la sauce.", "Disposer le msemmen dans un grand plat et arroser généreusement de sauce.", "Placer le poulet au centre."],
   "etapes_ar": ["يحضر المرق بالدجاج والبصل والتوابل.", "يطهى العدس والحلبة في المرق.", "يوضع المسمن المقطع في طبق كبير ويسقى جيداً بالمرق.", "يوضع الدجاج في الوسط."],
   "etapes_en": ["Prepare the broth with chicken, onions, and spices.", "Cook lentils and fenugreek in the sauce.", "Place shredded msemmen in a dish and soak with broth.", "Place the chicken on top."],
-  "date": "2026-05-05" 
+  "date": "2026-02-05" 
      }
   ],
   "patisserie": [
@@ -294,7 +294,7 @@
     "photo": "photos/foretnoir.webp",
     "cat_ar": "حلويات",
     "cat_en": "Pastry",
-    "date": "2026-05-02",
+    "date": "2026-05-05",
     "ingredients_fr": [
       "3 carrés de génoise au chocolat (20x20)",
       "20cl de crème fraîche",
@@ -368,7 +368,7 @@
   "etapes_fr": ["Mixer tous les ingrédients jusqu'à obtenir une pâte lisse.", "Laisser reposer 15 minutes.", "Cuire sur une poêle antiadhésive sans retourner.", "Servir avec un mélange beurre-miel."],
   "etapes_ar": ["تخلط جميع المكونات في الخلاط الكهربائي.", "يترك الخليط يرتاح لمدة 15 دقيقة.", "يطهى في مقلاة ساخنة من جهة واحدة فقط.", "يقدم مع الزبدة والعسل."],
   "etapes_en": ["Blend all ingredients until smooth.", "Let rest for 15 minutes.", "Cook on a non-stick pan on one side only.", "Serve with butter and honey."],
-  "date": "2026-05-05"
+  "date": "2026-01-05"
 },
 
         {
@@ -386,7 +386,7 @@
   "etapes_fr": ["Préparer la pâte à msemmen et laisser reposer.", "Faire revenir la viande hachée avec les légumes et épices pour la farce.", "Façonner des carrés en incluant la farce au centre.", "Dorer au jaune d'œuf et cuire au four jusqu'à ce qu'ils soient croustillants."],
   "etapes_ar": ["يُحضر عجين المسمن ويُترك ليرتاح.", "تُشحر البصلة والفلفل مع اللحم المفروم والتوابل لتحضير الحشوة.", "تُشكل مربعات المسمن مع وضع الحشوة في الوسط.", "تُدهن بأصفر البيض وتُطهى في الفرن حتى تصبح مقرمشة."],
   "etapes_en": ["Prepare the msemmen dough and let it rest.", "Sauté minced meat with onions, peppers, and spices for the filling.", "Shape into squares, placing the filling inside.", "Brush with egg yolk and bake in the oven until crispy."],
-  "date": "2026-05-05"
+  "date": "2026-01-05"
         },
     {
   "id": "batbout-marocain",
@@ -403,7 +403,7 @@
   "etapes_fr": ["Mélanger les ingrédients et pétrir jusqu'à obtenir une pâte souple.", "Étaler et découper des cercles, laisser lever 20 minutes.", "Cuire dans une poêle chaude sans huile des deux côtés.", "Le pain doit gonfler pour être vide à l'intérieur."],
   "etapes_ar": ["تخلط المكونات وتُعجن جيداً حتى نحصل على عجين لين.", "يُبسط العجين ويُقطع دوائر، ثم يُترك ليختمر 20 دقيقة.", "يُطهى في مقلاة ساخنة من الجهتين بدون زيت.", "يجب أن ينتفخ البطبوط ليكون فارغاً من الداخل."],
   "etapes_en": ["Mix ingredients and knead until you have a soft dough.", "Roll out and cut into circles, let rise for 20 minutes.", "Cook in a hot skillet on both sides without oil.", "The bread should puff up to be hollow inside."],
-  "date": "2026-05-05"
+  "date": "2026-01-05"
     }
     
     ],
@@ -422,7 +422,7 @@
     "photo": "photos/tiramisu.webp",
     "cat_ar": "تحلية",
     "cat_en": "Dessert",
-    "date": "2026-04-28",
+    "date": "2026-05-05",
     "ingredients_fr": [
       "250g de Mascarpone",
       "3 œufs très frais",
@@ -489,7 +489,7 @@
     "photo": "photos/charlotte.webp",
     "cat_ar": "تحلية",
     "cat_en": "Desserts",
-    "date": "2026-05-01",
+    "date": "2026-05-07",
     "ingredients_fr": [
       "Biscuits à la cuillère (Boudoirs)",
       "12cl de lait",
@@ -563,7 +563,7 @@
   "etapes_fr": ["Couper l'avocat et retirer le noyau.", "Mettre la chair dans un mixeur avec le lait et les amandes.", "Ajouter les dattes et l'eau de fleur d'oranger.", "Mixer jusqu'à obtenir une texture lisse et servir très frais."],
   "etapes_ar": ["تُقطع لافوكا ويُزال اللب.", "توضع في الخلاط الكهربائي مع الحليب واللوز.", "يُضاف التمر وماء الزهر حسب الرغبة.", "تُطحن المكونات جيداً حتى تصبح متجانسة وتُقدم باردة."],
   "etapes_en": ["Cut the avocado and remove the pit.", "Put the pulp in a blender with milk and almonds.", "Add dates and orange blossom water.", "Blend until smooth and serve very cold."],
-  "date": "2026-05-05"
+  "date": "2026-01-05"
 }
 
 ]
