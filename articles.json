@@ -252,7 +252,7 @@
   "desc_fr": "L'alliance parfaite entre le sucré des pruneaux et le salé de la viande.",
   "desc_ar": "مزيج رائع بين حلاوة البرقوق المكرمل وملوحة اللحم الطري.",
   "desc_en": "The perfect balance between sweet prunes and savory tender meat.",
-  "temps": "90 min", "portions": 4, "difficulte": "●●○", "photo": "photos/tagine-viande.webp",
+  "temps": "90 min", "portions": 4, "difficulte": "●●○", "photo": "photos/tagine-viande.png",
   "ingredients_fr": ["1kg de viande d'agneau", "200g de pruneaux", "50g d'amandes frites", "2 oignons", "Cannelle", "Miel", "Sésame"],
   "ingredients_ar": ["1 كلغ لحم غنم", "200 غ برقوق", "50 غ لوز مقلي", "بصلتان", "قرفة", "عسل", "سمسم"],
   "ingredients_en": ["1kg lamb meat", "200g prunes", "50g fried almonds", "2 onions", "Cinnamon", "Honey", "Sesame seeds"],
@@ -269,33 +269,15 @@
   "desc_fr": "Un plat traditionnel réconfortant à base de lentilles et de crêpes (Msemmen).",
   "desc_ar": "طبق تقليدي دافئ يتكون من المسمن، الدجاج، والعدس برائحة رأس الحانوت.",
   "desc_en": "A traditional comforting dish made of shredded Msemmen, lentils, and chicken.",
-  "temps": "100 min", "portions": 6, "difficulte": "●●○", "photo": "photos/rfissa.webp",
+  "temps": "100 min", "portions": 6, "difficulte": "●●○", "photo": "photos/rfissa.png",
   "ingredients_fr": ["1 poulet fermier", "Feuilles de Msemmen déchirées", "Lentilles", "Fenugrec", "Oignons", "Ras El Hanout", "Safran"],
   "ingredients_ar": ["دجاجة", "مسمن مقطع", "عدس", "حلبة", "بصل", "رأس الحانوت", "زعفران"],
   "ingredients_en": ["1 farm chicken", "Shredded Msemmen crepes", "Lentils", "Fenugreek", "Onions", "Ras El Hanout", "Saffron"],
   "etapes_fr": ["Préparer le bouillon avec le poulet, les oignons et les épices.", "Cuire les lentilles et le fenugrec dans la sauce.", "Disposer le msemmen dans un grand plat et arroser généreusement de sauce.", "Placer le poulet au centre."],
   "etapes_ar": ["يحضر المرق بالدجاج والبصل والتوابل.", "يطهى العدس والحلبة في المرق.", "يوضع المسمن المقطع في طبق كبير ويسقى جيداً بالمرق.", "يوضع الدجاج في الوسط."],
   "etapes_en": ["Prepare the broth with chicken, onions, and spices.", "Cook lentils and fenugreek in the sauce.", "Place shredded msemmen in a dish and soak with broth.", "Place the chicken on top."],
-  "date": "2026-05-05"
-     },
-    {
-  "id": "rfissa-poulet",
-  "titre_fr": "Rfissa au Poulet",
-  "titre_ar": "الرفيسة المغربية بالدجاج",
-  "titre_en": "Moroccan Rfissa",
-  "desc_fr": "Un plat traditionnel réconfortant à base de lentilles et de crêpes (Msemmen).",
-  "desc_ar": "طبق تقليدي دافئ يتكون من المسمن، الدجاج، والعدس برائحة رأس الحانوت.",
-  "desc_en": "A traditional comforting dish made of shredded Msemmen, lentils, and chicken.",
-  "temps": "100 min", "portions": 6, "difficulte": "●●○", "photo": "photos/rfissa.webp",
-  "ingredients_fr": ["1 poulet fermier", "Feuilles de Msemmen déchirées", "Lentilles", "Fenugrec", "Oignons", "Ras El Hanout", "Safran"],
-  "ingredients_ar": ["دجاجة", "مسمن مقطع", "عدس", "حلبة", "بصل", "رأس الحانوت", "زعفران"],
-  "ingredients_en": ["1 farm chicken", "Shredded Msemmen crepes", "Lentils", "Fenugreek", "Onions", "Ras El Hanout", "Saffron"],
-  "etapes_fr": ["Préparer le bouillon avec le poulet, les oignons et les épices.", "Cuire les lentilles et le fenugrec dans la sauce.", "Disposer le msemmen dans un grand plat et arroser généreusement de sauce.", "Placer le poulet au centre."],
-  "etapes_ar": ["يحضر المرق بالدجاج والبصل والتوابل.", "يطهى العدس والحلبة في المرق.", "يوضع المسمن المقطع في طبق كبير ويسقى جيداً بالمرق.", "يوضع الدجاج في الوسط."],
-  "etapes_en": ["Prepare the broth with chicken, onions, and spices.", "Cook lentils and fenugreek in the sauce.", "Place shredded msemmen in a dish and soak with broth.", "Place the chicken on top."],
-  "date": "2026-05-05"
-    }
-     
+  "date": "2026-05-05" 
+     }
   ],
   "patisserie": [
   {
