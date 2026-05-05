@@ -430,3 +430,84 @@
 
 ]
  }
+{
+  "plats-marocains": [
+    {
+      "id": "couscous-sept-legumes",
+      "titre_fr": "Couscous aux Sept Légumes",
+      "titre_ar": "كسكس بسبع خضار",
+      "titre_en": "Seven Vegetable Couscous",
+      "desc_ar": "الطبق المغربي العالمي، رمز اللمة والعائلة يوم الجمعة.",
+      "temps": "120 min",
+      "portions": 6,
+      "difficulte": "●●●",
+      "photo": "photos/couscous.webp",
+      "ingredients_ar": ["كيس كسكس", "لحم غنم", "حمص", "جزر", "قرع أحمر", "لفت", "كرنب", "بصل", "سمن وتوابل"],
+      "etapes_ar": ["تبخير الكسكس ثلاث مرات", "طهي اللحم مع الحمص والتوابل", "إضافة الخضار تدريجياً حسب مدة الطهي"],
+      "date": "2026-05-05"
+    },
+    {
+      "id": "pastilla-poisson",
+      "titre_fr": "Pastilla aux Poissons",
+      "titre_ar": "بسطيلة الحوت الملكية",
+      "titre_en": "Seafood Pastilla",
+      "desc_ar": "بسطيلة مغربية فاخرة غنية بفواكه البحر والشعيرية الصينية.",
+      "temps": "90 min",
+      "portions": 8,
+      "difficulte": "●●●",
+      "photo": "photos/pastilla-poisson.webp",
+      "ingredients_ar": ["ورقة البسطيلة", "سمك أبيض", "قيمرون", "كلمار", "شعيرية صينية", "فطر", "صلصة الصويا", "هريسة"],
+      "etapes_ar": ["طهي فواكه البحر مع الشرمولة", "خلطها مع الشعيرية الصينية", "طوي البسطيلة ودهنها بالزبدة ثم التحمير"],
+      "date": "2026-05-05"
+    }
+  ],
+  "entrees-sales": [
+    {
+      "id": "msemmen-farci",
+      "titre_fr": "Msemmen Farci au Four",
+      "titre_ar": "مسمن معمر في الفرن",
+      "titre_en": "Stuffed Msemmen",
+      "desc_ar": "مسمن مقرمش محشو بالخضر واللحم المفروم.",
+      "temps": "45 min",
+      "portions": 5,
+      "difficulte": "●●○",
+      "photo": "photos/msemmen-farci.webp",
+      "ingredients_ar": ["عجين المسمن", "لحم مفروم", "بصل", "فلفل ألوان", "شعرية صينية", "توابل"],
+      "etapes_ar": ["تحضير الحشوة وتركها تبرد", "بسط العجين ووضع الحشوة وتشكيل مربعات", "الطهي في الفرن حتى القرمشة"],
+      "date": "2026-05-05"
+    }
+  ],
+  "boissons": [
+    {
+      "id": "jus-avocat-amandes",
+      "titre_fr": "Jus d'Avocat aux Amandes",
+      "titre_ar": "عصير لافوكا باللوز",
+      "titre_en": "Avocado Almond Shake",
+      "desc_ar": "عصير مغذي وكريمي، المفضل في موائد الإفطار.",
+      "temps": "5 min",
+      "portions": 2,
+      "difficulte": "●○○",
+      "photo": "photos/avocado-juice.webp",
+      "ingredients_ar": ["حبة لافوكا ناضجة", "نصف لتر حليب", "حفنة لوز", "تمر أو سكر للتحلية"],
+      "etapes_ar": ["طحن لافوكا مع الحليب", "إضافة اللوز والتحلية والطحن مرة أخرى", "يقدم بارداً"],
+      "date": "2026-05-05"
+    }
+  ],
+  "pains": [
+    {
+      "id": "batbout-marocain",
+      "titre_fr": "Batbout (Pain Poêlé)",
+      "titre_ar": "بطبوط مغربي ناجح",
+      "titre_en": "Batbout Bread",
+      "desc_ar": "خبز المقلاة الصغير، فارغ من الداخل ومثالي للحشو.",
+      "temps": "40 min",
+      "portions": 10,
+      "difficulte": "●●○",
+      "photo": "photos/batbout.webp",
+      "ingredients_ar": ["دقيق أبيض", "فينو", "خميرة خبز", "ماء دافئ", "ملح"],
+      "etapes_ar": ["عجن المكونات وترك العجين يرتاح", "تقطيع دوائر صغيرة", "طهيها في مقلاة ساخنة حتى تنتفخ"],
+      "date": "2026-05-05"
+    }
+  ]
+}
+
