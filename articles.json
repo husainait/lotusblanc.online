@@ -571,7 +571,7 @@
   "desc_fr": "Un smoothie onctueux et énergétique, une spécialité des cafés marocains.",
   "desc_ar": "عصير كريمي ومغذي، يعتبر من أشهر المشروبات في المقاهي المغربية.",
   "desc_en": "A creamy and energetic smoothie, a specialty of Moroccan cafes.",
-  "temps": "10 min", "portions": 2, "difficulte": "●○○", "photo": "photos/avocado-shake.webp",
+  "temps": "10 min", "portions": 2, "difficulte": "●○○", "photo": "photos/avocado-jus.png",
   "ingredients_fr": ["1 avocat mûr", "500ml de lait froid", "10 amandes", "3 dattes ou du sucre", "Quelques gouttes d'eau de fleur d'oranger"],
   "ingredients_ar": ["حبة لافوكا ناضجة", "نصف لتر حليب بارد", "10 حبات لوز", "3 حبات تمر أو سكر", "قطرات من ماء الزهر"],
   "ingredients_en": ["1 ripe avocado", "500ml cold milk", "10 almonds", "3 dates or sugar", "A few drops of orange blossom water"],
