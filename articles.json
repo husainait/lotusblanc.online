@@ -1,6 +1,6 @@
 {
   "salades": [
-    /*salata maghribia*/
+   
     {
       "id": "salata-maghribiya",
       "titre_fr": "Salade marocaine fraîche",
@@ -65,7 +65,7 @@
      
   ],
   "soupes": [
-                                    /*harira*/
+                                    
    {
   "id": "harira-marocaine",
   "titre_fr": "Harira Marocaine Authentique",
@@ -159,7 +159,7 @@
 }
   ],
    "plats-marocains": [
-                          /*tagine poulet*/
+                           
     {
       "id": "tajine-poulet",
       "titre_fr": "Tajine de poulet au citron confit et olives",
@@ -327,7 +327,7 @@
   ]
   "date": "2026-01-05"
 },
-                    /*pastille poulet*/
+                   
      {
   "id": "pastilla-poulet-amandes",
   "titre_ar": "بسطيلة بالدجاج واللوز",
@@ -430,7 +430,7 @@
   ]
         "date": "2026-01-05"
 },
-                              /pastilla poisson/
+                              
      {
   "id": "pastilla-poisson",
   "titre_ar": "بسطيلة بالحوت",
@@ -515,7 +515,7 @@
   ]
        "date": "2026-05-06"
      },
-              /* tajine viande aux pruneaux*/
+               
  {
   "id": "tajine-viande-pruneaux",
   "titre_ar": "طاجين اللحم بالبرقوق والمشمش",
@@ -605,7 +605,7 @@
   ]
       "date": "2026-05-05"
      },
-          /* poulet mhamar*/
+          
      {
   "id": "poulet-rôti",
   "titre_ar": "الدجاج محمر بالدغميرة والزيتون",
@@ -690,7 +690,7 @@
        "date": "2026-01-05"
 },
       
-                /*rfissa au poulet*/
+                 
      {
   "id": "rfissa-poulet",
  "titre_fr": "Rfissa Marocaine au Poulet",
@@ -776,7 +776,7 @@
      }
   ],
   "patisserie": [
-                 /*foret noire*/
+                 
   {
     "id": "foret-noire-classique",
     "titre_fr": "Forêt Noire Classique",
