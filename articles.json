@@ -235,7 +235,7 @@
       "temps": "120 min",
       "portions": 6,
       "difficulte": "●●●",
-      "photo": "photos/couscous.png",
+      "photo": "photos/couscous.webp",
       "ingredients_ar": [
         "1 كلغ من الكسكس",
         "1 كلغ ونصف من لحم البقر",
@@ -336,7 +336,7 @@
       "temps": "150 min",
       "portions": 8,
       "difficulte": "●●●",
-      "photo": "photos/pastilla-poulet.png",
+      "photo": "photos/pastilla-poulet.webp",
       "ingredients_ar": [
         "دجاجة كبيرة من وزن 2 كلغ",
         "1 كلغ ونصف من البصل المفروم",
@@ -438,7 +438,7 @@
       "temps": "120 min",
       "portions": 8,
       "difficulte": "●●●",
-      "photo": "photos/pastilla-poisson.png",
+      "photo": "photos/pastilla-poisson.webp",
       "ingredients_ar": [
         "500غ من ورقة البسطيلة",
         "500غ من القيمرون (الجمبري) منقى",
@@ -522,7 +522,7 @@
       "temps": "90 min",
       "portions": 4,
       "difficulte": "●●○",
-      "photo": "photos/tajine-viande.png",
+      "photo": "photos/tajine-viande.webp",
       "ingredients_ar": [
         "1 كلغ من لحم الغنم أو البقر (جهة العنكرة أو الملج)",
         "2 بصلات كبيرات مفرومتان",
@@ -611,7 +611,7 @@
       "temps": "120 min",
       "portions": 4,
       "difficulte": "●●○",
-      "photo": "photos/poulet-mhamer.png",
+      "photo": "photos/poulet-mhamer.webp",
       "ingredients_ar": [
         "دجاجة كبيرة (من وزن 1.5 إلى 2 كلغ)",
         "3 بصلات كبيرات مفرومة رقيقاً",
@@ -694,7 +694,7 @@
       "temps": "150 min",
       "portions": 6,
       "difficulte": "●●●",
-      "photo": "photos/rfissa.png",
+      "photo": "photos/rfissa.webp",
       "ingredients_ar": [
         "دجاجة من وزن 2 كلغ (يفضل دجاج بلدي)",
         "1 كلغ من بصل مفروم طولياً (جوانح)",
@@ -852,7 +852,7 @@
       "temps": "30 min",
       "portions": 4,
       "difficulte": "●○○",
-      "photo": "photos/harcha.png",
+      "photo": "photos/harcha.webp",
       "ingredients_ar": [
         "500 غ سميد رقيق",
         "150 غ زبدة مذابة",
@@ -911,7 +911,7 @@
       "temps": "30 min",
       "portions": 12,
       "difficulte": "●○○",
-      "photo": "photos/baghrir.png",
+      "photo": "photos/baghrir.webp",
       "ingredients_fr": [
         "250g de semoule fine",
         "100g de farine",
@@ -964,7 +964,7 @@
       "temps": "60 min",
       "portions": 5,
       "difficulte": "●●○",
-      "photo": "photos/msemen.png",
+      "photo": "photos/msemen.webp",
       "ingredients_ar": [
         "500 غ دقيق أبيض",
         "250 غ سميد رقيق",
@@ -1014,7 +1014,7 @@
       "temps": "50 min",
       "portions": 4,
       "difficulte": "●○○",
-      "photo": "photos/batbout.png",
+      "photo": "photos/batbout.webp",
       "ingredients_ar": [
         "زلافة دقيق",
         "زلافة سميد رقيق جدا",
@@ -1206,7 +1206,7 @@
       "temps": "10 min",
       "portions": 2,
       "difficulte": "●○○",
-      "photo": "photos/avocado-jus.png",
+      "photo": "photos/avocado-jus.webp",
       "ingredients_fr": [
         "1 avocat mûr",
         "500ml de lait froid",
