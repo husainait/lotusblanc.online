@@ -70,13 +70,73 @@
     <priority>0.8</priority>
   </url>
 
+ <url>
+    <loc>https://lotusblanc.online/recette.html?cat=plats-marocains&id=couscous-sept-legumes</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
 
+ <url>
+    <loc>https://lotusblanc.online/recette.html?cat=plats-marocains&id=pastilla-poulet-amandes</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+<url>
+  <loc>https://lotusblanc.online/recette.html?cat=plats-marocains&id=pastilla-poisson</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+   <url>
+   <loc>https://lotusblanc.online/recette.html?cat=plats-marocains&id=tajine-viande-pruneaux</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+   <loc>https://lotusblanc.online/recette.html?cat=plats-marocains&id=poulet-roti</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
 
+   <url>
+   <loc>https://lotusblanc.online/recette.html?cat=plats-marocains&id=rfissa-poulet</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+ <url>
+   <loc>https://lotusblanc.online/recette.html?cat=desserts&id=jus-avocat-amandes</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+ <url>
+   <loc>https://lotusblanc.online/recette.html?cat=patisserie&id=harcha-marocaine-traditionnelle</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
 
+<url>
+   <loc>https://lotusblanc.online/recette.html?cat=patisserie&id=baghrir-mille-trous</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
 
+  <url>
+   <loc>https://lotusblanc.online/recette.html?cat=patisserie&id=msemen-traditionnel</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+   <loc>https://lotusblanc.online/recette.html?cat=patisserie&id=batbout-marocain</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+ <url>
+   <loc>https://lotusblanc.online/about.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <priority>0.8</priority>
+  </url>   
 
-
-
+  
 
 
   
