@@ -842,6 +842,65 @@
       ]
     },
     {
+      "id": "harcha-marocaine-traditionnelle",
+      "titre_ar": "الحرشة المغربية بالسميد",
+      "titre_fr": "Harcha : Galette Marocaine à la Semoule",
+      "titre_en": "Harcha: Moroccan Semolina Griddle Cake",
+      "desc_ar": "فطائر ذهبية ومقرمشة من الخارج وهشة من الداخل، تحضر بالسميد والزبدة.",
+      "desc_fr": "Une galette dorée et croustillante à l'extérieur, fondante à l'intérieur, faite à base de semoule.",
+      "desc_en": "Golden and crispy on the outside, soft on the inside, made with semolina and butter.",
+      "temps": "30 min",
+      "portions": 4,
+      "difficulte": "●○○",
+      "photo": "photos/harcha.webp",
+      "ingredients_ar": [
+        "500 غ سميد رقيق",
+        "150 غ زبدة مذابة",
+        "ملعقة كبيرة سكر",
+        "ملعقة صغيرة ملح",
+        "1 كيس خميرة حلويات (7غ)",
+        "حليب دافئ أو ماء لجمع العجين (حسب الخليط)",
+        "سميد خشن للرش"
+      ],
+      "ingredients_fr": [
+        "500g de semoule fine",
+        "150g de beurre fondu",
+        "1 c.à.s de sucre",
+        "1 c.à.c de sel",
+        "1 sachet de levure chimique (7g)",
+        "Lait tiède ou eau pour ramasser la pâte",
+        "Semoule grossière pour le saupoudrage"
+      ],
+      "ingredients_en": [
+        "500g fine semolina",
+        "150g melted butter",
+        "1 tbsp sugar",
+        "1 tsp salt",
+        "1 sachet baking powder (7g)",
+        "Warm milk or water to bind the dough",
+        "Coarse semolina for dusting"
+      ],
+      "etapes_ar": [
+        "في إناء، نخلط السميد مع السكر، الملح، والخميرة، ثم نبسس الخليط جيدا بالزبدة المذابة.",
+        "نضيف الحليب تدريجياً ونجمع العجين بأطراف الأصابع دون عجنها حتى تبقى مرملة.",
+        "نشكل كويرات صغيرة، نفندها في السميد الخشن ونبسطها في مقلاة ساخنة.",
+        "نطهوها من الجهتين حتى تتحمر وتكتسب لوناً ذهبياً."
+      ],
+      "etapes_fr": [
+        "Dans un bol, mélanger la semoule, le sucre, le sel et la levure, puis sabler avec le beurre fondu.",
+        "Ajouter le lait progressivement et ramasser la pâte du bout des doigts sans pétrir.",
+        "Former des petites galettes, les enrober de semoule grossière et les aplatir dans une poêle chaude.",
+        "Cuire des deux côtés jusqu'à ce qu'elles soient bien dorées."
+      ],
+      "etapes_en": [
+        "In a bowl, mix semolina, sugar, salt, and baking powder, then incorporate the melted butter.",
+        "Gradually add milk and bind the dough with fingertips without kneading.",
+        "Form small patties, coat them in coarse semolina, and flatten them in a hot skillet.",
+        "Cook on both sides until golden brown."
+      ],
+      "date": "2026-01-05"
+    },
+    {
       "id": "baghrir-mille-trous",
       "titre_fr": "Baghrir (Crêpes mille trous)",
       "titre_ar": "بغرير الشهدة الناجح",
@@ -895,111 +954,102 @@
       "date": "2026-01-05"
     },
     {
-      "id": "msemmen-farci-four",
-      "titre_fr": "Msemmen Farci au Four",
-      "titre_ar": "مسمن معمر في الفرن",
-      "titre_en": "Stuffed Baked Msemmen",
-      "desc_fr": "Des carrés de pâte feuilletée marocaine croustillante, farcis à la viande hachée et légumes.",
-      "desc_ar": "مربعات المسمن المقرمشة محشوة باللحم المفروم والخضر ومطهوة في الفرن.",
-      "desc_en": "Crispy Moroccan puff pastry squares stuffed with minced meat and vegetables.",
-      "temps": "55 min",
-      "portions": 6,
+      "id": "msemen-traditionnel",
+      "titre_ar": "المسمن المغربي التقليدي",
+      "titre_fr": "Msemen : Crêpes Feuilletées",
+      "titre_en": "Msemen: Moroccan Square Pancakes",
+      "desc_ar": "فطائر مربعة مقرمشة ومورقة، تعتبر ركيزة الفطور المغربي.",
+      "desc_fr": "Crêpes carrées feuilletées et croustillantes, un incontournable du petit-déjeuner.",
+      "desc_en": "Crispy and layered square pancakes, a staple of Moroccan breakfast.",
+      "temps": "60 min",
+      "portions": 5,
       "difficulte": "●●○",
-      "photo": "photos/msemmen-farci.webp",
+      "photo": "photos/msemen.png",
+      "ingredients_ar": [
+        "500 غ دقيق أبيض",
+        "250 غ سميد رقيق",
+        "ملح",
+        "ماء دافئ للعجن",
+        "زيت وزبدة للتوريق"
+      ],
       "ingredients_fr": [
         "500g de farine",
-        "250g de viande hachée",
-        "2 oignons",
-        "1 poivron",
-        "Épices (piment doux, cumin)",
-        "Huile et beurre"
-      ],
-      "ingredients_ar": [
-        "500 غ دقيق",
-        "250 غ لحم مفروم",
-        "بصلتان",
-        "فلفل أخضر",
-        "توابل (تحميرة، كامون)",
-        "زيت وزبدة"
+        "250g de semoule fine",
+        "Sel",
+        "Eau tiède pour la pâte",
+        "Mélange huile et beurre pour le feuilletage"
       ],
       "ingredients_en": [
-        "500g flour",
-        "250g minced meat",
-        "2 onions",
-        "1 bell pepper",
-        "Spices (paprika, cumin)",
-        "Oil and butter"
-      ],
-      "etapes_fr": [
-        "Préparer la pâte à msemmen et laisser reposer.",
-        "Faire revenir la viande hachée avec les légumes et épices pour la farce.",
-        "Façonner des carrés en incluant la farce au centre.",
-        "Dorer au jaune d'œuf et cuire au four jusqu'à ce qu'ils soient croustillants."
+        "500g white flour",
+        "250g fine semolina",
+        "Salt",
+        "Warm water for the dough",
+        "Oil and butter mixture for layering"
       ],
       "etapes_ar": [
-        "يُحضر عجين المسمن ويُترك ليرتاح.",
-        "تُشحر البصلة والفلفل مع اللحم المفروم والتوابل لتحضير الحشوة.",
-        "تُشكل مربعات المسمن مع وضع الحشوة في الوسط.",
-        "تُدهن بأصفر البيض وتُطهى في الفرن حتى تصبح مقرمشة."
+        "نعجن الدقيق مع السميد والملح والماء حتى نحصل على عجينة لينة.",
+        "نقسمها كويرات صغيرة ونتركها ترتاح.",
+        "نبسط الكويرة بالزيت والزبدة ونطويها على شكل مربع ثم نطهوها في مقلاة ثقيلة."
+      ],
+      "etapes_fr": [
+        "Pétrir la farine, la semoule, le sel et l'eau jusqu'à avoir une pâte souple.",
+        "Former des boules et laisser reposer.",
+        "Étaler finement, badigeonner de beurre, plier en carré et cuire sur une poêle lourde."
       ],
       "etapes_en": [
-        "Prepare the msemmen dough and let it rest.",
-        "Sauté minced meat with onions, peppers, and spices for the filling.",
-        "Shape into squares, placing the filling inside.",
-        "Brush with egg yolk and bake in the oven until crispy."
+        "Knead flour, semolina, salt, and water into a soft dough.",
+        "Form small balls and let them rest.",
+        "Flatten thinly, brush with butter, fold into a square, and cook on a heavy griddle."
       ],
       "date": "2026-01-05"
     },
     {
       "id": "batbout-marocain",
-      "titre_fr": "Batbout (Pain Poêlé)",
-      "titre_ar": "بطبوط مغربي ناجح",
-      "titre_en": "Batbout (Skillet Bread)",
-      "desc_fr": "Un pain moelleux cuit à la poêle, idéal pour les sandwichs ou avec du miel.",
-      "desc_ar": "خبز المقلاة المغربي، يتميز بقوام رطب وفارغ من الداخل ومثالي للحشو.",
-      "desc_en": "Soft Moroccan skillet bread, perfect for sandwiches or served with honey.",
-      "temps": "45 min",
-      "portions": 8,
+      "titre_ar": "البطبوط المغربي",
+      "titre_fr": "Batbout : Pain à la Poêle",
+      "titre_en": "Batbout: Moroccan Skillet Bread",
+      "desc_ar": "خبز صغير خفيف وفارغ من الوسط، مثالي للحشو أو للأكل مع العسل.",
+      "desc_fr": "Petits pains moelleux cuits à la poêle, parfaits pour être farcis.",
+      "desc_en": "Soft skillet bread, hollow inside and perfect for stuffing.",
+      "temps": "50 min",
+      "portions": 4,
       "difficulte": "●○○",
       "photo": "photos/batbout.webp",
-      "ingredients_fr": [
-        "300g de semoule fine (Fino)",
-        "200g de farine",
-        "1 c.à.s de levure boulangère",
-        "Sel",
-        "Eau tiède"
-      ],
       "ingredients_ar": [
-        "300 غ سميد ناعم (فينو)",
-        "200 غ دقيق",
-        "ملعقة كبيرة خميرة خبز",
+        "زلافة دقيق",
+        "زلافة سميد رقيق جدا",
+        "ملعقة كبيرة خميرة",
         "ملح",
         "ماء دافئ"
       ],
+      "ingredients_fr": [
+        "1 bol de farine",
+        "1 bol de semoule extra-fine",
+        "1 c.à.s de levure",
+        "Sel",
+        "Eau tiède"
+      ],
       "ingredients_en": [
-        "300g fine semolina",
-        "200g flour",
+        "1 bowl flour",
+        "1 bowl extra-fine semolina",
         "1 tbsp yeast",
         "Salt",
         "Warm water"
       ],
-      "etapes_fr": [
-        "Mélanger les ingrédients et pétrir jusqu'à obtenir une pâte souple.",
-        "Étaler et découper des cercles, laisser lever 20 minutes.",
-        "Cuire dans une poêle chaude sans huile des deux côtés.",
-        "Le pain doit gonfler pour être vide à l'intérieur."
-      ],
       "etapes_ar": [
-        "تخلط المكونات وتُعجن جيداً حتى نحصل على عجين لين.",
-        "يُبسط العجين ويُقطع دوائر، ثم يُترك ليختمر 20 دقيقة.",
-        "يُطهى في مقلاة ساخنة من الجهتين بدون زيت.",
-        "يجب أن ينتفخ البطبوط ليكون فارغاً من الداخل."
+        "نعجن المكونات جيداً، نبسط العجينة ونقطعها دوائر.",
+        "نغطي الدوائر ونتركها تختمر.",
+        "نطهو الخبز في مقلاة ساخنة حتى يتنفخ ويتحمر من الجهتين."
+      ],
+      "etapes_fr": [
+        "Pétrir la pâte, l'étaler et découper des ronds.",
+        "Laisser lever les ronds de pâte.",
+        "Cuire sur une poêle chaude jusqu'à ce qu'ils gonflent et dorent des deux côtés."
       ],
       "etapes_en": [
-        "Mix ingredients and knead until you have a soft dough.",
-        "Roll out and cut into circles, let rise for 20 minutes.",
-        "Cook in a hot skillet on both sides without oil.",
-        "The bread should puff up to be hollow inside."
+        "Knead the dough, roll it out, and cut into circles.",
+        "Let them rise.",
+        "Cook on a hot skillet until they puff up and turn golden on both sides."
       ],
       "date": "2026-01-05"
     }
