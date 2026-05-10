@@ -12,6 +12,7 @@
       "portions": 4,
       "difficulte": "●○○",
       "photo": "photos/salata.webp",
+      "date": "2025-04-25",
       "cat_ar": "سلطة",
       "cat_en": "Salad",
       "ingredients_fr": [
@@ -59,10 +60,9 @@
         "Mix salt, spices, oil and lemon juice for the dressing.",
         "Arrange vegetables in serving dish, drizzle with dressing and garnish with black olives."
       ],
-      "date": "2025-04-25",
     },
 {
-    "id": "zaalouk-marocain-authentique",
+    "id": "zaalouk-marocain",
     "titre_ar": "سلطة الزعلوك المغربية",
     "titre_fr": "Zaalouk : Caviar d'Aubergines",
     "titre_en": "Zaalouk: Moroccan Eggplant Salad",
@@ -70,7 +70,8 @@
     "desc_fr": "Une entrée marocaine authentique à base d'aubergines et de tomates aux épices traditionnelles.",
     "desc_en": "An authentic Moroccan starter made with eggplants and tomatoes with traditional spices.",
     "temps": "30 min", "portions": 4, "difficulte": "●○○", "photo": "photos/zaalouk.webp",
-    "ingredients_ar": [
+    "date": "2025-04-25",
+  "ingredients_ar": [
       "2 حبات باذنجان",
       "4 حبات طماطم",
       "4 فصوص ثوم",
@@ -90,7 +91,7 @@
     "etapes_en": ["Cook the eggplants in salted water or grill them.", "In a pan, sauté tomatoes with garlic, oil, and spices.", "Add the cooked eggplant and mash everything together over the heat.", "Stir until the salad absorbs all flavors and the water evaporates."]
   },
   {
-    "id": "taktouka-marocaine-traditionnelle",
+    "id": "taktouka-marocaine",
     "titre_ar": "سلطة التكتوكة المغربية",
     "titre_fr": "Taktouka : Salade de Poivrons et Tomates",
     "titre_en": "Taktouka: Moroccan Pepper Salad",
@@ -98,6 +99,7 @@
     "desc_fr": "Une salade savoureuse mélangeant poivrons grillés et tomates à l'ail et huile d'olive.",
     "desc_en": "A tasty salad combining roasted peppers and tomatoes with garlic and olive oil.",
     "temps": "25 min", "portions": 4, "difficulte": "●○○", "photo": "photos/taktouka.webp",
+    "date": "2025-04-25",
     "ingredients_ar": [
       "حبة من الفلفل الأحمر والأخضر",
       "4 حبات طماطم",
