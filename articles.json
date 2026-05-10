@@ -59,66 +59,120 @@
         "Wash and cut all vegetables into small cubes. Place in a bowl.",
         "Mix salt, spices, oil and lemon juice for the dressing.",
         "Arrange vegetables in serving dish, drizzle with dressing and garnish with black olives."
-      ],
+      ]
     },
-{
-    "id": "zaalouk-marocain",
-    "titre_ar": "سلطة الزعلوك المغربية",
-    "titre_fr": "Zaalouk : Caviar d'Aubergines",
-    "titre_en": "Zaalouk: Moroccan Eggplant Salad",
-    "desc_ar": "مقبلات مغربية أصيلة تعتمد على الباذنجان المطهو مع الطماطم وتشكيلة من التوابل التقليدية وزيت الزيتون.",
-    "desc_fr": "Une entrée marocaine authentique à base d'aubergines et de tomates aux épices traditionnelles.",
-    "desc_en": "An authentic Moroccan starter made with eggplants and tomatoes with traditional spices.",
-    "temps": "30 min", "portions": 4, "difficulte": "●○○", "photo": "photos/zaalouk.webp",
-    "date": "2025-04-25",
-  "ingredients_ar": [
-      "2 حبات باذنجان",
-      "4 حبات طماطم",
-      "4 فصوص ثوم",
-      "ملعقة كبيرة من قزبرة وبقدونس مفروم",
-      "5 ملاعق من زيت الزيتون",
-      "التوابل: ملح، فلفل أسود، نصف ملعقة فلفل أحمر، نصف ملعقة من الكمون"
-    ],
-    "ingredients_fr": ["2 aubergines", "4 tomates", "4 gousses d'ail", "1 c.à.s de persil et coriandre", "5 c.à.s d'huile d'olive", "Épices : sel, poivre, 1/2 c.à.c de paprika, 1/2 c.à.c de cumin"],
-    "ingredients_en": ["2 eggplants", "4 tomatoes", "4 cloves of garlic", "1 tbsp parsley and coriander", "5 tbsp olive oil", "Spices: salt, pepper, 1/2 tsp paprika, 1/2 tsp cumin"],
-    "etapes_ar": [
-      "يُسلق الباذنجان في الماء المملح بعد تقطيعه إلى مكعبات، أو يُشوى حسب الرغبة.",
-      "في مقلاة، نضع الطماطم المفرومة مع الثوم، الزيت والتوابل ونتركها تطهى.",
-      "نضيف الباذنجان المطهو إلى خليط الطماطم ونقوم بوضعه فوق النار مع هرس المكونات جيداً.",
-      "نستمر في التحريك حتى يمتزج الباذنجان مع الطماطم وتتشرب السلطة كافة التوابل وتجف من الماء."
-    ],
-    "etapes_fr": ["Cuire les aubergines à l'eau salée ou les griller.", "Dans une poêle, faire revenir les tomates avec l'ail, l'huile et les épices.", "Ajouter l'aubergine et écraser le tout sur le feu.", "Mélanger jusqu'à ce que la salade absorbe les épices et sèche."],
-    "etapes_en": ["Cook the eggplants in salted water or grill them.", "In a pan, sauté tomatoes with garlic, oil, and spices.", "Add the cooked eggplant and mash everything together over the heat.", "Stir until the salad absorbs all flavors and the water evaporates."]
-  },
-  {
-    "id": "taktouka-marocaine",
-    "titre_ar": "سلطة التكتوكة المغربية",
-    "titre_fr": "Taktouka : Salade de Poivrons et Tomates",
-    "titre_en": "Taktouka: Moroccan Pepper Salad",
-    "desc_ar": "سلطة شهية تجمع بين نكهة الفلفل المشوي والطماطم المطهوة مع الثوم وزيت الزيتون.",
-    "desc_fr": "Une salade savoureuse mélangeant poivrons grillés et tomates à l'ail et huile d'olive.",
-    "desc_en": "A tasty salad combining roasted peppers and tomatoes with garlic and olive oil.",
-    "temps": "25 min", "portions": 4, "difficulte": "●○○", "photo": "photos/taktouka.webp",
-    "date": "2025-04-25",
-    "ingredients_ar": [
-      "حبة من الفلفل الأحمر والأخضر",
-      "4 حبات طماطم",
-      "4 فصوص ثوم مفروم",
-      "5 ملاعق من زيت الزيتون",
-      "ملعقة كبيرة من القزبرة والبقدونس",
-      "ملح وفلفل أسود حسب الذوق، نصف ملعقة صغيرة من الفلفل الأحمر (تحميرة)، نصف ملعقة صغيرة من الكمون"
-    ],
-    "ingredients_fr": ["Poivron rouge et vert", "4 tomates", "4 gousses d'ail", "5 c.à.s d'huile d'olive", "1 c.à.s de persil et coriandre", "Sel, poivre, 1/2 c.à.c de paprika, 1/2 c.à.c de cumin"],
-    "ingredients_en": ["Red and green pepper", "4 tomatoes", "4 cloves of garlic", "5 tbsp olive oil", "1 tbsp parsley and coriander", "Salt, pepper, 1/2 tsp paprika, 1/2 tsp cumin"],
-    "etapes_ar": [
-      "نأخذ الفلفل المشوي، نقشره ونزيل بذوره ثم نقطعه إلى قطع صغيرة.",
-      "نضع الطماطم في مقلاة مع الثوم، الزيت والتوابل ونتركها تطهى على نار هادئة.",
-      "نضيف قطع الفلفل المشوي والقزبرة إلى الطماطم.",
-      "نترك الكل يتقلى جيداً مع التحريك المستمر حتى يتبخر الماء الزائد وتتماسك السلطة."
-    ],
-    "etapes_fr": ["Peler et couper les poivrons grillés en morceaux.", "Cuire les tomates avec l'ail, l'huile et les épices.", "Ajouter les poivrons et la coriandre.", "Faire revenir jusqu'à ce que l'eau s'évapore et que la salade soit prête."],
-    "etapes_en": ["Peel and chop the roasted peppers.", "Cook the tomatoes with garlic, oil, and spices.", "Add the peppers and coriander.", "Sauté until the water evaporates and the salad is well combined."]
-  }
+    {
+      "id": "zaalouk-marocain",
+      "titre_ar": "سلطة الزعلوك المغربية",
+      "titre_fr": "Zaalouk : Caviar d'Aubergines",
+      "titre_en": "Zaalouk: Moroccan Eggplant Salad",
+      "desc_ar": "مقبلات مغربية أصيلة تعتمد على الباذنجان المطهو مع الطماطم وتشكيلة من التوابل التقليدية وزيت الزيتون.",
+      "desc_fr": "Une entrée marocaine authentique à base d'aubergines et de tomates aux épices traditionnelles.",
+      "desc_en": "An authentic Moroccan starter made with eggplants and tomatoes with traditional spices.",
+      "temps": "30 min",
+      "portions": 4,
+      "difficulte": "●○○",
+      "photo": "photos/zaalouk.webp",
+      "date": "2025-04-25",
+      "ingredients_ar": [
+        "2 حبات باذنجان",
+        "4 حبات طماطم",
+        "4 فصوص ثوم",
+        "ملعقة كبيرة من قزبرة وبقدونس مفروم",
+        "5 ملاعق من زيت الزيتون",
+        "التوابل: ملح، فلفل أسود، نصف ملعقة فلفل أحمر، نصف ملعقة من الكمون"
+      ],
+      "ingredients_fr": [
+        "2 aubergines",
+        "4 tomates",
+        "4 gousses d'ail",
+        "1 c.à.s de persil et coriandre",
+        "5 c.à.s d'huile d'olive",
+        "Épices : sel, poivre, 1/2 c.à.c de paprika, 1/2 c.à.c de cumin"
+      ],
+      "ingredients_en": [
+        "2 eggplants",
+        "4 tomatoes",
+        "4 cloves of garlic",
+        "1 tbsp parsley and coriander",
+        "5 tbsp olive oil",
+        "Spices: salt, pepper, 1/2 tsp paprika, 1/2 tsp cumin"
+      ],
+      "etapes_ar": [
+        "يُسلق الباذنجان في الماء المملح بعد تقطيعه إلى مكعبات، أو يُشوى حسب الرغبة.",
+        "في مقلاة، نضع الطماطم المفرومة مع الثوم، الزيت والتوابل ونتركها تطهى.",
+        "نضيف الباذنجان المطهو إلى خليط الطماطم ونقوم بوضعه فوق النار مع هرس المكونات جيداً.",
+        "نستمر في التحريك حتى يمتزج الباذنجان مع الطماطم وتتشرب السلطة كافة التوابل وتجف من الماء."
+      ],
+      "etapes_fr": [
+        "Cuire les aubergines à l'eau salée ou les griller.",
+        "Dans une poêle, faire revenir les tomates avec l'ail, l'huile et les épices.",
+        "Ajouter l'aubergine et écraser le tout sur le feu.",
+        "Mélanger jusqu'à ce que la salade absorbe les épices et sèche."
+      ],
+      "etapes_en": [
+        "Cook the eggplants in salted water or grill them.",
+        "In a pan, sauté tomatoes with garlic, oil, and spices.",
+        "Add the cooked eggplant and mash everything together over the heat.",
+        "Stir until the salad absorbs all flavors and the water evaporates."
+      ]
+    },
+    {
+      "id": "taktouka-marocaine",
+      "titre_ar": "سلطة التكتوكة المغربية",
+      "titre_fr": "Taktouka : Salade de Poivrons et Tomates",
+      "titre_en": "Taktouka: Moroccan Pepper Salad",
+      "desc_ar": "سلطة شهية تجمع بين نكهة الفلفل المشوي والطماطم المطهوة مع الثوم وزيت الزيتون.",
+      "desc_fr": "Une salade savoureuse mélangeant poivrons grillés et tomates à l'ail et huile d'olive.",
+      "desc_en": "A tasty salad combining roasted peppers and tomatoes with garlic and olive oil.",
+      "temps": "25 min",
+      "portions": 4,
+      "difficulte": "●○○",
+      "photo": "photos/taktouka.webp",
+      "date": "2025-04-25",
+      "ingredients_ar": [
+        "حبة من الفلفل الأحمر والأخضر",
+        "4 حبات طماطم",
+        "4 فصوص ثوم مفروم",
+        "5 ملاعق من زيت الزيتون",
+        "ملعقة كبيرة من القزبرة والبقدونس",
+        "ملح وفلفل أسود حسب الذوق، نصف ملعقة صغيرة من الفلفل الأحمر (تحميرة)، نصف ملعقة صغيرة من الكمون"
+      ],
+      "ingredients_fr": [
+        "Poivron rouge et vert",
+        "4 tomates",
+        "4 gousses d'ail",
+        "5 c.à.s d'huile d'olive",
+        "1 c.à.s de persil et coriandre",
+        "Sel, poivre, 1/2 c.à.c de paprika, 1/2 c.à.c de cumin"
+      ],
+      "ingredients_en": [
+        "Red and green pepper",
+        "4 tomatoes",
+        "4 cloves of garlic",
+        "5 tbsp olive oil",
+        "1 tbsp parsley and coriander",
+        "Salt, pepper, 1/2 tsp paprika, 1/2 tsp cumin"
+      ],
+      "etapes_ar": [
+        "نأخذ الفلفل المشوي، نقشره ونزيل بذوره ثم نقطعه إلى قطع صغيرة.",
+        "نضع الطماطم في مقلاة مع الثوم، الزيت والتوابل ونتركها تطهى على نار هادئة.",
+        "نضيف قطع الفلفل المشوي والقزبرة إلى الطماطم.",
+        "نترك الكل يتقلى جيداً مع التحريك المستمر حتى يتبخر الماء الزائد وتتماسك السلطة."
+      ],
+      "etapes_fr": [
+        "Peler et couper les poivrons grillés en morceaux.",
+        "Cuire les tomates avec l'ail, l'huile et les épices.",
+        "Ajouter les poivrons et la coriandre.",
+        "Faire revenir jusqu'à ce que l'eau s'évapore et que la salade soit prête."
+      ],
+      "etapes_en": [
+        "Peel and chop the roasted peppers.",
+        "Cook the tomatoes with garlic, oil, and spices.",
+        "Add the peppers and coriander.",
+        "Sauté until the water evaporates and the salad is well combined."
+      ]
+    }
   ],
   "soupes": [
     {
