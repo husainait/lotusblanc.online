@@ -793,37 +793,17 @@ function renderHome(filteredData = null) {
 
 function displayArticles(articles, grid) {
     var html = '';
-    var searchInput = document.getElementById('searchInput');
-    var isSearching = searchInput && searchInput.value.trim() !== "";
-
     if (articles.length > 0) {
         articles.forEach(function(item, index) {
-            // بما أن القسم المستقل غبر، كاع الكارطات في البحث غايكونوا عاديين
-            var isFeatured = isSearching ? false;
-            
+            // رديناها false باش كاع الكارطات يرجعو صغار وقد قد
+            var isFeatured = false; 
             html += makeCard(item, isFeatured, index);
-            
-            // PUB #2 كيبقى ديما باين
-          /*  
-            if (index === 2) {
-                html += `
-                <div class="in-grid-ad" style="grid-column: 1 / -1; margin: 20px 0;">
-                    <div style="width: 100%; text-align: center; background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px dashed var(--sage);">
-                        <span style="font-size: 10px; color: var(--muted); display: block; margin-bottom: 10px;">PUBLICITÉ #2</span>
-                        <div style="min-height: 100px; background: var(--toggle-bg); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-                            <p style="color: var(--sage); font-weight: 500;">ADS SPACE 2 (Middle)</p>
-                        </div>
-                    </div>
-                </div>`;
-            }
-        */
         });
     } else {
         html = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem;">Aucune recette trouvée / لا توجد وصفات</p>';
     }
     grid.innerHTML = html;
-}
-// هادي هي اللي كتربط البحث وكتفتح الموقع
+}// هادي هي اللي كتربط البحث وكتفتح الموقع
 document.addEventListener('DOMContentLoaded', function() {
     renderHome(); // كيعمر allArticlesForSearch وكيبين الصفحة
 
