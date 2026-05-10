@@ -799,7 +799,7 @@ function displayArticles(articles, grid) {
     if (articles.length > 0) {
         articles.forEach(function(item, index) {
             // بما أن القسم المستقل غبر، كاع الكارطات في البحث غايكونوا عاديين
-            var isFeatured = isSearching ? false : (index === 0);
+            var isFeatured = isSearching ? false;
             
             html += makeCard(item, isFeatured, index);
             
