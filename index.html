@@ -687,14 +687,22 @@ var catMap = {
 
 function makeCard(a, featured, index) { 
   var cls = featured ? 'article-card featured-article' : 'article-card';
-  var currentLang = window.currentLang || 'fr'; // التأكد من وجود اللغة الحالية
+  var currentLang = window.currentLang || 'fr'; 
   var titre = a['titre_' + currentLang] || a.titre_fr;
   var photo = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
   var category = a._cat; 
   
-  // 1. إعداد الروابط والرسائل لكل لغة
-  var url = 'https://lotusblanc.online/recette.html?cat=' + category + '&id=' + a.id;
+  // --- التعديل هنا لتعويض رابط الطاجين ---
+  var url;
+  if (a.id === "tajine-poulet") {
+      // إلا كانت الوصفة هي الطاجين، صيفطيه للملف الجديد اللي صاوبنا
+      url = 'https://lotusblanc.online/tajine-poulet.html';
+  } else {
+      // باقي الوصفات يبقاو خدامين بالسيستيم القديم
+      url = 'https://lotusblanc.online/recette.html?cat=' + category + '&id=' + a.id;
+  }
   
+  // ... كملي باقي الكود ديالك عادي (messages, shareText, html += ...)
   var messages = {
       ar: 'اكتشفوا وصفة ' + titre + ' الرائعة على موقع Lotus Blanc! 🍲✨',
       fr: 'Découvrez cette recette de ' + titre + ' sur Lotus Blanc !',
