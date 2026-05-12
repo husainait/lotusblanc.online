@@ -582,11 +582,32 @@ window.addEventListener('DOMContentLoaded', function() {
             const text = encodeURIComponent("شوف هاد الوصفة من Lotus Blanc: " + title);
             window.open("https://api.whatsapp.com/send?text=" + text + " " + url, '_blank');
         }
+function shareOnFacebook() {
+        // كنجيبو الـ ID ديال الوصفة من الرابط الحالي
+        const params = new URLSearchParams(window.location.search);
+        const recipeId = params.get('id');
+        let urlToShare = window.location.href;
 
-        function shareOnFacebook() {
-            const url = window.location.href;
-            window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, '_blank');
+        // "الشرط السحري": إلا كان الطاجين، عطيه رابط الملف اللي فيه التصويرة
+        if (recipeId === "tajine-poulet") {
+            urlToShare = "https://lotusblanc.online/tajine-poulet.html";
         }
-    </script>
+
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(urlToShare), '_blank');
+    }
+
+    function shareOnWhatsApp() {
+        const params = new URLSearchParams(window.location.search);
+        const recipeId = params.get('id');
+        let urlToShare = window.location.href;
+        
+        if (recipeId === "tajine-poulet") {
+            urlToShare = "https://lotusblanc.online/tajine-poulet.html";
+        }
+
+        const title = document.getElementById('recipe-title') ? document.getElementById('recipe-title').innerText : document.title;
+        const text = encodeURIComponent("شوف هاد الوصفة من Lotus Blanc: " + title);
+        window.open("https://api.whatsapp.com/send?text=" + text + " " + encodeURIComponent(urlToShare), '_blank');
+    }    </script>
 </body>
 </html>
