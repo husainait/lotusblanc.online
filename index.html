@@ -682,7 +682,7 @@ function makeCard(a, featured, index) {
   var photo = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
   var category = a._cat; 
   
-  // 1. تحديد الرابط (URL)
+  // 1. تحديد الرابط (URL) - من المهم الإبقاء على هذا الجزء لضمان توجيه الطاجين للملف الجديد
   var url;
   if (a.id === "tajine-poulet") {
       url = 'https://lotusblanc.online/tajine-poulet.html';
@@ -690,28 +690,14 @@ function makeCard(a, featured, index) {
       url = 'https://lotusblanc.online/recette.html?cat=' + category + '&id=' + a.id;
   }
   
-  // 2. إعداد الرسائل والبارطاج
-  var messages = {
-      ar: 'اكتشفوا وصفة ' + titre + ' الرائعة على موقع Lotus Blanc! 🍲✨',
-      fr: 'Découvrez cette recette de ' + titre + ' sur Lotus Blanc !',
-      en: 'Check out this recipe ' + titre + ' on Lotus Blanc!'
-  };
-
-  var selectedMsg = messages[currentLang] || messages.fr;
-  var shareText = encodeURIComponent(selectedMsg);
-  var encodedUrl = encodeURIComponent(url);
-  
-  var pinUrl = 'https://www.pinterest.com/pin/create/button/?url=' + encodedUrl + 
-               '&media=' + encodeURIComponent('https://lotusblanc.online/' + photo) + 
-               '&description=' + shareText;
-
+  // 2. إعداد اللغات فقط (حذفنا متغيرات Pinterest و WhatsApp)
   var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
   var loadingStrategy = (index === 0) ? 'eager' : 'lazy';
 
-  // --- بناء الهيكل (HTML) باستعمال المتغير url الجديد ---
+  // --- بناء الهيكل (HTML) ---
   var html = '<div class="' + cls + '">';
   
-  // استعملنا url هنا باش حتى الكليك على الصورة يدي للملف الجديد
+  // الكليك على الصورة يوجه للرابط المحدد فوق
   html += '<a href="' + url + '" style="text-decoration:none; color:inherit;">';
   html += '<div class="art-img">';
   
@@ -725,16 +711,9 @@ function makeCard(a, featured, index) {
   html += '<div class="art-body">';
   html += '<span class="art-cat">' + (a['cat_' + currentLang] || category) + '</span>';
   html += '<h3 class="art-title">' + titre + '</h3>';
-  html += '</a>'; 
+  html += '</a>'; // نهاية رابط العنوان والصورة
 
-  // أزرار المشاركة
-  html += '<div class="share-container" style="display:flex; justify-content:center; gap:12px; margin-top:10px;">';
-  html += '<a href="https://api.whatsapp.com/send?text=' + shareText + ' ' + encodedUrl + '" target="_blank" class="btn-icon whatsapp-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>';
-  html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" class="btn-icon facebook-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>';
-  html += '<a href="' + pinUrl + '" target="_blank" class="btn-icon pinterest-btn" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>';
-  html += '</div>';
-
-  // زر "اقرأ المزيد" باستعمال url الجديد
+  // زر "اقرأ المزيد" فقط، بدون أزرار المشاركة
   html += '<a href="' + url + '" style="text-decoration:none; color:inherit;">';
   html += '<span class="art-lire">' + (lire[currentLang] || 'Lire →') + '</span>';
   html += '</div></a>';
