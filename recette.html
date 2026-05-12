@@ -530,7 +530,6 @@ function renderRecipe(data) {
         '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
         '<h1>' + titre + '</h1>' +
         '<p>' + desc + '</p>' +
-  
         '<div class="recipe-stats">' +
           '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
           '<div class="stat"><span class="stat-val">0</span><span class="stat-label">' + t('cook') + '</span></div>' +
@@ -538,6 +537,11 @@ function renderRecipe(data) {
           '<div class="stat"><span class="stat-val">' + (a.difficulte||'●○○') + '</span><span class="stat-label">' + t('diff') + '</span></div>' +
         '</div>' +
       '</div>' +
+    '</div>' +
+    '<div class="recipe-share-bar" style="text-align:center; margin: 20px 0;">' +
+            '<button onclick="shareOnWhatsApp()" class="btn-share wa"><i class="fab fa-whatsapp"></i> WhatsApp</button> ' +
+            '<button onclick="shareOnFacebook()" class="btn-share fb"><i class="fab fa-facebook-f"></i> Facebook</button>' +
+            '<button onclick="shareOnPinterest()" class="btn-share pin"><i class="fab fa-pinterest"></i> Pinterest</button>' +
     '</div>' +
     '<div class="recipe-body">' +
       '<aside class="ingredients-panel">' +
@@ -573,32 +577,44 @@ window.addEventListener('DOMContentLoaded', function() {
 <!-- السكربت ضروري يكون هو آخر حاجة -->
     <script src="script.js"></script>
 <script>
-    function shareOnFacebook() {
-        // كنجيبو الـ ID ديال الوصفة من الرابط الحالي
+  function shareOnPinterest() {
+    const title = document.querySelector('h1').innerText;
+    const url = window.location.href;
+    // جلب رابط الصورة الأولى في الوصفة
+    const image = document.querySelector('.recipe-hero-img img') ? document.querySelector('.recipe-hero-img img').src : '';
+    
+    const pinUrl = "https://www.pinterest.com/pin/create/button/" +
+        "?url=" + encodeURIComponent(url) +
+        "&media=" + encodeURIComponent(image) +
+        "&description=" + encodeURIComponent(title);
+    
+    window.open(pinUrl, "_blank");
+}
+    // هاد الدالة كتعرف الرابط اللي خاصو يتبارتجا
+    function getShareUrl() {
         const params = new URLSearchParams(window.location.search);
         const recipeId = params.get('id');
-        let urlToShare = window.location.href;
-
-        // "الشرط السحري": إلا كان الطاجين، عطيه رابط الملف اللي فيه التصويرة
+        
+        // إلا كان الزائر كيشوف الطاجين، كنعطيو لفيسبوك الرابط ديال الملف اللي فيه التصويرة
         if (recipeId === "tajine-poulet") {
-            urlToShare = "https://lotusblanc.online/tajine-poulet.html";
+            return "https://lotusblanc.online/tajine-poulet.html";
         }
+        
+        // بالنسبة لباقي الوصفات، كيبقى الرابط العادي
+        return window.location.href;
+    }
 
-        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(urlToShare), '_blank');
+    function shareOnFacebook() {
+        const url = getShareUrl();
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), '_blank');
     }
 
     function shareOnWhatsApp() {
-        const params = new URLSearchParams(window.location.search);
-        const recipeId = params.get('id');
-        let urlToShare = window.location.href;
-        
-        if (recipeId === "tajine-poulet") {
-            urlToShare = "https://lotusblanc.online/tajine-poulet.html";
-        }
-
-        const title = document.getElementById('recipe-title') ? document.getElementById('recipe-title').innerText : document.title;
-        const text = encodeURIComponent("شوف هاد الوصفة من Lotus Blanc: " + title);
-        window.open("https://api.whatsapp.com/send?text=" + text + " " + encodeURIComponent(urlToShare), '_blank');
+        const url = getShareUrl();
+        // كنجيبو عنوان الوصفة باش نزيدوه فالميساج
+        const title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
+        const text = encodeURIComponent("اكتشفوا وصفة " + title + " الرائعة على Lotus Blanc: ");
+        window.open("https://api.whatsapp.com/send?text=" + text + " " + encodeURIComponent(url), '_blank');
     }
 </script>
 </body>
