@@ -692,40 +692,37 @@ function makeCard(a, featured, index) {
   var photo = a.photo ? a.photo : (a.photo_b64 ? a.photo_b64 : '');
   var category = a._cat; 
   
-  // --- التعديل هنا لتعويض رابط الطاجين ---
+  // 1. تحديد الرابط (URL)
   var url;
   if (a.id === "tajine-poulet") {
-      // إلا كانت الوصفة هي الطاجين، صيفطيه للملف الجديد اللي صاوبنا
       url = 'https://lotusblanc.online/tajine-poulet.html';
   } else {
-      // باقي الوصفات يبقاو خدامين بالسيستيم القديم
       url = 'https://lotusblanc.online/recette.html?cat=' + category + '&id=' + a.id;
   }
   
-  // ... كملي باقي الكود ديالك عادي (messages, shareText, html += ...)
+  // 2. إعداد الرسائل والبارطاج
   var messages = {
       ar: 'اكتشفوا وصفة ' + titre + ' الرائعة على موقع Lotus Blanc! 🍲✨',
       fr: 'Découvrez cette recette de ' + titre + ' sur Lotus Blanc !',
       en: 'Check out this recipe ' + titre + ' on Lotus Blanc!'
   };
 
-  // اختيار الرسالة المناسبة حسب لغة الموقع الحالية
   var selectedMsg = messages[currentLang] || messages.fr;
   var shareText = encodeURIComponent(selectedMsg);
   var encodedUrl = encodeURIComponent(url);
-  // رابط Pinterest (يحتاج رابط الصورة، رابط المقال، والوصف)
- var pinUrl = 'https://www.pinterest.com/pin/create/button/?url=' + encodedUrl + 
+  
+  var pinUrl = 'https://www.pinterest.com/pin/create/button/?url=' + encodedUrl + 
                '&media=' + encodeURIComponent('https://lotusblanc.online/' + photo) + 
                '&description=' + shareText;
 
   var lire = {fr:'Lire →', ar:'اقرأ →', en:'Read →'};
   var loadingStrategy = (index === 0) ? 'eager' : 'lazy';
 
-  // --- بناء الهيكل (HTML) ---
+  // --- بناء الهيكل (HTML) باستعمال المتغير url الجديد ---
   var html = '<div class="' + cls + '">';
   
-  // الجزء العلوي: الصورة والعنوان (رابط للمقال)
-  html += '<a href="recette.html?cat=' + category + '&id=' + a.id + '" style="text-decoration:none; color:inherit;">';
+  // استعملنا url هنا باش حتى الكليك على الصورة يدي للملف الجديد
+  html += '<a href="' + url + '" style="text-decoration:none; color:inherit;">';
   html += '<div class="art-img">';
   
   if (photo) {
@@ -740,25 +737,19 @@ function makeCard(a, featured, index) {
   html += '<h3 class="art-title">' + titre + '</h3>';
   html += '</a>'; 
 
-  // --- إضافة أزرار المشاركة الذكية ---
+  // أزرار المشاركة
   html += '<div class="share-container" style="display:flex; justify-content:center; gap:12px; margin-top:10px;">';
-  
-  // زر WhatsApp
-  html += '<a href="https://api.whatsapp.com/send?text=' + shareText + ' ' + url + '" target="_blank" class="btn-icon whatsapp-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>';
-  
-  // زر Facebook
- html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" class="btn-icon facebook-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>';
-  // زر Pinterest
+  html += '<a href="https://api.whatsapp.com/send?text=' + shareText + ' ' + encodedUrl + '" target="_blank" class="btn-icon whatsapp-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>';
+  html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" class="btn-icon facebook-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>';
   html += '<a href="' + pinUrl + '" target="_blank" class="btn-icon pinterest-btn" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>';
-  // الأزرار الجديدة (Instagram & TikTok)
-   html += '</div>';
+  html += '</div>';
 
-  // زر "اقرأ المزيد" أسفل الكارت
-  html += '<a href="recette.html?cat=' + category + '&id=' + a.id + '" style="text-decoration:none; color:inherit;">';
+  // زر "اقرأ المزيد" باستعمال url الجديد
+  html += '<a href="' + url + '" style="text-decoration:none; color:inherit;">';
   html += '<span class="art-lire">' + (lire[currentLang] || 'Lire →') + '</span>';
   html += '</div></a>';
   
-  html += '</div>'; // غلق article-card
+  html += '</div>'; 
   
   return html;
 }
