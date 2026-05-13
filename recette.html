@@ -567,12 +567,7 @@ function renderRecipe(a) {
             '</div>' +
         '</div>' +
         
-        // أزرار المشاركة
-        '<div class="recipe-share-bar" style="text-align:center; margin: 20px 0;">' +
-            '<button onclick="shareOnWhatsApp()" class="btn-share wa"><i class="fab fa-whatsapp"></i> WhatsApp</button> ' +
-            '<button onclick="shareOnFacebook()" class="btn-share fb"><i class="fab fa-facebook-f"></i> Facebook</button> ' +
-            '<button onclick="shareOnPinterest()" class="btn-share pin"><i class="fab fa-pinterest"></i> Pinterest</button>' +
-        '</div>' +
+    
 
         '<div class="recipe-body">' +
             '<aside class="ingredients-panel">' +
@@ -587,30 +582,6 @@ function renderRecipe(a) {
         '</div>';
 }
 
-// 4. دوال المشاركة
-function getShareUrl() {
-    const recipeId = getParam('id');
-    if (recipeId === "tajine-poulet") return "https://lotusblanc.online/tajine-poulet.html";
-    return window.location.href;
-}
-
-function shareOnWhatsApp() {
-    const url = getShareUrl();
-    const title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
-    const text = encodeURIComponent("اكتشفوا وصفة " + title + " الرائعة على Lotus Blanc: ");
-    window.open("https://api.whatsapp.com/send?text=" + text + " " + encodeURIComponent(url), '_blank');
-}
-
-function shareOnFacebook() {
-    window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(getShareUrl()), "pop", "width=600, height=400");
-}
-
-function shareOnPinterest() {
-    const title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
-    const image = document.querySelector('.recipe-hero-img img')?.src || '';
-    const pinUrl = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(window.location.href) + "&media=" + encodeURIComponent(image) + "&description=" + encodeURIComponent(title);
-    window.open(pinUrl, "_blank");
-}
 </script>
 </body>
 </html>
