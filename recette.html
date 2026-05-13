@@ -551,7 +551,7 @@ window.addEventListener('DOMContentLoaded', function() {
 function onLangChange() { 
   if (_recipeData) renderRecipe(_recipeData); 
 }
-var _recipeData = null;
+
 // دالة العرض الأساسية
 function renderRecipe(a) {
   if (!a) return;
@@ -611,7 +611,7 @@ function renderRecipe(a) {
     '</div>';
 }
 
-
+var _recipeData = null;
 
 function onLangChange() { if (_recipeData) renderRecipe(_recipeData); }
 
