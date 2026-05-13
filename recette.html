@@ -553,30 +553,40 @@ function onLangChange() {
 }
 
 // دالة العرض الأساسية
-function renderRecipe(a) {
-  if (!a) return;
+function renderRecipe(data) {
+  var cat = getParam('cat');
+  var id = getParam('id');
+  var articles = data[cat] || [];
+  var a = articles.find(function(x) { return x.id === id; });
   
-  var lang = typeof currentLang !== 'undefined' ? currentLang : 'fr';
+  if (!a) {
+    document.getElementById('recipe-content').innerHTML = 
+      '<div style="padding:3rem;text-align:center;color:var(--muted)">Recette introuvable. <a href="index.html" style="color:var(--sage-dark)">Retour</a></div>';
+    return;
+  }
+  
+  var lang = currentLang;
   var titre = a['titre_' + lang] || a.titre_fr;
   var desc = a['desc_' + lang] || a.desc_fr || '';
   var ings = a['ingredients_' + lang] || a.ingredients_fr || [];
   var etapes = a['etapes_' + lang] || a.etapes_fr || [];
   var photo = a.photo ? '<img src="' + a.photo + '" alt="' + titre + '"/>' : '🍽️';
+  var backHref = (cat||'index') + '.html';
   
   var L = {
     back: {fr:'Retour', ar:'رجوع', en:'Back'},
     ing: {fr:'Ingrédients', ar:'المقادير', en:'Ingredients'},
     steps: {fr:'Étapes de préparation', ar:'طريقة التحضير', en:'Preparation steps'},
     prep: {fr:'Préparation', ar:'التحضير', en:'Prep'},
+    cook: {fr:'طبخ', ar:'طبخ', en:'Cooking'},
     pers: {fr:'Personnes', ar:'أشخاص', en:'Persons'},
     diff: {fr:'Difficulté', ar:'صعوبة', en:'Difficulty'},
-    share: {fr:'Partager', ar:'مشاركة', en:'Share'}
   };
   var t = function(k) { return L[k][lang] || L[k].fr; };
-
+  
   document.getElementById('recipe-content').innerHTML = 
     '<div class="recipe-wrap">' +
-    '<a class="back-btn" href="javascript:history.back()">← ' + t('back') + '</a>' +
+    '<a class="back-btn" href="' + backHref + '">← ' + t('back') + '</a>' +
     '<div class="recipe-hero">' +
       '<div class="recipe-hero-img">' + photo + '</div>' +
       '<div class="recipe-hero-info">' +
@@ -585,24 +595,25 @@ function renderRecipe(a) {
         '<p>' + desc + '</p>' +
         '<div class="recipe-stats">' +
           '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
+          '<div class="stat"><span class="stat-val">0</span><span class="stat-label">' + t('cook') + '</span></div>' +
           '<div class="stat"><span class="stat-val">' + (a.portions||4) + '</span><span class="stat-label">' + t('pers') + '</span></div>' +
           '<div class="stat"><span class="stat-val">' + (a.difficulte||'●○○') + '</span><span class="stat-label">' + t('diff') + '</span></div>' +
         '</div>' +
-        '<div class="share-container-modern">' +
-            '<span class="share-label">' + t('share') + ':</span>' +
-            '<div class="share-icons-row">' +
-                '<a href="javascript:shareOnWhatsApp()" class="s-icon-new wa"><i class="fab fa-whatsapp"></i></a>' +
-                '<a href="javascript:shareOnFacebook()" class="s-icon-new fb"><i class="fab fa-facebook-f"></i></a>' +
-                '<a href="javascript:shareOnPinterest()" class="s-icon-new pin"><i class="fab fa-pinterest-p"></i></a>' +
-            '</div>' +
-        '</div>' +
       '</div>' +
     '</div>' +
+
+    // أزرار المشاركة (بسيطة وبدون تعقيد)
+    '<div class="recipe-share-bar" style="text-align:center; margin: 20px 0;">' +
+        '<button onclick="shareOnWhatsApp()" class="btn-share wa"><i class="fab fa-whatsapp"></i> WhatsApp</button> ' +
+        '<button onclick="shareOnFacebook()" class="btn-share fb"><i class="fab fa-facebook-f"></i> Facebook</button> ' +
+        '<button onclick="shareOnPinterest()" class="btn-share pin"><i class="fab fa-pinterest"></i> Pinterest</button>' +
+    '</div>' +
+
     '<div class="recipe-body">' +
       '<aside class="ingredients-panel">' +
-        '<h2 class="panel-title">' + t('ing') + '</h2>' + 
+        '<h2 class="panel-title">' + t('ing') + '</h2>' +
         '<ul class="ingredient-list">' + ings.map(function(i){ return '<li class="ingredient-item">' + i + '</li>'; }).join('') + '</ul>' +
-      ;/aside>' +
+      '</aside>' +
       '<div>' +
         '<div class="steps-title">' + t('steps') + '</div>' +
         etapes.map(function(e,i){ return '<div class="step"><div class="step-num">'+(i+1)+'</div><p class="step-text">'+e+'</p></div>'; }).join('') +
@@ -610,7 +621,6 @@ function renderRecipe(a) {
     '</div>' +
     '</div>';
 }
-
 var _recipeData = null;
 
 function onLangChange() { if (_recipeData) renderRecipe(_recipeData); }
