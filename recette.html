@@ -604,10 +604,12 @@ window.addEventListener('DOMContentLoaded', function() {
         return window.location.href;
     }
 
-    function shareOnFacebook() {
-        const url = getShareUrl();
-        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), '_blank');
-    }
+   function shareOnFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    // نفتح الرابط في نافذة جديدة لإجبار فيسبوك على التقاط البيانات الحالية
+    window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, 
+    "pop", "width=600, height=400, scrollbars=no");
+}
 
     function shareOnWhatsApp() {
         const url = getShareUrl();
