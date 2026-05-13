@@ -504,6 +504,7 @@ function setLang(lang) {
   if (typeof onLangChange === 'function') onLangChange(lang);
 }
 
+// دالة الـ Menu
 function toggleMenu() {
   var menu = document.getElementById('mobile-menu');
   var btn = document.getElementById('hamburger');
@@ -511,6 +512,9 @@ function toggleMenu() {
   if (btn) btn.classList.toggle('open');
 }
 
+var _recipeData = null; // تخزين بيانات الوصفة الحالية
+
+// دالة جلب بيانات الوصفة عند تحميل الصفحة
 window.addEventListener('DOMContentLoaded', function() {
   var params = new URLSearchParams(window.location.search);
   var cat = params.get('cat');
@@ -518,14 +522,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
   if (!cat || !id) return;
 
-  // جلب البيانات من JSON ومن الـ LocalStorage للتأكد
   fetch('articles.json?v=' + Date.now())
     .then(function(r) { return r.json(); })
     .then(function(data) {
-      // 1. بحث في JSON
+      // 1. البحث في JSON
       var recipe = (data[cat] || []).find(function(r) { return r.id === id; });
       
-      // 2. إذا لم يوجد، بحث في LocalStorage
+      // 2. إذا لم يوجد، البحث في LocalStorage (للوصفات المضافة حديثاً)
       if (!recipe) {
         var stored = localStorage.getItem('lb_articles_' + cat);
         var adminArticles = stored ? JSON.parse(stored) : [];
@@ -533,24 +536,27 @@ window.addEventListener('DOMContentLoaded', function() {
       }
 
       if (recipe) {
-        _recipeData = recipe;
+        _recipeData = recipe; // حفظ البيانات للترجمة لاحقاً
         renderRecipe(recipe);
       } else {
         document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Recette non trouvée.</h2>";
       }
+    })
+    .catch(function() {
+      document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Erreur de chargement.</h2>";
     });
 });
 
-function getParam(name) { return new URLSearchParams(window.location.search).get(name); }
-
-function renderRecipe(a) { // "a" هنا كتمثل بيانات الوصفة اللي جاية من JSON
-  if (!a) {
-    document.getElementById('recipe-content').innerHTML = 
-      '<div style="padding:3rem;text-align:center;color:var(--muted)">Recette introuvable.</div>';
-    return;
-  }
+// دالة تحديث العرض عند تغيير اللغة
+function onLangChange() { 
+  if (_recipeData) renderRecipe(_recipeData); 
+}
+var _recipeData = null;
+// دالة العرض الأساسية
+function renderRecipe(a) {
+  if (!a) return;
   
-  var lang = currentLang;
+  var lang = typeof currentLang !== 'undefined' ? currentLang : 'fr';
   var titre = a['titre_' + lang] || a.titre_fr;
   var desc = a['desc_' + lang] || a.desc_fr || '';
   var ings = a['ingredients_' + lang] || a.ingredients_fr || [];
@@ -562,7 +568,6 @@ function renderRecipe(a) { // "a" هنا كتمثل بيانات الوصفة ا
     ing: {fr:'Ingrédients', ar:'المقادير', en:'Ingredients'},
     steps: {fr:'Étapes de préparation', ar:'طريقة التحضير', en:'Preparation steps'},
     prep: {fr:'Préparation', ar:'التحضير', en:'Prep'},
-    cook: {fr:'Cuisson', ar:'طبخ', en:'Cooking'},
     pers: {fr:'Personnes', ar:'أشخاص', en:'Persons'},
     diff: {fr:'Difficulté', ar:'صعوبة', en:'Difficulty'},
     share: {fr:'Partager', ar:'مشاركة', en:'Share'}
@@ -583,8 +588,6 @@ function renderRecipe(a) { // "a" هنا كتمثل بيانات الوصفة ا
           '<div class="stat"><span class="stat-val">' + (a.portions||4) + '</span><span class="stat-label">' + t('pers') + '</span></div>' +
           '<div class="stat"><span class="stat-val">' + (a.difficulte||'●○○') + '</span><span class="stat-label">' + t('diff') + '</span></div>' +
         '</div>' +
-        
-        // هنا الأزرار بستايل عصري وأنيق (Icons Only)
         '<div class="share-container-modern">' +
             '<span class="share-label">' + t('share') + ':</span>' +
             '<div class="share-icons-row">' +
@@ -593,14 +596,13 @@ function renderRecipe(a) { // "a" هنا كتمثل بيانات الوصفة ا
                 '<a href="javascript:shareOnPinterest()" class="s-icon-new pin"><i class="fab fa-pinterest-p"></i></a>' +
             '</div>' +
         '</div>' +
-
       '</div>' +
     '</div>' +
     '<div class="recipe-body">' +
       '<aside class="ingredients-panel">' +
         '<h2 class="panel-title">' + t('ing') + '</h2>' + 
         '<ul class="ingredient-list">' + ings.map(function(i){ return '<li class="ingredient-item">' + i + '</li>'; }).join('') + '</ul>' +
-      '</aside>' +
+      ;/aside>' +
       '<div>' +
         '<div class="steps-title">' + t('steps') + '</div>' +
         etapes.map(function(e,i){ return '<div class="step"><div class="step-num">'+(i+1)+'</div><p class="step-text">'+e+'</p></div>'; }).join('') +
@@ -609,7 +611,7 @@ function renderRecipe(a) { // "a" هنا كتمثل بيانات الوصفة ا
     '</div>';
 }
 
-var _recipeData = null;
+
 
 function onLangChange() { if (_recipeData) renderRecipe(_recipeData); }
 
@@ -630,47 +632,40 @@ window.addEventListener('DOMContentLoaded', function() {
 <!-- السكربت ضروري يكون هو آخر حاجة -->
     <script src="script.js"></script>
 <script>
-  function shareOnPinterest() {
-    const title = document.querySelector('h1').innerText;
+  // 2. دوال المشاركة (المنطق)
+function getShareUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const recipeId = params.get('id');
+    // إذا كان عندك ملف HTML خاص لوصفة معينة (بحال الطاجين) باش يبان أحسن في فيسبوك
+    if (recipeId === "tajine-poulet") {
+        return "https://lotusblanc.online/tajine-poulet.html";
+    }
+    return window.location.href;
+}
+
+function shareOnWhatsApp() {
+    const url = getShareUrl();
+    const title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
+    const text = encodeURIComponent("اكتشفوا وصفة " + title + " الرائعة على Lotus Blanc: ");
+    window.open("https://api.whatsapp.com/send?text=" + text + " " + encodeURIComponent(url), '_blank');
+}
+
+function shareOnFacebook() {
+    const url = encodeURIComponent(getShareUrl());
+    window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, "pop", "width=600, height=400, scrollbars=no");
+}
+
+function shareOnPinterest() {
+    const title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
     const url = window.location.href;
-    // جلب رابط الصورة الأولى في الوصفة
-    const image = document.querySelector('.recipe-hero-img img') ? document.querySelector('.recipe-hero-img img').src : '';
+    const image = document.querySelector('.recipe-hero-img img')?.src || '';
     
     const pinUrl = "https://www.pinterest.com/pin/create/button/" +
         "?url=" + encodeURIComponent(url) +
         "&media=" + encodeURIComponent(image) +
         "&description=" + encodeURIComponent(title);
-    
     window.open(pinUrl, "_blank");
 }
-    // هاد الدالة كتعرف الرابط اللي خاصو يتبارتجا
-    function getShareUrl() {
-        const params = new URLSearchParams(window.location.search);
-        const recipeId = params.get('id');
-        
-        // إلا كان الزائر كيشوف الطاجين، كنعطيو لفيسبوك الرابط ديال الملف اللي فيه التصويرة
-        if (recipeId === "tajine-poulet") {
-            return "https://lotusblanc.online/tajine-poulet.html";
-        }
-        
-        // بالنسبة لباقي الوصفات، كيبقى الرابط العادي
-        return window.location.href;
-    }
-
-   function shareOnFacebook() {
-    const url = encodeURIComponent(window.location.href);
-    // نفتح الرابط في نافذة جديدة لإجبار فيسبوك على التقاط البيانات الحالية
-    window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, 
-    "pop", "width=600, height=400, scrollbars=no");
-}
-
-    function shareOnWhatsApp() {
-        const url = getShareUrl();
-        // كنجيبو عنوان الوصفة باش نزيدوه فالميساج
-        const title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
-        const text = encodeURIComponent("اكتشفوا وصفة " + title + " الرائعة على Lotus Blanc: ");
-        window.open("https://api.whatsapp.com/send?text=" + text + " " + encodeURIComponent(url), '_blank');
-    }
 </script>
 </body>
 </html>
