@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="light" dir="ltr">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3397433681970345"
      crossorigin="anonymous"></script>
-    <title>Recettes Marocaines — Lotus Blanc</title>
-    <meta name="google-site-verification" content="aPFOJTKQvkj1MSSjcroBan4xgwFbmGJDCRDD2Rv46A0" />
-     <meta name="facebook-domain-verification" content="nqd4lw0if4elaslecgtk9gpojhpq72" />
-   
-    <meta name="p:domain_verify" content="af4a4e0e0920bd1a32e67c95ecd6333c"/>
-    <meta name="description" content="Découvrez les meilleures recettes marocaines et internationales sur Lotus Blanc. Des pâtisseries fines, des plats traditionnels et des desserts gourmands étape par étape."/>
-    <meta name="robots" content="index, follow"/>
-    <link rel="canonical" href="https://lotusblanc.online/"/>
+  <title>Recette — Lotus Blanc</title>
+  <meta name="google-site-verification" content="aPFOJTKQvkj1MSSjcroBan4xgwFbmGJDCRDD2Rv46A0" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <style>
+    
+    <!-- الكود ديال فيسبوك اللي درتي قبل خلي ه حتى هو -->
+    <meta name="facebook-domain-verification" content="votre_code_ici" />  <meta name="p:domain_verify" content="af4a4e0e0920bd1a32e67c95ecd6333c"/>
+   <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
-/* 2. كود الـ Scrollbar (زيدي هاد الجزء هنا) */
+
+}/* 2. كود الـ Scrollbar (زيدي هاد الجزء هنا) */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -37,41 +32,12 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #C0729A; /* لون الـ sage الوردي ملي كنقيسوه */
 }
-.articles-grid {
-    display: grid !important;
-    /* كيجيب العناصر لوسط السطر */
-    justify-content: center !important; 
-    
-    /* كيخلي الوصفات ياخدو قياس محدد (مثلا 250px) ومايفوتوهش */
-    grid-template-columns: repeat(auto-fit, 250px) !important; 
-    
-    gap: 25px !important;
-    max-width: 1200px !important;
-    margin: 40px auto !important;
-    padding: 0 20px !important;
-}
-
-/* ضروري توحدي قياس الصور باش ما تجيش وحدة كبر من وحدة وتخسر السطر */
-.art-img {
-    height: 300px !important; /* صغرنا الطول شوية باش يجي المنظر متناسق */
-    width: 100% !important;
-}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    .share-container {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
-    padding: 5px;
-}
-
-
+     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--cream:#FDF5F8;--warm-white:#FFF8FB;--card-bg:#FFF8FB;--sage:#C0729A;--sage-light:#F5D6E6;--sage-dark:#A0446F;--gold:#4A7FB5;--gold-light:#C8DDEF;--charcoal:#2C2035;--muted:#7A6878;--border:rgba(44,32,53,0.10);--header-bg:#FFF8FB;--body-bg:#FDF5F8;--toggle-bg:#EDD6E5;}
 [data-theme="dark"]{--cream:#1A1520;--warm-white:#221828;--card-bg:#221828;--sage:#C0729A;--sage-light:#4A1F35;--sage-dark:#E090B8;--gold:#6A9FD5;--gold-light:#1A3550;--charcoal:#F5EEF8;--muted:#B09AB8;--border:rgba(245,238,248,0.10);--header-bg:#160F1C;--body-bg:#1A1520;--toggle-bg:#3A2545;}
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;background:var(--body-bg);color:var(--charcoal);min-height:100vh;transition:background .3s,color .3s}
- 
-     /* HEADER */
+/* HEADER */
 header {
     background: var(--header-bg);
     border-bottom: 1px solid var(--border);
@@ -454,115 +420,202 @@ footer {
   </div>
 </footer>
 <script>
-// 1. الإعدادات العامة (اللغة والثيم)
 var currentLang = localStorage.getItem('lb-lang') || 'fr';
-var _recipeData = null; 
 
 function toggleTheme() {
-    var html = document.documentElement;
-    var isDark = html.getAttribute('data-theme') === 'dark';
-    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    var ti = document.getElementById('toggle-icon');
-    if (ti) ti.textContent = isDark ? '🌙' : '☀️';
-    localStorage.setItem('lb-theme', isDark ? 'light' : 'dark');
+  var html = document.documentElement;
+  var isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  var ti = document.getElementById('toggle-icon');
+  if (ti) ti.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('lb-theme', isDark ? 'light' : 'dark');
 }
 
 function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('lb-lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    if (typeof onLangChange === 'function') onLangChange(lang);
+  currentLang = lang;
+  localStorage.setItem('lb-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    var map = {fr:'FR', ar:'ع', en:'EN'};
+    btn.classList.toggle('active', btn.textContent.trim() === map[lang]);
+  });
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  document.querySelectorAll('[data-fr]').forEach(function(el) {
+    var val = el.getAttribute('data-' + lang) || el.getAttribute('data-fr');
+    if (!val) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+    else el.textContent = val;
+  });
+  document.querySelectorAll('[data-placeholder-fr]').forEach(function(el) {
+    el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-fr');
+  });
+  if (typeof onLangChange === 'function') onLangChange(lang);
 }
 
-function onLangChange() { 
-    if (_recipeData) renderRecipe(_recipeData); 
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var btn = document.getElementById('hamburger');
+  if (menu) menu.classList.toggle('open');
+  if (btn) btn.classList.toggle('open');
 }
+
+window.addEventListener('DOMContentLoaded', function() {
+  var params = new URLSearchParams(window.location.search);
+  var cat = params.get('cat');
+  var id = params.get('id');
+
+  if (!cat || !id) return;
+
+  // جلب البيانات من JSON ومن الـ LocalStorage للتأكد
+  fetch('articles.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      // 1. بحث في JSON
+      var recipe = (data[cat] || []).find(function(r) { return r.id === id; });
+      
+      // 2. إذا لم يوجد، بحث في LocalStorage
+      if (!recipe) {
+        var stored = localStorage.getItem('lb_articles_' + cat);
+        var adminArticles = stored ? JSON.parse(stored) : [];
+        recipe = adminArticles.find(function(r) { return r.id === id; });
+      }
+
+      if (recipe) {
+        _recipeData = recipe;
+        renderRecipe(recipe);
+      } else {
+        document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Recette non trouvée.</h2>";
+      }
+    });
+});
 
 function getParam(name) { return new URLSearchParams(window.location.search).get(name); }
 
-// 2. جلب البيانات عند تحميل الصفحة (مرة واحدة فقط)
-window.addEventListener('DOMContentLoaded', function() {
-    var cat = getParam('cat');
-    var id = getParam('id');
-    if (!cat || !id) return;
-
-    fetch('articles.json?v=' + Date.now())
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            var recipe = (data[cat] || []).find(function(r) { return r.id === id; });
-            
-            if (!recipe) {
-                var stored = localStorage.getItem('lb_articles_' + cat);
-                var adminArticles = stored ? JSON.parse(stored) : [];
-                recipe = adminArticles.find(function(r) { return r.id === id; });
-            }
-
-            if (recipe) {
-                _recipeData = recipe;
-                renderRecipe(recipe);
-            } else {
-                document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Recette non trouvée.</h2>";
-            }
-        })
-        .catch(function() {
-            document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Erreur de chargement.</h2>";
-        });
-});
-
-// 3. دالة العرض الأساسية
-function renderRecipe(a) {
-    var lang = currentLang;
-    var titre = a['titre_' + lang] || a.titre_fr;
-    var desc = a['desc_' + lang] || a.desc_fr || '';
-    var ings = a['ingredients_' + lang] || a.ingredients_fr || [];
-    var etapes = a['etapes_' + lang] || a.etapes_fr || [];
-    var photo = a.photo ? '<img src="' + a.photo + '" alt="' + titre + '"/>' : '🍽️';
-    var backHref = (getParam('cat') || 'index') + '.html';
-    
-    var L = {
-        back: {fr:'Retour', ar:'رجوع', en:'Back'},
-        ing: {fr:'Ingrédients', ar:'المقادير', en:'Ingredients'},
-        steps: {fr:'Étapes de préparation', ar:'طريقة التحضير', en:'Preparation steps'},
-        prep: {fr:'Préparation', ar:'التحضير', en:'Prep'},
-        cook: {fr:'طبخ', ar:'طبخ', en:'Cooking'},
-        pers: {fr:'Personnes', ar:'أشخاص', en:'Persons'},
-        diff: {fr:'Difficulté', ar:'صعوبة', en:'Difficulty'},
-    };
-    var t = function(k) { return L[k][lang] || L[k].fr; };
-    
+function renderRecipe(data) {
+  var cat = getParam('cat');
+  var id = getParam('id');
+  var articles = data[cat] || [];
+  var a = articles.find(function(x) { return x.id === id; });
+  
+  if (!a) {
     document.getElementById('recipe-content').innerHTML = 
-        '<div class="recipe-wrap">' +
-        '<a class="back-btn" href="' + backHref + '">← ' + t('back') + '</a>' +
-        '<div class="recipe-hero">' +
-            '<div class="recipe-hero-img">' + photo + '</div>' +
-            '<div class="recipe-hero-info">' +
-                '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
-                '<h1 id="recipe-title">' + titre + '</h1>' +
-                '<p>' + desc + '</p>' +
-                '<div class="recipe-stats">' +
-                    '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
-                    '<div class="stat"><span class="stat-val">0</span><span class="stat-label">' + t('cook') + '</span></div>' +
-                    '<div class="stat"><span class="stat-val">' + (a.portions||4) + '</span><span class="stat-label">' + t('pers') + '</span></div>' +
-                    '<div class="stat"><span class="stat-val">' + (a.difficulte||'●○○') + '</span><span class="stat-label">' + t('diff') + '</span></div>' +
-                '</div>' +
-            '</div>' +
+      '<div style="padding:3rem;text-align:center;color:var(--muted)">Recette introuvable. <a href="index.html" style="color:var(--sage-dark)">Retour</a></div>';
+    return;
+  }
+  
+  var lang = currentLang;
+  var titre = a['titre_' + lang] || a.titre_fr;
+  var desc = a['desc_' + lang] || a.desc_fr || '';
+  var ings = a['ingredients_' + lang] || a.ingredients_fr || [];
+  var etapes = a['etapes_' + lang] || a.etapes_fr || [];
+  var photo = a.photo ? '<img src="' + a.photo + '" alt="' + titre + '"/>' : '🍽️';
+  var backHref = (cat||'index') + '.html';
+  
+  var L = {
+    back: {fr:'Retour', ar:'رجوع', en:'Back'},
+    ing: {fr:'Ingrédients', ar:'المقادير', en:'Ingredients'},
+    steps: {fr:'Étapes de préparation', ar:'طريقة التحضير', en:'Preparation steps'},
+    prep: {fr:'Préparation', ar:'التحضير', en:'Prep'},
+    cook: {fr:'Cuisson', ar:'طبخ', en:'Cooking'},
+    pers: {fr:'Personnes', ar:'أشخاص', en:'Persons'},
+    diff: {fr:'Difficulté', ar:'صعوبة', en:'Difficulty'},
+  };
+  var t = function(k) { return L[k][lang] || L[k].fr; };
+  
+  document.getElementById('recipe-content').innerHTML = 
+    '<div class="recipe-wrap">' +
+    '<a class="back-btn" href="' + backHref + '">← ' + t('back') + '</a>' +
+    '<div class="recipe-hero">' +
+      '<div class="recipe-hero-img">' + photo + '</div>' +
+      '<div class="recipe-hero-info">' +
+        '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
+        '<h1>' + titre + '</h1>' +
+        '<p>' + desc + '</p>' +
+        '<div class="recipe-stats">' +
+          '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
+          '<div class="stat"><span class="stat-val">0</span><span class="stat-label">' + t('cook') + '</span></div>' +
+          '<div class="stat"><span class="stat-val">' + (a.portions||4) + '</span><span class="stat-label">' + t('pers') + '</span></div>' +
+          '<div class="stat"><span class="stat-val">' + (a.difficulte||'●○○') + '</span><span class="stat-label">' + t('diff') + '</span></div>' +
         '</div>' +
-        
-    
-
-        '<div class="recipe-body">' +
-            '<aside class="ingredients-panel">' +
-                '<h2 class="panel-title">' + t('ing') + '</h2>' +
-                '<ul class="ingredient-list">' + ings.map(function(i){ return '<li class="ingredient-item">' + i + '</li>'; }).join('') + '</ul>' +
-            '</aside>' +
-            '<div>' +
-                '<div class="steps-title">' + t('steps') + '</div>' +
-                etapes.map(function(e,i){ return '<div class="step"><div class="step-num">'+(i+1)+'</div><p class="step-text">'+e+'</p></div>'; }).join('') +
-            '</div>' +
-        '</div>' +
-        '</div>';
+      '</div>' +
+    '</div>' +
+    '<div class="recipe-share-bar" style="text-align:center; margin: 20px 0;">' +
+            '<button onclick="shareOnWhatsApp()" class="btn-share wa"><i class="fab fa-whatsapp"></i> WhatsApp</button> ' +
+            '<button onclick="shareOnFacebook()" class="btn-share fb"><i class="fab fa-facebook-f"></i> Facebook</button>' +
+            '<button onclick="shareOnPinterest()" class="btn-share pin"><i class="fab fa-pinterest"></i> Pinterest</button>' +
+    '</div>' +
+    '<div class="recipe-body">' +
+      '<aside class="ingredients-panel">' +
+        '<h2 class="panel-title">' + t('ing') + '</h2>' +
+        '<ul class="ingredient-list">' + ings.map(function(i){ return '<li class="ingredient-item">' + i + '</li>'; }).join('') + '</ul>' +
+      '</aside>' +
+      '<div>' +
+        '<div class="steps-title">' + t('steps') + '</div>' +
+        etapes.map(function(e,i){ return '<div class="step"><div class="step-num">'+(i+1)+'</div><p class="step-text">'+e+'</p></div>'; }).join('') +
+      '</div>' +
+    '</div>' +
+    '</div>';
 }
 
+var _recipeData = null;
+
+function onLangChange() { if (_recipeData) renderRecipe(_recipeData); }
+
+window.addEventListener('DOMContentLoaded', function() {
+  fetch('articles.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) { _recipeData = data; renderRecipe(data); })
+    .catch(function() {
+      document.getElementById('recipe-content').innerHTML = 
+        '<div style="padding:3rem;text-align:center;color:var(--muted)">Erreur de chargement. <a href="index.html" style="color:var(--sage-dark)">Retour</a></div>';
+    });
+});
+ 
+</script>
+  <!-- الزر كيكون هو اللخر قبل ما نسدو الـ body -->
+    <button id="backToTop" title="العودة للأعلى">↑</button>
+
+<!-- السكربت ضروري يكون هو آخر حاجة -->
+    <script src="script.js"></script>
+<script>
+  function shareOnPinterest() {
+    const title = document.querySelector('h1').innerText;
+    const url = window.location.href;
+    // جلب رابط الصورة الأولى في الوصفة
+    const image = document.querySelector('.recipe-hero-img img') ? document.querySelector('.recipe-hero-img img').src : '';
+    
+    const pinUrl = "https://www.pinterest.com/pin/create/button/" +
+        "?url=" + encodeURIComponent(url) +
+        "&media=" + encodeURIComponent(image) +
+        "&description=" + encodeURIComponent(title);
+    
+    window.open(pinUrl, "_blank");
+}
+    // هاد الدالة كتعرف الرابط اللي خاصو يتبارتجا
+    function getShareUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const recipeId = params.get('id');
+        
+        // إلا كان الزائر كيشوف الطاجين، كنعطيو لفيسبوك الرابط ديال الملف اللي فيه التصويرة
+        if (recipeId === "tajine-poulet") {
+            return "https://lotusblanc.online/tajine-poulet.html";
+        }
+        
+        // بالنسبة لباقي الوصفات، كيبقى الرابط العادي
+        return window.location.href;
+    }
+
+    function shareOnFacebook() {
+        const url = getShareUrl();
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), '_blank');
+    }
+
+    function shareOnWhatsApp() {
+        const url = getShareUrl();
+        // كنجيبو عنوان الوصفة باش نزيدوه فالميساج
+        const title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
+        const text = encodeURIComponent("اكتشفوا وصفة " + title + " الرائعة على Lotus Blanc: ");
+        window.open("https://api.whatsapp.com/send?text=" + text + " " + encodeURIComponent(url), '_blank');
+    }
 </script>
 </body>
 </html>
