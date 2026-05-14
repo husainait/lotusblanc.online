@@ -440,13 +440,28 @@ footer {
 <script>
 var currentLang = localStorage.getItem('lb-lang') || 'fr';
 
+// 1. هاد الجزء كيقرا الذاكرة غير كتحل الصفحة
+(function() {
+  var savedTheme = localStorage.getItem('lb-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  // باش حتى الأيقونة (الشمس/القمر) تطلع صحيحة من الدقة الأولى
+  window.addEventListener('DOMContentLoaded', function() {
+    var ti = document.getElementById('toggle-icon');
+    if (ti) ti.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  });
+})();
+
+// 2. الكود ديالك القديم (خليه كيفما هو، راه صحيح)
 function toggleTheme() {
   var html = document.documentElement;
   var isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  var newTheme = isDark ? 'light' : 'dark';
+  
+  html.setAttribute('data-theme', newTheme);
   var ti = document.getElementById('toggle-icon');
   if (ti) ti.textContent = isDark ? '🌙' : '☀️';
-  localStorage.setItem('lb-theme', isDark ? 'light' : 'dark');
+  localStorage.setItem('lb-theme', newTheme);
 }
 
 function setLang(lang) {
