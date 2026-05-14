@@ -6,28 +6,12 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3397433681970345"
      crossorigin="anonymous"></script>
   <title>Recette — Lotus Blanc</title>
-<!-- هادو هما الوسوم الصريحة اللي كيطلب فيسبوك وبنترست -->
-<meta property="og:type" content="article">
-<meta property="og:title" id="og-title" content="Lotus Blanc Recettes">
-<meta property="og:description" id="og-desc" content="Découvrez nos meilleures recettes marocaines">
-<!-- هاد السطر هو اللي كيطالب بيه الديبيغور صراحة -->
-<meta property="og:image" id="og-image" content="https://lotusblanc.online/logo.png">
-
-<!-- إضافات ضرورية لـ Pinterest ليثق في الرابط -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" id="tw-image" content="">
-
   <meta name="google-site-verification" content="aPFOJTKQvkj1MSSjcroBan4xgwFbmGJDCRDD2Rv46A0" />
 <!-- 1. حط رابط Font Awesome هنا -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- الكود ديال فيسبوك اللي درتي قبل خلي ه حتى هو -->
     <meta name="facebook-domain-verification" content="votre_code_ici" />  <meta name="p:domain_verify" content="af4a4e0e0920bd1a32e67c95ecd6333c"/>
-
-
-<!-- هاد الكود كيخلي فيسبوك يقرأ معلومات كل وصفة بوحدها -->
-
-
    <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
@@ -80,7 +64,7 @@
 .facebook-btn { color: #1877F2; }
 .pinterest-btn { color: #E60023; }
 
-     
+
 :root{--cream:#FDF5F8;--warm-white:#FFF8FB;--card-bg:#FFF8FB;--sage:#C0729A;--sage-light:#F5D6E6;--sage-dark:#A0446F;--gold:#4A7FB5;--gold-light:#C8DDEF;--charcoal:#2C2035;--muted:#7A6878;--border:rgba(44,32,53,0.10);--header-bg:#FFF8FB;--body-bg:#FDF5F8;--toggle-bg:#EDD6E5;}
 [data-theme="dark"]{--cream:#1A1520;--warm-white:#221828;--card-bg:#221828;--sage:#C0729A;--sage-light:#4A1F35;--sage-dark:#E090B8;--gold:#6A9FD5;--gold-light:#1A3550;--charcoal:#F5EEF8;--muted:#B09AB8;--border:rgba(245,238,248,0.10);--header-bg:#160F1C;--body-bg:#1A1520;--toggle-bg:#3A2545;}
 html{scroll-behavior:smooth}
@@ -309,7 +293,6 @@ nav {
 .contact-box p{font-size:.85rem;color:var(--muted);margin-bottom:1.2rem}
 .contact-link{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.3rem;border:1px solid var(--border);border-radius:50px;font-size:.8rem;color:var(--charcoal);text-decoration:none;background:var(--body-bg);transition:border-color .2s,background .2s}
 .contact-link:hover{border-color:var(--sage);background:var(--sage-light);color:var(--sage-dark)}
-
 /* FOOTER - النسخة المتوافقة مع الـ Dark Mode */
 footer {
     background: var(--body-bg); /* غيتبع لون الموقع (أبيض في العادي، غامق في الدارك) */
@@ -576,7 +559,7 @@ function renderRecipe(data) {
       '<div class="recipe-hero-img">' + photo + '</div>' +
       '<div class="recipe-hero-info">' +
         '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
-       '<h1 id="recipe-title">' + titre + '</h1>' +
+        '<h1>' + titre + '</h1>' +
         '<p>' + desc + '</p>' +
         '<div class="recipe-stats">' +
           '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
@@ -587,13 +570,11 @@ function renderRecipe(data) {
       '</div>' +
     '</div>' +
     // --- إضافة حاوية أزرار المشاركة هنا ---
-        
         '<div class="share-container">' +
           '<a href="javascript:void(0)" onclick="shareWA()" class="btn-icon whatsapp-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>' +
           '<a href="javascript:void(0)" onclick="shareFB()" class="btn-icon facebook-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>' +
           '<a href="javascript:void(0)" onclick="sharePN()" class="btn-icon pinterest-btn" title="Pinterest"><i class="fab fa-pinterest"></i></a>' +
         '</div>' +
-
         // ------------------------------------
   
     
@@ -608,19 +589,6 @@ function renderRecipe(data) {
       '</div>' +
     '</div>' +
     '</div>';
-    // --- هنا فين حطيت ليك الكود اللي سألتي عليه ---
-  var ogImg = document.getElementById('og-image');
-  var twImg = document.getElementById('tw-image');
-  var recipePhoto = a.photo || 'https://lotusblanc.online/logo.png';
-
-  if (ogImg) ogImg.setAttribute('content', recipePhoto);
-  if (twImg) twImg.setAttribute('content', recipePhoto);
-
-  document.getElementById('og-title')?.setAttribute('content', titre);
-  document.getElementById('og-desc')?.setAttribute('content', desc);
-  document.getElementById('og-url')?.setAttribute('content', window.location.href);
-
-
 }
 
 var _recipeData = null;
@@ -640,68 +608,24 @@ window.addEventListener('DOMContentLoaded', function() {
 <!-- نهاية محتوى الصفحة -->
     
     <script>
-function getCleanUrl() {
-    // كنجبدو المعطيات الأساسية فقط (cat و id) من الرابط الحالي
-    var params = new URLSearchParams(window.location.search);
-    var cat = params.get('cat');
-    var id = params.get('id');
-    
-    // هنا كنصنعو رابط جديد نقي 100% كيبدا من اسم الموقع وكيزيد عليه غير cat و id
-    // هاد الطريقة كتمسح أي حاجة زايدة بحال fbclid أوتوماتيكياً
-    if (cat && id) {
-        return "https://lotusblanc.online/recette.html?cat=" + cat + "&id=" + id;
+    function shareWA() {
+        var title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
+        var url = window.location.href;
+        var text = encodeURIComponent("اكتشفوا وصفة " + title + " على Lotus Blanc: " + url);
+        window.open("https://api.whatsapp.com/send?text=" + text, '_blank');
     }
-    
-    // إلا وقع مشكل وما لقاهمش، كيرجع الرابط الأصلي بلا دوك الأرقام الطويلة
-    return window.location.origin + window.location.pathname;
-}
 
-function shareFB() {
-    var url = encodeURIComponent(getCleanUrl());
-    // كنصيفطو لفيسبوك الرابط "النقي" اللي صنعناه
-    var fbUrl = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-    window.open(fbUrl, "pop", "width=600,height=400,scrollbars=no");
-}
+    function shareFB() {
+        var url = encodeURIComponent(window.location.href);
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, "pop", "width=600,height=400");
+    }
 
-function shareWA() {
-    var titleEl = document.getElementById('recipe-title');
-    var title = titleEl ? titleEl.innerText : "وصفة رائعة";
-    var url = getCleanUrl();
-    
-    var text = "اكتشف هذه الوصفة من *Lotus Blanc*:\n" + "_" + title + "_\n\n" + url;
-    window.open("https://wa.me/?text=" + encodeURIComponent(text), '_blank');
-}
-
-
-function sharePN() {
-    var params = new URLSearchParams(window.location.search);
-    var cat = params.get('cat');
-    var id = params.get('id');
-    
-    // 1. رابط نقي 100% (هذا هو الأهم باش Pinterest يقبلو وسط الـ Tableau)
-    var cleanUrl = "https://lotusblanc.online/recette.html?cat=" + cat + "&id=" + id;
-    
-    // 2. جلب العنوان وتصفيته
-    var titleEl = document.getElementById('recipe-title');
-    var title = titleEl ? titleEl.innerText.trim() : "Lotus Blanc Recipe";
-    
-    // 3. جلب الصورة
-    var imageEl = document.querySelector('.recipe-hero-img img');
-    var image = imageEl ? imageEl.src : "";
-
-    // 4. بناء الرابط باستعمال URLSearchParams لضمان تشفير (Encoding) صحيح
-    var pinParams = new URLSearchParams();
-    pinParams.set('url', cleanUrl);
-    pinParams.set('media', image);
-    pinParams.set('description', title);
-
-    var finalUrl = "https://www.pinterest.com/pin/create/button/?" + pinParams.toString();
-    
-    // 5. فتح النافذة بمقاسات محددة (هذا كيساعد بنترست يتعرف على الواجهة)
-    window.open(finalUrl, "Pinterest", "width=800,height=600,resizable=yes");
-}
-
-   
+    function sharePN() {
+        var url = encodeURIComponent(window.location.href);
+        var title = encodeURIComponent(document.getElementById('recipe-title')?.innerText || "Lotus Blanc");
+        var image = encodeURIComponent(document.getElementById('recipe-img')?.src || '');
+        window.open("https://www.pinterest.com/pin/create/button/?url=" + url + "&media=" + image + "&description=" + title, "_blank");
+    }
     </script>
     
 
