@@ -611,37 +611,44 @@ window.addEventListener('DOMContentLoaded', function() {
 <!-- نهاية محتوى الصفحة -->
     
     <script>
-function getPerfectUrl() {
-    // كنجبدو المعطيات الأساسية فقط بلا الزيادات ديال فيسبوك
+function getCleanUrl() {
+    // كنجبدو المعطيات من الرابط الحالي بشكل نقي
     var params = new URLSearchParams(window.location.search);
     var cat = params.get('cat');
     var id = params.get('id');
     
-    // كنرجعو بناء الرابط من جديد بشكل نقي
+    // بناء رابط نظيف 100% بدون أي مخلفات من فيسبوك
     if (cat && id) {
         return window.location.origin + window.location.pathname + '?cat=' + cat + '&id=' + id;
     }
-    return window.location.href.split('?')[0]; // كحل احتياطي
+    return window.location.href.split('?')[0];
 }
 
 function shareWA() {
-    var title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
-    var url = getPerfectUrl();
-    var text = "شوف هاد الوصفة من Lotus Blanc: " + title + "\n" + url;
+    // كنجبدو العنوان من الـ h1 اللي وسط الـ recipe-hero لضمان الدقة
+    var titleElement = document.querySelector('.recipe-hero-info h1');
+    var title = titleElement ? titleElement.innerText : "وصفة شهية";
+    var url = getCleanUrl();
+    
+    // تنظيم الرسالة: العنوان في سطر والرابط في سطر
+    var text = "شوف هاد الوصفة من Lotus Blanc:\n" + "*" + title + "*\n\n" + url;
     window.open("https://wa.me/?text=" + encodeURIComponent(text), '_blank');
 }
 
 function shareFB() {
-    var url = encodeURIComponent(getPerfectUrl());
+    var url = encodeURIComponent(getCleanUrl());
+    // استهداف الرابط المباشر للوصفة لفيسبوك لتفادي إضافة الأرقام العشوائية
     window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, "pop", "width=600,height=400");
 }
 
 function sharePN() {
-    var url = encodeURIComponent(getPerfectUrl());
-    var title = encodeURIComponent(document.getElementById('recipe-title')?.innerText || "Lotus Blanc");
-    var image = encodeURIComponent(document.getElementById('recipe-img')?.src || '');
+    var url = encodeURIComponent(getCleanUrl());
+    var titleElement = document.querySelector('.recipe-hero-info h1');
+    var title = encodeURIComponent(titleElement ? titleElement.innerText : "Lotus Blanc");
+    var image = encodeURIComponent(document.querySelector('.recipe-hero-img img')?.src || '');
     window.open("https://www.pinterest.com/pin/create/button/?url=" + url + "&media=" + image + "&description=" + title, "_blank");
 }
+
 
     </script>
     
