@@ -6,16 +6,24 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3397433681970345"
      crossorigin="anonymous"></script>
   <title>Recette — Lotus Blanc</title>
+<!-- هادو هما الوسوم الصريحة اللي كيطلب فيسبوك وبنترست -->
+<meta property="og:type" content="article">
+<meta property="og:title" id="og-title" content="Lotus Blanc Recettes">
+<meta property="og:description" id="og-desc" content="Découvrez nos meilleures recettes marocaines">
+<meta property="og:image" id="og-image" content="https://lotusblanc.online/logo.png"> <!-- لوغو افتراضي -->
+<meta property="og:url" id="og-url" content="https://lotusblanc.online">
+
+<!-- إضافات ضرورية لـ Pinterest ليثق في الرابط -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" id="tw-image" content="">
+
   <meta name="google-site-verification" content="aPFOJTKQvkj1MSSjcroBan4xgwFbmGJDCRDD2Rv46A0" />
 <!-- 1. حط رابط Font Awesome هنا -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- الكود ديال فيسبوك اللي درتي قبل خلي ه حتى هو -->
     <meta name="facebook-domain-verification" content="votre_code_ici" />  <meta name="p:domain_verify" content="af4a4e0e0920bd1a32e67c95ecd6333c"/>
-<meta property="og:title" id="og-title" content="Lotus Blanc">
-<meta property="og:description" id="og-desc" content="Recettes délicieuses">
-<meta property="og:image" id="og-image" content="">
-<meta property="og:url" id="og-url" content="">
+
 
 <!-- هاد الكود كيخلي فيسبوك يقرأ معلومات كل وصفة بوحدها -->
 
@@ -600,7 +608,18 @@ function renderRecipe(data) {
       '</div>' +
     '</div>' +
     '</div>';
-  
+    // --- هنا فين حطيت ليك الكود اللي سألتي عليه ---
+  var ogImg = document.getElementById('og-image');
+  var twImg = document.getElementById('tw-image');
+  var recipePhoto = a.photo || 'https://lotusblanc.online/logo.png';
+
+  if (ogImg) ogImg.setAttribute('content', recipePhoto);
+  if (twImg) twImg.setAttribute('content', recipePhoto);
+
+  document.getElementById('og-title')?.setAttribute('content', titre);
+  document.getElementById('og-desc')?.setAttribute('content', desc);
+  document.getElementById('og-url')?.setAttribute('content', window.location.href);
+
 
 }
 
