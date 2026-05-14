@@ -12,7 +12,12 @@
 
     <!-- الكود ديال فيسبوك اللي درتي قبل خلي ه حتى هو -->
     <meta name="facebook-domain-verification" content="votre_code_ici" />  <meta name="p:domain_verify" content="af4a4e0e0920bd1a32e67c95ecd6333c"/>
-   <style>
+  <meta property="og:title" id="og-title" content="Lotus Blanc">
+<meta property="og:image" id="og-image" content="https://lotusblanc.online/logo.png">
+<meta property="og:description" id="og-desc" content="">
+<meta property="og:url" id="og-url" content="">
+<meta name="twitter:image" id="tw-image" content="">
+  <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
 }/* 2. كود الـ Scrollbar (زيدي هاد الجزء هنا) */
@@ -547,9 +552,7 @@ function renderRecipe(data) {
         '</div>' +
       '</div>' +
     '</div>' +
-  
-    
-    '<div class="recipe-body">' +
+   '<div class="recipe-body">' +
       '<aside class="ingredients-panel">' +
         '<h2 class="panel-title">' + t('ing') + '</h2>' +
         '<ul class="ingredient-list">' + ings.map(function(i){ return '<li class="ingredient-item">' + i + '</li>'; }).join('') + '</ul>' +
@@ -560,6 +563,17 @@ function renderRecipe(data) {
       '</div>' +
     '</div>' +
     '</div>';
+// --- الجزء التقني لتحديث معلومات الفيسبوك وبنترست ---
+  var ogImg = document.getElementById('og-image');
+  var twImg = document.getElementById('tw-image');
+  var recipePhoto = a.photo || 'https://lotusblanc.online/logo.png';
+
+  if (ogImg) ogImg.setAttribute('content', recipePhoto);
+  if (twImg) twImg.setAttribute('content', recipePhoto);
+
+  document.getElementById('og-title')?.setAttribute('content', titre);
+  document.getElementById('og-desc')?.setAttribute('content', desc);
+  document.getElementById('og-url')?.setAttribute('content', window.location.href);
 }
 
 var _recipeData = null;
