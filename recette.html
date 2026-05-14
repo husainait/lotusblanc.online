@@ -571,11 +571,12 @@ function renderRecipe(data) {
       '</div>' +
     '</div>' +
     // --- إضافة حاوية أزرار المشاركة هنا ---
-        <div class="share-container">
-    <a href="javascript:void(0)" onclick="shareWA()" class="btn-icon whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
-    <a href="javascript:void(0)" onclick="shareFB()" class="btn-icon facebook-btn"><i class="fab fa-facebook-f"></i></a>
-    <a href="javascript:void(0)" onclick="sharePN()" class="btn-icon pinterest-btn"><i class="fab fa-pinterest"></i></a>
-</div>
+        
+        '<div class="share-container">' +
+          '<a href="javascript:void(0)" onclick="shareWA()" class="btn-icon whatsapp-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>' +
+          '<a href="javascript:void(0)" onclick="shareFB()" class="btn-icon facebook-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>' +
+          '<a href="javascript:void(0)" onclick="sharePN()" class="btn-icon pinterest-btn" title="Pinterest"><i class="fab fa-pinterest"></i></a>' +
+        '</div>' +
 
         // ------------------------------------
   
