@@ -599,13 +599,7 @@ function renderRecipe(data) {
       '</div>' +
     '</div>' +
     '</div>';
-  // تحديث Meta Tags لفيسبوك وبنترست ديناميكياً
-  if (document.getElementById('og-title')) {
-    document.getElementById('og-title').setAttribute('content', titre);
-    document.getElementById('og-desc').setAttribute('content', desc);
-    document.getElementById('og-image').setAttribute('content', a.photo || '');
-    document.getElementById('og-url').setAttribute('content', window.location.href);
-  }
+  
 
 }
 
