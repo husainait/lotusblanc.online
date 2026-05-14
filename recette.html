@@ -611,32 +611,36 @@ window.addEventListener('DOMContentLoaded', function() {
 <!-- نهاية محتوى الصفحة -->
     
     <script>
-    // دالة لتنظيف وتجهيز الرابط
-function getCleanUrl() {
-    return window.location.href.split('&v=')[0]; // كيحيد التوقيت باش يبقى الرابط نقي
+function getPerfectUrl() {
+    // كنجبدو المعطيات الأساسية فقط بلا الزيادات ديال فيسبوك
+    var params = new URLSearchParams(window.location.search);
+    var cat = params.get('cat');
+    var id = params.get('id');
+    
+    // كنرجعو بناء الرابط من جديد بشكل نقي
+    if (cat && id) {
+        return window.location.origin + window.location.pathname + '?cat=' + cat + '&id=' + id;
+    }
+    return window.location.href.split('?')[0]; // كحل احتياطي
 }
 
 function shareWA() {
     var title = document.getElementById('recipe-title')?.innerText || "Lotus Blanc";
-    var url = getCleanUrl();
-    // استعملنا n\ باش نديرو سطر جديد في رسالة الواتساب
-    var text = "السلام عليكم، شوف هاد الوصفة الرائعة: " + title + "\n\n" + url;
-    var waUrl = "https://wa.me/?text=" + encodeURIComponent(text);
-    window.open(waUrl, '_blank');
+    var url = getPerfectUrl();
+    var text = "شوف هاد الوصفة من Lotus Blanc: " + title + "\n" + url;
+    window.open("https://wa.me/?text=" + encodeURIComponent(text), '_blank');
 }
 
 function shareFB() {
-    var url = encodeURIComponent(getCleanUrl());
-    var fbUrl = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-    window.open(fbUrl, "pop", "width=600,height=400,scrollbars=no");
+    var url = encodeURIComponent(getPerfectUrl());
+    window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, "pop", "width=600,height=400");
 }
 
 function sharePN() {
-    var url = encodeURIComponent(getCleanUrl());
+    var url = encodeURIComponent(getPerfectUrl());
     var title = encodeURIComponent(document.getElementById('recipe-title')?.innerText || "Lotus Blanc");
     var image = encodeURIComponent(document.getElementById('recipe-img')?.src || '');
-    var pinUrl = "https://www.pinterest.com/pin/create/button/?url=" + url + "&media=" + image + "&description=" + title;
-    window.open(pinUrl, "_blank");
+    window.open("https://www.pinterest.com/pin/create/button/?url=" + url + "&media=" + image + "&description=" + title, "_blank");
 }
 
     </script>
