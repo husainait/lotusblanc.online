@@ -639,34 +639,40 @@ function shareWA() {
     var title = titleEl ? titleEl.innerText : "وصفة رائعة";
     var url = getCleanUrl();
     
-    var text = "شوف هاد الوصفة من *Lotus Blanc*:\n" + "_" + title + "_\n\n" + url;
+    var text = "اكتشف هذه الوصفة من *Lotus Blanc*:\n" + "_" + title + "_\n\n" + url;
     window.open("https://wa.me/?text=" + encodeURIComponent(text), '_blank');
 }
 
 
 function sharePN() {
-    // 1. كنجبدو القيم الأساسية فقط
     var params = new URLSearchParams(window.location.search);
     var cat = params.get('cat');
     var id = params.get('id');
     
-    // 2. كنصنعو رابط قصير ونظيف (هذا هو السر باش ما يتبلوكاش)
+    // 1. رابط نقي 100% (هذا هو الأهم باش Pinterest يقبلو وسط الـ Tableau)
     var cleanUrl = "https://lotusblanc.online/recette.html?cat=" + cat + "&id=" + id;
     
-    // 3. كنجبدو العنوان والصورة
+    // 2. جلب العنوان وتصفيته
     var titleEl = document.getElementById('recipe-title');
-    var title = titleEl ? titleEl.innerText : "Lotus Blanc Recipe";
+    var title = titleEl ? titleEl.innerText.trim() : "Lotus Blanc Recipe";
+    
+    // 3. جلب الصورة
     var imageEl = document.querySelector('.recipe-hero-img img');
     var image = imageEl ? imageEl.src : "";
 
-    // 4. بناء رابط بنترست الرسمي
-    var pinUrl = "https://www.pinterest.com/pin/create/button/" +
-        "?url=" + encodeURIComponent(cleanUrl) +
-        "&media=" + encodeURIComponent(image) +
-        "&description=" + encodeURIComponent(title);
+    // 4. بناء الرابط باستعمال URLSearchParams لضمان تشفير (Encoding) صحيح
+    var pinParams = new URLSearchParams();
+    pinParams.set('url', cleanUrl);
+    pinParams.set('media', image);
+    pinParams.set('description', title);
+
+    var finalUrl = "https://www.pinterest.com/pin/create/button/?" + pinParams.toString();
     
-    window.open(pinUrl, "_blank");
+    // 5. فتح النافذة بمقاسات محددة (هذا كيساعد بنترست يتعرف على الواجهة)
+    window.open(finalUrl, "Pinterest", "width=800,height=600,resizable=yes");
 }
+
+    
 
 
 
