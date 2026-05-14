@@ -560,7 +560,7 @@ function renderRecipe(data) {
       '<div class="recipe-hero-img">' + photo + '</div>' +
       '<div class="recipe-hero-info">' +
         '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
-        '<h1>' + titre + '</h1>' +
+       '<h1 id="recipe-title">' + titre + '</h1>' +
         '<p>' + desc + '</p>' +
         '<div class="recipe-stats">' +
           '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
@@ -611,35 +611,24 @@ window.addEventListener('DOMContentLoaded', function() {
 <!-- نهاية محتوى الصفحة -->
     
     <script>
+
 function getCleanUrl() {
-    // كنجبدو المعطيات من الرابط الحالي بشكل نقي
     var params = new URLSearchParams(window.location.search);
-    var cat = params.get('cat');
-    var id = params.get('id');
-    
-    // بناء رابط نظيف 100% بدون أي مخلفات من فيسبوك
-    if (cat && id) {
-        return window.location.origin + window.location.pathname + '?cat=' + cat + '&id=' + id;
-    }
-    return window.location.href.split('?')[0];
+    return window.location.origin + window.location.pathname + '?cat=' + params.get('cat') + '&id=' + params.get('id');
 }
 
 function shareWA() {
-    // كنجبدو العنوان من الـ h1 اللي وسط الـ recipe-hero لضمان الدقة
-    var titleElement = document.querySelector('.recipe-hero-info h1');
-    var title = titleElement ? titleElement.innerText : "وصفة شهية";
+    var title = document.getElementById('recipe-title') ? document.getElementById('recipe-title').innerText : "وصفة شهية";
     var url = getCleanUrl();
-    
-    // تنظيم الرسالة: العنوان في سطر والرابط في سطر
-    var text = "شوف هاد الوصفة من Lotus Blanc:\n" + "*" + title + "*\n\n" + url;
+    var text = "شوف هاد الوصفة من Lotus Blanc:\n*" + title + "*\n\n" + url;
     window.open("https://wa.me/?text=" + encodeURIComponent(text), '_blank');
 }
 
 function shareFB() {
     var url = encodeURIComponent(getCleanUrl());
-    // استهداف الرابط المباشر للوصفة لفيسبوك لتفادي إضافة الأرقام العشوائية
-    window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, "pop", "width=600,height=400");
+    window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, "_blank");
 }
+
 
 function sharePN() {
     var url = encodeURIComponent(getCleanUrl());
