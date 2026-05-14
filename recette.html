@@ -611,32 +611,63 @@ window.addEventListener('DOMContentLoaded', function() {
 <!-- نهاية محتوى الصفحة -->
     
     <script>
-
 function getCleanUrl() {
+    // كنجبدو المعطيات الأساسية فقط (cat و id) من الرابط الحالي
     var params = new URLSearchParams(window.location.search);
-    return window.location.origin + window.location.pathname + '?cat=' + params.get('cat') + '&id=' + params.get('id');
-}
-
-function shareWA() {
-    var title = document.getElementById('recipe-title') ? document.getElementById('recipe-title').innerText : "وصفة شهية";
-    var url = getCleanUrl();
-    var text = "شوف هاد الوصفة من Lotus Blanc:\n*" + title + "*\n\n" + url;
-    window.open("https://wa.me/?text=" + encodeURIComponent(text), '_blank');
+    var cat = params.get('cat');
+    var id = params.get('id');
+    
+    // هنا كنصنعو رابط جديد نقي 100% كيبدا من اسم الموقع وكيزيد عليه غير cat و id
+    // هاد الطريقة كتمسح أي حاجة زايدة بحال fbclid أوتوماتيكياً
+    if (cat && id) {
+        return "https://lotusblanc.online/recette.html?cat=" + cat + "&id=" + id;
+    }
+    
+    // إلا وقع مشكل وما لقاهمش، كيرجع الرابط الأصلي بلا دوك الأرقام الطويلة
+    return window.location.origin + window.location.pathname;
 }
 
 function shareFB() {
     var url = encodeURIComponent(getCleanUrl());
-    window.open("https://www.facebook.com/sharer/sharer.php?u=" + url, "_blank");
+    // كنصيفطو لفيسبوك الرابط "النقي" اللي صنعناه
+    var fbUrl = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+    window.open(fbUrl, "pop", "width=600,height=400,scrollbars=no");
+}
+
+function shareWA() {
+    var titleEl = document.getElementById('recipe-title');
+    var title = titleEl ? titleEl.innerText : "وصفة رائعة";
+    var url = getCleanUrl();
+    
+    var text = "شوف هاد الوصفة من *Lotus Blanc*:\n" + "_" + title + "_\n\n" + url;
+    window.open("https://wa.me/?text=" + encodeURIComponent(text), '_blank');
 }
 
 
 function sharePN() {
-    var url = encodeURIComponent(getCleanUrl());
-    var titleElement = document.querySelector('.recipe-hero-info h1');
-    var title = encodeURIComponent(titleElement ? titleElement.innerText : "Lotus Blanc");
-    var image = encodeURIComponent(document.querySelector('.recipe-hero-img img')?.src || '');
-    window.open("https://www.pinterest.com/pin/create/button/?url=" + url + "&media=" + image + "&description=" + title, "_blank");
+    // 1. كنجبدو القيم الأساسية فقط
+    var params = new URLSearchParams(window.location.search);
+    var cat = params.get('cat');
+    var id = params.get('id');
+    
+    // 2. كنصنعو رابط قصير ونظيف (هذا هو السر باش ما يتبلوكاش)
+    var cleanUrl = "https://lotusblanc.online/recette.html?cat=" + cat + "&id=" + id;
+    
+    // 3. كنجبدو العنوان والصورة
+    var titleEl = document.getElementById('recipe-title');
+    var title = titleEl ? titleEl.innerText : "Lotus Blanc Recipe";
+    var imageEl = document.querySelector('.recipe-hero-img img');
+    var image = imageEl ? imageEl.src : "";
+
+    // 4. بناء رابط بنترست الرسمي
+    var pinUrl = "https://www.pinterest.com/pin/create/button/" +
+        "?url=" + encodeURIComponent(cleanUrl) +
+        "&media=" + encodeURIComponent(image) +
+        "&description=" + encodeURIComponent(title);
+    
+    window.open(pinUrl, "_blank");
 }
+
 
 
     </script>
