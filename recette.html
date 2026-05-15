@@ -381,22 +381,36 @@ footer {
   .cat-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
-<body>
-<header>
+<body><header>
   <nav>
     <a class="logo-wrap" href="index.html">
-      <img src="photos/logo.png"  alt="Lotus Blanc" class="logo-img"/>
+      <img src="photos/logo.png" alt="Lotus Blanc" class="logo-img"/>
       <span class="logo-text">LotusBlanc</span>
     </a>
-    <ul class="nav-links"><li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">Accueil</a></li><li><a href="salades.html" data-fr="Salades" data-ar="سلطات" data-en="Salads">Salades</a></li><li><a href="plats-marocains.html" data-fr="Plats marocains" data-ar="أطباق مغربية" data-en="Moroccan">Plats marocains</a></li><li><a href="soupes.html" data-fr="Soupes" data-ar="شوربات" data-en="Soups">Soupes</a></li><li><a href="desserts.html" data-fr="Desserts" data-ar="تحلية" data-en="Desserts">Desserts</a></li><li><a href="patisserie.html" data-fr="Pâtisserie" data-ar="حلويات" data-en="Pastry">Pâtisserie</a></li><li><a href="about.html" data-fr="À propos" data-ar="من نحن" data-en="About">À propos</a></li><li><a href="mailto:lotusblanc.contact@gmail.com" data-fr="Contact" data-ar="تواصل" data-en="Contact">Contact</a></li></ul>
+    
+    <ul class="nav-links">
+      <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">Accueil</a></li>
+      <li><a href="salades.html" data-fr="Salades" data-ar="سلطات" data-en="Salads">Salades</a></li>
+      <li><a href="plats-marocains.html" data-fr="Plats marocains" data-ar="أطباق مغربية" data-en="Moroccan">Plats marocains</a></li>
+      <li><a href="soupes.html" data-fr="Soupes" data-ar="شوربات" data-en="Soups">Soupes</a></li>
+      <li><a href="desserts.html" data-fr="Desserts" data-ar="تحلية" data-en="Desserts">Desserts</a></li>
+      <li><a href="patisserie.html" data-fr="Pâtisserie" data-ar="حلويات" data-en="Pastry">Pâtisserie</a></li>
+      <li><a href="about.html" data-fr="À propos" data-ar="من نحن" data-en="About">À propos</a></li>
+      <li><a href="mailto:lotusblanc.contact@gmail.com" data-fr="Contact" data-ar="تواصل" data-en="Contact">Contact</a></li>
+    </ul>
+    
     <div class="header-right">
       <div class="lang-switcher">
         <button class="lang-btn active" onclick="setLang('fr')">FR</button>
         <button class="lang-btn" onclick="setLang('ar')">ع</button>
         <button class="lang-btn" onclick="setLang('en')">EN</button>
       </div>
-      <span id="toggle-icon" class="dark-btn" onclick="toggleTheme()">🌙</span>
-      <div class="toggle" onclick="toggleTheme()"></div>
+      
+      <div class="theme-switch-wrapper" onclick="toggleTheme()" style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
+        <span id="toggle-icon" class="dark-btn">🌙</span>
+        <div class="toggle"></div>
+      </div>
+      
       <button class="hamburger" id="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </button>
