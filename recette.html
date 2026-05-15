@@ -454,19 +454,25 @@ footer {
 <script>
 var currentLang = localStorage.getItem('lb-lang') || 'fr';
 
-// 1. هاد الجزء كيقرا الذاكرة غير كتحل الصفحة
+// 1. هاد الجزء كيقرا الذاكرة غير كتحل الصفحة ويلبسها الألوان صحيحة
 (function() {
   var savedTheme = localStorage.getItem('lb-theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   
-  // باش حتى الأيقونة (الشمس/القمر) تطلع صحيحة من الدقة الأولى
   window.addEventListener('DOMContentLoaded', function() {
     var ti = document.getElementById('toggle-icon');
     if (ti) ti.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    
+    // كيتأكد بلي الـ Switch شغال وكليكابل 100% ومامبلوكيش
+    var toggleDiv = document.querySelector('.toggle');
+    if (toggleDiv) {
+      toggleDiv.style.pointerEvents = 'auto';
+      toggleDiv.style.cursor = 'pointer';
+    }
   });
 })();
 
-// 2. الكود ديالك القديم (خليه كيفما هو، راه صحيح)
+// 2. تحديث وظيفة تبديل الـ Theme باش تخدم بسلاسة فين ما كليكتي
 function toggleTheme() {
   var html = document.documentElement;
   var isDark = html.getAttribute('data-theme') === 'dark';
@@ -512,7 +518,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
   if (!cat || !id) return;
 
-  // جلب البيانات من JSON ومن الـ LocalStorage للتأكد
   fetch('articles.json?v=' + Date.now())
     .then(function(r) { return r.json(); })
     .then(function(data) {
@@ -527,29 +532,23 @@ window.addEventListener('DOMContentLoaded', function() {
       }
 
       if (recipe) {
-        _recipeData = recipe;
+        _recipeData = data; // حفظ الداتا كاملة هنا للغات
         renderRecipe(recipe);
       } else {
         document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Recette non trouvée.</h2>";
       }
+    })
+    .catch(function() {
+      document.getElementById('recipe-content').innerHTML = 
+        '<div style="padding:3rem;text-align:center;color:var(--muted)">Erreur de chargement. <a href="index.html" style="color:var(--sage-dark)">Retour</a></div>';
     });
 });
 
 function getParam(name) { return new URLSearchParams(window.location.search).get(name); }
 
-function renderRecipe(data) {
-  var cat = getParam('cat');
-  var id = getParam('id');
-  var articles = data[cat] || [];
-  var a = articles.find(function(x) { return x.id === id; });
-  
-  if (!a) {
-    document.getElementById('recipe-content').innerHTML = 
-      '<div style="padding:3rem;text-align:center;color:var(--muted)">Recette introuvable. <a href="index.html" style="color:var(--sage-dark)">Retour</a></div>';
-    return;
-  }
+function renderRecipe(a) {
+  if (!a) return;
 
-  // --- السطر الجديد اللي غيحل مشكلة اللوغو في فيسبوك زيدو هنا ---
   if (document.getElementById('fb-share-img')) {
       document.getElementById('fb-share-img').src = a.photo || 'https://lotusblanc.online/logo.png';
   }
@@ -560,6 +559,7 @@ function renderRecipe(data) {
   var ings = a['ingredients_' + lang] || a.ingredients_fr || [];
   var etapes = a['etapes_' + lang] || a.etapes_fr || [];
   var photo = a.photo ? '<img src="' + a.photo + '" alt="' + titre + '"/>' : '🍽️';
+  var cat = getParam('cat');
   var backHref = (cat||'index') + '.html';
   
   var L = {
@@ -602,7 +602,6 @@ function renderRecipe(data) {
     '</div>' +
     '</div>';
 
-  // --- تحديث الميتا تاق (القديم اللي خليناه) ---
   var ogImg = document.getElementById('og-image');
   var twImg = document.getElementById('tw-image');
   var recipePhoto = a.photo || 'https://lotusblanc.online/logo.png';
@@ -617,18 +616,15 @@ function renderRecipe(data) {
 
 var _recipeData = null;
 
-function onLangChange() { if (_recipeData) renderRecipe(_recipeData); }
-
-window.addEventListener('DOMContentLoaded', function() {
-  fetch('articles.json?v=' + Date.now())
-    .then(function(r) { return r.json(); })
-    .then(function(data) { _recipeData = data; renderRecipe(data); })
-    .catch(function() {
-      document.getElementById('recipe-content').innerHTML = 
-        '<div style="padding:3rem;text-align:center;color:var(--muted)">Erreur de chargement. <a href="index.html" style="color:var(--sage-dark)">Retour</a></div>';
-    });
-});
-</script> 
+function onLangChange() { 
+  if (_recipeData) {
+    var cat = getParam('cat');
+    var id = getParam('id');
+    var recipe = (_recipeData[cat] || []).find(function(r) { return r.id === id; });
+    if (recipe) renderRecipe(recipe);
+  } 
+}
+</script>
 <!-- نهاية محتوى الصفحة -->
     
     
