@@ -56,7 +56,18 @@
     margin: 15px 0;
     padding: 5px;
 }
-
+.recipe-author-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    align-items: center;
+}
+.recipe-author-name {
+    font-weight: 500;
+    color: var(--sage-dark);
+}
 
 :root{--cream:#FDF5F8;--warm-white:#FFF8FB;--card-bg:#FFF8FB;--sage:#C0729A;--sage-light:#F5D6E6;--sage-dark:#A0446F;--gold:#4A7FB5;--gold-light:#C8DDEF;--charcoal:#2C2035;--muted:#7A6878;--border:rgba(44,32,53,0.10);--header-bg:#FFF8FB;--body-bg:#FDF5F8;--toggle-bg:#EDD6E5;}
 [data-theme="dark"]{--cream:#1A1520;--warm-white:#221828;--card-bg:#221828;--sage:#C0729A;--sage-light:#4A1F35;--sage-dark:#E090B8;--gold:#6A9FD5;--gold-light:#1A3550;--charcoal:#F5EEF8;--muted:#B09AB8;--border:rgba(245,238,248,0.10);--header-bg:#160F1C;--body-bg:#1A1520;--toggle-bg:#3A2545;}
@@ -593,7 +604,6 @@ function renderRecipe(data) {
     return;
   }
 
-  // --- السطر الجديد اللي غيحل مشكلة اللوغو في فيسبوك زيدو هنا ---
   if (document.getElementById('fb-share-img')) {
       document.getElementById('fb-share-img').src = a.photo || 'https://lotusblanc.online/logo.png';
   }
@@ -614,9 +624,12 @@ function renderRecipe(data) {
     cook: {fr:'Cuisson', ar:'طبخ', en:'Cooking'},
     pers: {fr:'Personnes', ar:'أشخاص', en:'Persons'},
     diff: {fr:'Difficulté', ar:'صعوبة', en:'Difficulty'},
+    by: {fr:'Par', ar:'بواسطة', en:'By'},
+    date: {fr:'Mis à jour le 23 Mai 2026', ar:'تم التحديث في 23 ماي 2026', en:'Updated on May 23, 2026'}
   };
   var t = function(k) { return L[k][lang] || L[k].fr; };
   
+  // بناء محتوى الصفحة للمستخدم مع اسم الكاتب والتاريخ
   document.getElementById('recipe-content').innerHTML = 
     '<div class="recipe-wrap">' +
     '<a class="back-btn" href="' + backHref + '">← ' + t('back') + '</a>' +
@@ -625,6 +638,14 @@ function renderRecipe(data) {
       '<div class="recipe-hero-info">' +
         '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
         '<h1>' + titre + '</h1>' +
+        
+        /* هنا تضاف بيانات الكاتب والتاريخ */
+        '<div class="recipe-author-meta">' +
+          '<span>' + t('by') + ' <span class="recipe-author-name">Chef Mohamed</span></span>' +
+          '<span>•</span>' +
+          '<span>' + t('date') + '</span>' +
+        '</div>' +
+        
         '<p>' + desc + '</p>' +
         '<div class="recipe-stats">' +
           '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
@@ -646,7 +667,42 @@ function renderRecipe(data) {
     '</div>' +
     '</div>';
 
-  // --- تحديث الميتا تاق (القديم اللي خليناه) ---
+  // --- كود الـ Schema (JSON-LD) الموجه للروبوتات والمراجعة ---
+  var existingSchema = document.getElementById('recipe-structured-data');
+  if (existingSchema) existingSchema.remove(); // تنظيف السكيما القديمة إن وجدت
+
+  var schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": titre,
+    "image": a.photo || "https://lotusblanc.online/logo.png",
+    "description": desc,
+    "keywords": "Moroccan food, traditional recipe",
+    "datePublished": "2026-05-23",
+    "dateModified": "2026-05-23",
+    "author": {
+      "@type": "Person",
+      "name": "Chef Mohamed"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lotus Blanc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lotusblanc.online/logo.png"
+      }
+    },
+    "recipeIngredient": ings,
+    "recipeInstructions": etapes.map(function(e) { return { "@type": "HowToStep", "text": e }; })
+  };
+
+  var script = document.createElement('script');
+  script.id = 'recipe-structured-data';
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(schemaData);
+  document.head.appendChild(script);
+
+  // تحديث الميتا تاق
   var ogImg = document.getElementById('og-image');
   var twImg = document.getElementById('tw-image');
   var recipePhoto = a.photo || 'https://lotusblanc.online/logo.png';
@@ -658,7 +714,6 @@ function renderRecipe(data) {
   document.getElementById('og-desc')?.setAttribute('content', desc);
   document.getElementById('og-url')?.setAttribute('content', window.location.href);
 }
-
 var _recipeData = null;
 
 function onLangChange() { if (_recipeData) renderRecipe(_recipeData); }
