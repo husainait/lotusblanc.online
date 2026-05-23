@@ -377,23 +377,30 @@ footer {
             margin-top: 20px;
         }
 
-        .social-icon {
-            color: #4A5D4E; /* لون Lotus Blanc الأخضر */
-            font-size: 24px;
-            transition: transform 0.3s ease, color 0.3s ease;
-            text-decoration: none;
-        }
-
+   /* SOCIAL ICONS STYLE */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.social-icon {
+    color: var(--sage-dark); /* غياخد لون الـ sage الغامق ديال الموقع */
+    font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
 [data-theme="dark"] .social-icon {
-    color: var(--muted); /* غيستعمل اللون الباهت اللي ديجا معرف عندك في الدارك مود */
+    color: var(--muted); /* لون باهت في الدارك مود */
 }
-        .social-icon:hover {
-            color: #c19a6b; /* كيتغير اللون ملي كتحط السهم */
-            transform: translateY(-3px);
-        }
-        [data-theme="dark"] .social-icon:hover {
-    color: var(--sage); /* غيولي اللون وردي مالي تقيسو في الدارك مود */
+.social-icon:hover {
+    color: var(--sage); /* كيولي وردي هادي يقيسو السهم */
+    transform: translateY(-3px);
 }
+[data-theme="dark"] .social-icon:hover {
+    color: var(--sage-dark);
+}  
 </style>
 <body>
 <header>
@@ -449,18 +456,19 @@ footer {
       <div class="value-card"><span class="value-icon">✨</span><p class="value-title" data-fr="Simplicité" data-ar="البساطة" data-en="Simplicity">Simplicité</p><p class="value-desc" data-fr="Des recettes accessibles à tous." data-ar="وصفات في متناول الجميع." data-en="Recipes accessible to everyone.">Des recettes accessibles à tous.</p></div>
     </div>
   </div>
-  <div class="contact-box">
+ <div class="contact-box">
     <h3 data-fr="Vous avez une question ?" data-ar="لديك سؤال؟" data-en="Have a question?">Vous avez une question ?</h3>
-    <p style="margin-bottom: 1.5rem;" data-fr="N'hésitez pas à me contacter ou à me suivre sur les réseaux sociaux — je réponds avec plaisir." data-ar="لا تترددوا في التواصل معي أو متابعتي على منصات التواصل الاجتماعي — أجيبكم بكل سرور." data-en="Don't hesitate to contact me or follow me on social media — I will gladly reply.">N'hésitez pas à me contacter ou à me suivre sur les réseaux sociaux — je réponds avec plaisir.</p>
+    <p style="margin-bottom: 1.2rem;" data-fr="N'hésitez pas à me contacter ou à me suivre sur les réseaux sociaux — je réponds avec plaisir." data-ar="لا تترددوا في التواصل معي أو متابعتي على منصات التواصل الاجتماعي — أجيبكم بكل سرور." data-en="Don't hesitate to contact me or follow me on social media — I will gladly reply.">N'hésitez pas à me contacter ou à me suivre sur les réseaux sociaux — je réponds avec plaisir.</p>
     
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
-      <a href="mailto:lotusblanc.contact@gmail.com" class="contact-link" data-fr="✉️ Email" data-ar="✉️ البريد الإلكتروني" data-en="✉️ Email">✉️ Email</a>
-      <a href="https://www.pinterest.com/YOUR_USERNAME/" target="_blank" class="contact-link" data-fr="📌 Pinterest" data-ar="📌 بينترست" data-en="📌 Pinterest">📌 Pinterest</a>
-      <a href="https://www.instagram.com/YOUR_USERNAME/" target="_blank" class="contact-link" data-fr="📸 Instagram" data-ar="📸 إنستغرام" data-en="📸 Instagram">📸 Instagram</a>
-      <a href="https://www.facebook.com/YOUR_USERNAME/" target="_blank" class="contact-link" data-fr="👥 Facebook" data-ar="👥 فيسبوك" data-en="👥 Facebook">👥 Facebook</a>
+    <a href="mailto:lotusblanc.contact@gmail.com" class="contact-link" style="margin-bottom: 1.5rem;">✉️ lotusblanc.contact@gmail.com</a>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61589518094362" target="_blank" class="social-icon" data-fr='<i class="fab fa-facebook-f"></i>' data-ar='<i class="fab fa-facebook-f"></i>' data-en='<i class="fab fa-facebook-f"></i>'><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.pinterest.com/lotusblanccontact" target="_blank" class="social-icon" data-fr='<i class="fab fa-pinterest"></i>' data-ar='<i class="fab fa-pinterest"></i>' data-en='<i class="fab fa-pinterest"></i>'><i class="fab fa-pinterest"></i></a>
+      <a href="https://www.instagram.com/lotusblanc.contact" target="_blank" class="social-icon" data-fr='<i class="fab fa-instagram"></i>' data-ar='<i class="fab fa-instagram"></i>' data-en='<i class="fab fa-instagram"></i>'><i class="fab fa-instagram"></i></a>
     </div>
   </div>
-<footer>
+  <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="footer-brand-name">LotusBlanc</span>
