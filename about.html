@@ -407,19 +407,22 @@ footer {
     /* BACK TO TOP BUTTON STYLE */
 #backToTop {
     position: fixed;
-    bottom: 25px; /* المسافة من التحت */
-    left: 50%; /* باش نجيبوه للوسط */
-    transform: translateX(-50%); /* هادي ضرورية باش يجي في السنتر 100% */
-    background: var(--sage); /* اللون الوردي للهوية ديالك */
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--sage);
     color: white;
     border: 1px solid var(--border);
-    width: 45px; /* كبرنا العرض */
-    height: 45px; /* كبرنا الطول */
-    border-radius: 50%; /* باش يجي دائري أنيق */
-    font-size: 20px; /* كبرنا السهم اللي لداخل */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999; /* باش يبقى ديما فوق كاع العناصر */
+    z-index: 999;
+    /* زيدي هاد الـ 3 سطور هنا لتحت */
+    opacity: 0;
+    pointer-events: none;
     transition: background 0.3s, transform 0.3s, opacity 0.3s;
     display: flex;
     align-items: center;
@@ -580,6 +583,21 @@ window.addEventListener('DOMContentLoaded', function() {
     if (ti) ti.textContent = '☀️';
   }
   if (currentLang !== 'fr') setLang(currentLang);
+});
+  window.addEventListener('scroll', function() {
+    var backToTopButton = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        backToTopButton.style.opacity = '1';
+        backToTopButton.style.pointer-events = 'auto';
+    } else {
+        backToTopButton.style.opacity = '0';
+        backToTopButton.style.pointer-events = 'none';
+    }
+});
+
+// الكود ديال الضغطة اللي ديجا عندك
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
   
