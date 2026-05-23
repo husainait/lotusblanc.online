@@ -420,18 +420,16 @@ footer {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
-    /* زيدي هاد الـ 3 سطور هنا لتحت */
-    opacity: 0;
-    pointer-events: none;
-    transition: background 0.3s, transform 0.3s, opacity 0.3s;
-    display: flex;
+    /* هادي هي اللي غاتخليه مخفي ف الأول */
+    display: none; 
     align-items: center;
     justify-content: center;
+    transition: background 0.3s, transform 0.3s;
 }
 
 #backToTop:hover {
-    background: var(--sage-dark); /* كيغماق اللون ملي كنقيسوه */
-    transform: translateX(-50%) translateY(-3px); /* كيتزنز لفوg شوية كحركة أنيقة */
+    background: var(--sage-dark);
+    transform: translateX(-50%) translateY(-3px);
 }
 
 [data-theme="dark"] #backToTop {
