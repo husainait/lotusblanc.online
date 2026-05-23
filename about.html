@@ -367,6 +367,33 @@ footer {
   .featured-article{grid-column:1}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
 }
+    /* هاد الجزء هو اللي كتحط فيه كود CSS */
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            color: #4A5D4E; /* لون Lotus Blanc الأخضر */
+            font-size: 24px;
+            transition: transform 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+        }
+
+[data-theme="dark"] .social-icon {
+    color: var(--muted); /* غيستعمل اللون الباهت اللي ديجا معرف عندك في الدارك مود */
+}
+        .social-icon:hover {
+            color: #c19a6b; /* كيتغير اللون ملي كتحط السهم */
+            transform: translateY(-3px);
+        }
+        [data-theme="dark"] .social-icon:hover {
+    color: var(--sage); /* غيولي اللون وردي مالي تقيسو في الدارك مود */
+}
 </style>
 <body>
 <header>
