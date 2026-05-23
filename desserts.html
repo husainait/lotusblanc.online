@@ -374,6 +374,40 @@ footer {
   .featured-article{grid-column:1}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
 }
+     /* BACK TO TOP BUTTON STYLE */
+#backToTop {
+    position: fixed;
+    bottom: 25px; /* المسافة من التحت */
+    left: 50%; /* باش نجيبوه للوسط */
+    transform: translateX(-50%); /* هادي ضرورية باش يجي في السنتر 100% */
+    background: var(--sage); /* اللون الوردي للهوية ديالك */
+    color: white;
+    border: 1px solid var(--border);
+    width: 45px; /* كبرنا العرض */
+    height: 45px; /* كبرنا الطول */
+    border-radius: 50%; /* باش يجي دائري أنيق */
+    font-size: 20px; /* كبرنا السهم اللي لداخل */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* باش يبقى ديما فوق كاع العناصر */
+    transition: background 0.3s, transform 0.3s, opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#backToTop:hover {
+    background: var(--sage-dark); /* كيغماق اللون ملي كنقيسوه */
+    transform: translateX(-50%) translateY(-3px); /* كيتزنز لفوg شوية كحركة أنيقة */
+}
+
+[data-theme="dark"] #backToTop {
+    background: var(--sage-light);
+    color: var(--body-bg);
+}
+[data-theme="dark"] #backToTop:hover {
+    background: var(--sage);
+}
 </style>
 
 </style>
