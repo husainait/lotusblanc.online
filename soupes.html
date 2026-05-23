@@ -559,20 +559,19 @@ function renderArticles() {
       }).join('');
     });
 }
-  function onLangChange() { renderArticles(); }
+   
+ function onLangChange() { renderArticles(); }
 window.addEventListener('DOMContentLoaded', renderArticles);
   window.addEventListener('scroll', function() {
     var backToTopButton = document.getElementById('backToTop');
     if (window.scrollY > 300) {
-        backToTopButton.style.opacity = '1';
-        backToTopButton.style.pointer-events = 'auto';
+        backToTopButton.style.display = 'flex';
     } else {
-        backToTopButton.style.opacity = '0';
-        backToTopButton.style.pointer-events = 'none';
+        backToTopButton.style.display = 'none';
     }
 });
 
-// الكود ديال الضغطة اللي ديجا عندك
+// كود الضغطة باش يطلع لفوق
 document.getElementById('backToTop').addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
