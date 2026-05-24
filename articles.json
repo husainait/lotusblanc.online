@@ -1308,6 +1308,76 @@
       ]
     },
     {
+      "id": "mhencha-marocaine-amandes",
+      "titre_fr": "M'hencha Marocaine aux Amandes",
+      "titre_ar": "المحنشة المغربية باللوز",
+      "titre_en": "Traditional Moroccan Almond M'hencha",
+      "desc_fr": "Une pâtisserie marocaine traditionnelle en forme de serpentin, croustillante à l'extérieur et fondante à l'intérieur grâce à sa farce aux amandes parfumée.",
+      "desc_ar": "حلوى مغربية تقليدية على شكل لولبي، تتميز بورقتها المقرمشة وحشوة اللوز الغنية المنسمة بماء الزهر والقرفة.",
+      "desc_en": "A traditional spiral-shaped Moroccan pastry, crispy on the outside with a rich, aromatic almond filling inside.",
+      "temps": "50 min",
+      "portions": 8,
+      "difficulte": "●●○",
+      "photo": "photos/mhencha-amandes.webp",
+      "cat_ar": "تحلية",
+      "cat_en": "Desserts",
+      "date": "2026-05-24",
+      "ingredients_fr": [
+        "500g de feuilles de pastilla",
+        "500g de d'amandes émondées",
+        "250g de sucre en poudre",
+        "50g de beurre fondu",
+        "1 cuillère à café de cannelle",
+        "3 cuillères à soupe d'eau de fleur d'oranger",
+        "1 jaune d'œuf (pour souder)",
+        "Miel et amandes effilées (pour le décor)"
+      ],
+      "ingredients_ar": [
+        "500 غ ورقة البسطيلة",
+        "500 غ لوز مصلوق ومقشر",
+        "250 غ سكر سنيدة",
+        "50 غ زبدة مذوبة",
+        "1 ملعقة صغيرة قرفة",
+        "3 ملاعق كبيرة ماء زهر",
+        "1 أصفر بيضة (للصق الورقة)",
+        "عسل طبيعي ولوز إيفيلي (للتزيين)"
+      ],
+      "ingredients_en": [
+        "500g pastilla pastry sheets",
+        "500g blanched almonds",
+        "250g granulated sugar",
+        "50g melted butter",
+        "1 teaspoon cinnamon",
+        "3 tablespoons orange blossom water",
+        "1 egg yolk (to seal)",
+        "Honey and flaked almonds (for decoration)"
+      ],
+      "etapes_fr": [
+        "Mixer les amandes avec le sucre jusqu'à obtenir une pâte d'amande lisse.",
+        "Ajouter le beurre fondu, la cannelle, et l'eau de fleur d'oranger, puis bien mélanger.",
+        "Façonner de longs boudins fins avec la pâte d'amande.",
+        "Couper les feuilles de pastilla en bandes, y déposer les boudins de l'amande, puis rouler pour former des cigares longs.",
+        "Enrouler ces cigares sur eux-mêmes en spirale (forme de serpentin) dans un moule beurré, en les soudant avec le jaune d'œuf.",
+        "Badigeonner de beurre fondu et enfourner à 180°C jusqu'à dorure. Arroser de miel chaud dès la sortie du four et décorer d'amandes effilées."
+      ],
+      "etapes_ar": [
+        "يُطحن اللوز مع السكر جيداً حتى نحصل على عقدة لوز ناعمة.",
+        "تُضاف الزبدة المذوبة، القرفة، وماء الزهر، وتُعجن المكونات حتى تتداخل.",
+        "تُشكل عقدة اللوز على شكل قضبان (حرابل) طويلة ورقيقة.",
+        "تُقطع ورقة البسطيلة إلى أشرطة طويلة، يُوضع وسطها قضيب اللوز وتُلف الورقة عليه لحشوها.",
+        "تُلف الأنابيب المحشوة حول نفسها على شكل حلزوني (لولبي) في صينية مدهونة، وتُلصق الجوانب بأصفر البيض.",
+        "تُدهن بالزبدة المذوبة وتُخبز في فرن على 180 درجة حتى تصبح ذهبية. تُسقى بالعسل الساخن فور خروجها وتُزين باللوز إيفيلي."
+      ],
+      "etapes_en": [
+        "Blend the almonds with sugar until a smooth almond paste is formed.",
+        "Add the melted butter, cinnamon, and orange blossom water, then knead well.",
+        "Roll the almond paste into long, thin logs.",
+        "Cut the pastilla sheets into long strips, place the almond logs inside, and roll them up tightly.",
+        "Coil the stuffed pastry rolls into a spiral shape in a greased pan, sealing the edges with egg yolk.",
+        "Brush with melted butter and bake at 180°C until golden. Pour warm honey over it right out of the oven and decorate with flaked almonds."
+      ]
+    },
+    {
       "id": "jus-avocat-amandes",
       "titre_fr": "Jus d'Avocat aux Amandes",
       "titre_ar": "عصير لافوكا باللوز",
