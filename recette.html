@@ -436,80 +436,321 @@ footer {
     background: var(--sage);
 }
 </style>
-<body>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      var params = new URLSearchParams(window.location.search);
-      var cat = params.get('cat');
-      var id = params.get('id');
-
-      if (!cat || !id) return;
-
-      // جلب البيانات من JSON ومن الـ LocalStorage للتأكد
-      fetch('articles.json?v=' + Date.now())
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          // 1. بحث في JSON
-          var recipe = (data[cat] || []).find(function(r) { return r.id === id; });
-          
-          // 2. إذا لم يوجد، بحث في LocalStorage
-          if (!recipe) {
-            var stored = localStorage.getItem('lb_articles_' + cat);
-            var adminArticles = stored ? JSON.parse(stored) : [];
-            recipe = adminArticles.find(function(r) { return r.id === id; });
-          }
-
-          if (recipe) {
-            _recipeData = recipe;
-            renderRecipe(recipe);
-
-            // ---------------------------------------------------
-            // 👇 كود الـ Rich Pins المطور تلقائياً من الـ JSON 👇
-            // ---------------------------------------------------
-            try {
-              var recipeSchema = {
-                  "@context": "https://schema.org/",
-                  "@type": "Recipe",
-                  "name": recipe.title || recipe.name, 
-                  "image": [window.location.origin + (recipe.img || recipe.image)], 
-                  "author": {
-                      "@type": "Organization",
-                      "name": "Lotus Blanc"
-                  },
-                  "description": recipe.description || "وصفة شهية من موقع لوتس بلان",
-                  "recipeIngredient": recipe.ingredients || [], 
-                  "recipeInstructions": (recipe.steps || recipe.instructions || []).map(function(step) {
-                      return {
-                          "@type": "HowToStep",
-                          "text": typeof step === 'string' ? step : (step.text || "")
-                      };
-                  })
-              };
-
-              // مسح السكريبت القديم إذا كان موجوداً
-              var oldScript = document.getElementById('dynamic-recipe-schema');
-              if (oldScript) oldScript.remove();
-
-              // حقن السكريبت الجديد في الـ head
-              var script = document.createElement('script');
-              script.id = 'dynamic-recipe-schema';
-              script.type = 'application/ld+json';
-              script.text = JSON.stringify(recipeSchema);
-              document.head.appendChild(script);
-            } catch (e) {
-              console.log("Erreur Schema:", e); 
-            }
-            // ---------------------------------------------------
-
-          } else {
-            document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Recette non trouvée.</h2>";
-          }
-        });
-    });
-  </script>
-
-  <div id="recipe-content">
+<body><header>
+  <nav>
+    <a class="logo-wrap" href="index.html">
+      <img src="photos/logo.png" alt="Lotus Blanc" class="logo-img"/>
+      <span class="logo-text">LotusBlanc</span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">Accueil</a></li>
+      <li><a href="salades.html" data-fr="Salades" data-ar="سلطات" data-en="Salads">Salades</a></li>
+      <li><a href="plats-marocains.html" data-fr="Plats marocains" data-ar="أطباق مغربية" data-en="Moroccan">Plats marocains</a></li>
+      <li><a href="soupes.html" data-fr="Soupes" data-ar="شوربات" data-en="Soups">Soupes</a></li>
+      <li><a href="desserts.html" data-fr="Desserts" data-ar="تحلية" data-en="Desserts">Desserts</a></li>
+      <li><a href="patisserie.html" data-fr="Pâtisserie" data-ar="حلويات" data-en="Pastry">Pâtisserie</a></li>
+      <li><a href="about.html" data-fr="À propos" data-ar="من نحن" data-en="About">À propos</a></li>
+      <li><a href="mailto:lotusblanc.contact@gmail.com" data-fr="Contact" data-ar="تواصل" data-en="Contact">Contact</a></li>
+    </ul>
+    
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('ar')">ع</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      
+      <div class="theme-switch-wrapper" onclick="toggleTheme()" style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
+        <span id="toggle-icon" class="dark-btn">🌙</span>
+        <div class="toggle"></div>
+      </div>
+      
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu"><a href="index.html" data-fr="Accueil" data-ar="الرئيسية" data-en="Home">Accueil</a><a href="salades.html" data-fr="Salades" data-ar="سلطات" data-en="Salads">Salades</a><a href="plats-marocains.html" data-fr="Plats marocains" data-ar="أطباق مغربية" data-en="Moroccan">Plats marocains</a><a href="soupes.html" data-fr="Soupes" data-ar="شوربات" data-en="Soups">Soupes</a><a href="desserts.html" data-fr="Desserts" data-ar="تحلية" data-en="Desserts">Desserts</a><a href="patisserie.html" data-fr="Pâtisserie" data-ar="حلويات" data-en="Pastry">Pâtisserie</a><a href="about.html" data-fr="À propos" data-ar="من نحن" data-en="About">À propos</a><a href="mailto:lotusblanc.contact@gmail.com" data-fr="Contact" data-ar="تواصل" data-en="Contact">Contact</a></div>
+</header>
+  <body>
+    <img id="fb-share-img" src="https://lotusblanc.online/logo.png" style="display:none !important;">
+    
+<div id="recipe-content" style="min-height:60vh;display:flex;align-items:center;justify-content:center;color:var(--muted)">Chargement...</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-brand-name">LotusBlanc</span>
+      <p data-fr="Des recettes authentiques transmises avec passion." data-ar="وصفات أصيلة تنقل بشغف." data-en="Authentic recipes shared with passion.">Des recettes authentiques transmises avec passion.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-fr="Catégories" data-ar="الفئات" data-en="Categories">Catégories</h4>
+      <ul>
+        <li><a href="salades.html" data-fr="Salades" data-ar="سلطات" data-en="Salads">Salades</a></li>
+        <li><a href="soupes.html" data-fr="Soupes" data-ar="شوربات" data-en="Soups">Soupes</a></li>
+        <li><a href="plats-marocains.html" data-fr="Plats marocains" data-ar="أطباق مغربية" data-en="Moroccan">Plats marocains</a></li>
+        <li><a href="patisserie.html" data-fr="Pâtisserie" data-ar="حلويات" data-en="Pastry">Pâtisserie</a></li>
+        <li><a href="desserts.html" data-fr="Desserts" data-ar="تحلية" data-en="Desserts">Desserts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:lotusblanc.contact@gmail.com">lotusblanc.contact@gmail.com</a></li>
+        <li><a href="about.html" data-fr="À propos" data-ar="من نحن" data-en="About">À propos</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 lotusblanc.online</p>
+    <p data-fr="Fait avec ❤️ au Maroc" data-ar="صنع بـ ❤️ في المغرب" data-en="Made with ❤️ in Morocco">Fait avec ❤️ au Maroc</p>
+  </div>
+</footer>
+<script>
+var currentLang = localStorage.getItem('lb-lang') || 'fr';
 
-</body></html>
+// 1. هاد الجزء كيقرا الذاكرة غير كتحل الصفحة
+(function() {
+  var savedTheme = localStorage.getItem('lb-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  // باش حتى الأيقونة (الشمس/القمر) تطلع صحيحة من الدقة الأولى
+  window.addEventListener('DOMContentLoaded', function() {
+    var ti = document.getElementById('toggle-icon');
+    if (ti) ti.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  });
+})();
+
+// 2. الكود ديالك القديم (خليه كيفما هو، راه صحيح)
+function toggleTheme() {
+  var html = document.documentElement;
+  var isDark = html.getAttribute('data-theme') === 'dark';
+  var newTheme = isDark ? 'light' : 'dark';
+  
+  html.setAttribute('data-theme', newTheme);
+  var ti = document.getElementById('toggle-icon');
+  if (ti) ti.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('lb-theme', newTheme);
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lb-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    var map = {fr:'FR', ar:'ع', en:'EN'};
+    btn.classList.toggle('active', btn.textContent.trim() === map[lang]);
+  });
+  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  document.querySelectorAll('[data-fr]').forEach(function(el) {
+    var val = el.getAttribute('data-' + lang) || el.getAttribute('data-fr');
+    if (!val) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+    else el.textContent = val;
+  });
+  document.querySelectorAll('[data-placeholder-fr]').forEach(function(el) {
+    el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-fr');
+  });
+  if (typeof onLangChange === 'function') onLangChange(lang);
+}
+
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var btn = document.getElementById('hamburger');
+  if (menu) menu.classList.toggle('open');
+  if (btn) btn.classList.toggle('open');
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  var params = new URLSearchParams(window.location.search);
+  var cat = params.get('cat');
+  var id = params.get('id');
+
+  if (!cat || !id) return;
+
+  // جلب البيانات من JSON ومن الـ LocalStorage للتأكد
+  fetch('articles.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      // 1. بحث في JSON
+      var recipe = (data[cat] || []).find(function(r) { return r.id === id; });
+      
+      // 2. إذا لم يوجد، بحث في LocalStorage
+      if (!recipe) {
+        var stored = localStorage.getItem('lb_articles_' + cat);
+        var adminArticles = stored ? JSON.parse(stored) : [];
+        recipe = adminArticles.find(function(r) { return r.id === id; });
+      }
+
+      if (recipe) {
+        _recipeData = recipe;
+        renderRecipe(recipe);
+      } else {
+        document.getElementById('recipe-content').innerHTML = "<h2 style='text-align:center;padding:5rem;'>Recette non trouvée.</h2>";
+      }
+    });
+});
+
+function getParam(name) { return new URLSearchParams(window.location.search).get(name); }
+
+function renderRecipe(data) {
+  var cat = getParam('cat');
+  var id = getParam('id');
+  var articles = data[cat] || [];
+  var a = articles.find(function(x) { return x.id === id; });
+  
+  if (!a) {
+    document.getElementById('recipe-content').innerHTML = 
+      '<div style="padding:3rem;text-align:center;color:var(--muted)">Recette introuvable. <a href="index.html" style="color:var(--sage-dark)">Retour</a></div>';
+    return;
+  }
+
+  if (document.getElementById('fb-share-img')) {
+      document.getElementById('fb-share-img').src = a.photo || 'https://lotusblanc.online/logo.png';
+  }
+
+  var lang = currentLang;
+  var titre = a['titre_' + lang] || a.titre_fr;
+  var desc = a['desc_' + lang] || a.desc_fr || '';
+  var ings = a['ingredients_' + lang] || a.ingredients_fr || [];
+  var etapes = a['etapes_' + lang] || a.etapes_fr || [];
+  var photo = a.photo ? '<img src="' + a.photo + '" alt="' + titre + '"/>' : '🍽️';
+  var backHref = (cat||'index') + '.html';
+  
+  var L = {
+    back: {fr:'Retour', ar:'رجوع', en:'Back'},
+    ing: {fr:'Ingrédients', ar:'المقادير', en:'Ingredients'},
+    steps: {fr:'Étapes de préparation', ar:'طريقة التحضير', en:'Preparation steps'},
+    prep: {fr:'Préparation', ar:'التحضير', en:'Prep'},
+    cook: {fr:'Cuisson', ar:'طبخ', en:'Cooking'},
+    pers: {fr:'Personnes', ar:'أشخاص', en:'Persons'},
+    diff: {fr:'Difficulté', ar:'صعوبة', en:'Difficulty'},
+    by: {fr:'Par', ar:'بواسطة', en:'By'},
+    date: {fr:'Mis à jour le 23 Mai 2026', ar:'تم التحديث في 23 ماي 2026', en:'Updated on May 23, 2026'}
+  };
+  var t = function(k) { return L[k][lang] || L[k].fr; };
+  
+  // بناء محتوى الصفحة للمستخدم مع اسم الكاتب والتاريخ
+  document.getElementById('recipe-content').innerHTML = 
+    '<div class="recipe-wrap">' +
+    '<a class="back-btn" href="' + backHref + '">← ' + t('back') + '</a>' +
+    '<div class="recipe-hero">' +
+      '<div class="recipe-hero-img">' + photo + '</div>' +
+      '<div class="recipe-hero-info">' +
+        '<span class="badge">' + (a['cat_' + lang] || a.cat_fr || '') + '</span>' +
+        '<h1>' + titre + '</h1>' +
+        
+        /* هنا تضاف بيانات الكاتب والتاريخ */
+        '<div class="recipe-author-meta">' +
+          '<span>' + t('by') + ' <span class="recipe-author-name">Chef Mohamed</span></span>' +
+          '<span>•</span>' +
+          '<span>' + t('date') + '</span>' +
+        '</div>' +
+        
+        '<p>' + desc + '</p>' +
+        '<div class="recipe-stats">' +
+          '<div class="stat"><span class="stat-val">' + (a.temps||'-') + '</span><span class="stat-label">' + t('prep') + '</span></div>' +
+          '<div class="stat"><span class="stat-val">0</span><span class="stat-label">' + t('cook') + '</span></div>' +
+          '<div class="stat"><span class="stat-val">' + (a.portions||4) + '</span><span class="stat-label">' + t('pers') + '</span></div>' +
+          '<div class="stat"><span class="stat-val">' + (a.difficulte||'●○○') + '</span><span class="stat-label">' + t('diff') + '</span></div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+   '<div class="recipe-body">' +
+      '<aside class="ingredients-panel">' +
+        '<h2 class="panel-title">' + t('ing') + '</h2>' +
+        '<ul class="ingredient-list">' + ings.map(function(i){ return '<li class="ingredient-item">' + i + '</li>'; }).join('') + '</ul>' +
+      '</aside>' +
+      '<div>' +
+        '<div class="steps-title">' + t('steps') + '</div>' +
+        etapes.map(function(e,i){ return '<div class="step"><div class="step-num">'+(i+1)+'</div><p class="step-text">'+e+'</p></div>'; }).join('') +
+      '</div>' +
+    '</div>' +
+    '</div>';
+
+  // --- كود الـ Schema (JSON-LD) الموجه للروبوتات والمراجعة ---
+  var existingSchema = document.getElementById('recipe-structured-data');
+  if (existingSchema) existingSchema.remove(); // تنظيف السكيما القديمة إن وجدت
+
+  var schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": titre,
+    "image": a.photo || "https://lotusblanc.online/logo.png",
+    "description": desc,
+    "keywords": "Moroccan food, traditional recipe",
+    "datePublished": "2026-05-23",
+    "dateModified": "2026-05-23",
+    "author": {
+      "@type": "Person",
+      "name": "Chef Mohamed"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lotus Blanc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lotusblanc.online/logo.png"
+      }
+    },
+    "recipeIngredient": ings,
+    "recipeInstructions": etapes.map(function(e) { return { "@type": "HowToStep", "text": e }; })
+  };
+
+  var script = document.createElement('script');
+  script.id = 'recipe-structured-data';
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(schemaData);
+  document.head.appendChild(script);
+
+  // تحديث الميتا تاق
+  var ogImg = document.getElementById('og-image');
+  var twImg = document.getElementById('tw-image');
+  var recipePhoto = a.photo || 'https://lotusblanc.online/logo.png';
+
+  if (ogImg) ogImg.setAttribute('content', recipePhoto);
+  if (twImg) twImg.setAttribute('content', recipePhoto);
+
+  document.getElementById('og-title')?.setAttribute('content', titre);
+  document.getElementById('og-desc')?.setAttribute('content', desc);
+  document.getElementById('og-url')?.setAttribute('content', window.location.href);
+}
+var _recipeData = null;
+
+function onLangChange() { if (_recipeData) renderRecipe(_recipeData); }
+
+window.addEventListener('DOMContentLoaded', function() {
+  fetch('articles.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) { _recipeData = data; renderRecipe(data); })
+    .catch(function() {
+      document.getElementById('recipe-content').innerHTML = 
+        '<div style="padding:3rem;text-align:center;color:var(--muted)">Erreur de chargement. <a href="index.html" style="color:var(--sage-dark)">Retour</a></div>';
+    });
+});
+  window.addEventListener('scroll', function() {
+    var backToTopButton = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        backToTopButton.style.display = 'flex';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+});
+
+// كود الضغطة باش يطلع لفوق
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script> 
+<!-- نهاية محتوى الصفحة -->
+    
+    
+    
+
+  <!-- الزر كيكون هو اللخر قبل ما نسدو الـ body -->
+    <button id="backToTop" title="العودة للأعلى">↑</button>
+
+<!-- السكربت ضروري يكون هو آخر حاجة -->
+    <script src="script.js"></script>
+</body>
+
+</html>
